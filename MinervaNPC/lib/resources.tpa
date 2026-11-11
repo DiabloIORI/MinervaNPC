@@ -86,12 +86,12 @@ DEFINE_ACTION_FUNCTION cd_new_portrait_icon
 
 END
 
-LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Frozen~) STR_VAR bam_file = c0aicon1 RET c0aicon1 = icon END
-LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Detecting Magic~) STR_VAR bam_file = c0aicon2 RET c0aicon2 = icon END
-LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Aflame~) STR_VAR bam_file = c0aicon3 RET c0aicon3 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~冰冻~) STR_VAR bam_file = c0aicon1 RET c0aicon1 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~侦测魔法~) STR_VAR bam_file = c0aicon2 RET c0aicon2 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~燃烧~) STR_VAR bam_file = c0aicon3 RET c0aicon3 = icon END
 LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Magatama~) STR_VAR bam_file = c0aicon4 RET c0aicon4 = icon END
-LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Grand Artifice~) STR_VAR bam_file = c0aicon5 RET c0aicon5 = icon END
-LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Shocked~) STR_VAR bam_file = c0aicon6 RET c0aicon6 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~大宗造物~) STR_VAR bam_file = c0aicon5 RET c0aicon5 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~电震~) STR_VAR bam_file = c0aicon6 RET c0aicon6 = icon END
 
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// PROJECTILES ////////////////////////////////////

@@ -1,7 +1,7 @@
 BEGIN C0MMin
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinBegin","GLOBAL",1)~ THEN C0MMin MINERVA-BEGIN
-~Nice to see some faces that look like they've a hankering for some action! Just give me a moment to get down from here...~ [C0BLANK]
+~看到几张看着就想干一票的脸，真不错！给我一会儿，我从这儿下来……~ [C0BLANK]
 DO ~StartCutSceneMode()
 CutSceneId("C0MMin")
 SetGlobal("C0MMinBegin","GLOBAL",2)
@@ -21,80 +21,80 @@ Wait(4)
 StartDialogueNoSet([PC])~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinBegin","GLOBAL",2)~ THEN C0MMin MINERVA-BEGIN
-~Ha ha, did you like my little display of acrobatics? I apologize if my presence on the roof shocked you.~ [C0BLANK]
+~哈哈，喜欢我这点杂技表演吗？要是我在屋顶上吓着你了，我道歉。~ [C0BLANK]
 DO ~SetGlobal("C0MMinBegin","GLOBAL",3)~
 END
-++ ~That's alright. Might I know your name, though?~ + MINERVA-1
-++ ~Quite a singing voice you have.~ + MINERVA-2
-++ ~Who are you, gnome, and why should I care?~ + MINERVA-1
-++ ~I'm sorry, but I really don't have the time to talk to you.~ + MINERVA-END
+++ ~没关系。不过，能否请教你的名字？~ + MINERVA-1
+++ ~你的嗓子倒是不错。~ + MINERVA-2
+++ ~你是什么人，侏儒？我凭什么在意你？~ + MINERVA-1
+++ ~抱歉，我真的没时间跟你说话。~ + MINERVA-END
 
 CHAIN C0MMin MINERVA-1
-~Minerva. Minerva Glimmershine, wandering artificer and thrill-seeker extraordinaire, all the way from Lantan. Occasionally, I dabble in a little bit of rooftop performance, as you've seen.~
+~米涅瓦。米涅瓦·闪辉，四处游荡的工匠，了不起的寻刺激专家，一路从兰坦来。偶尔我也玩点屋顶表演，就像你看到的。~
 END
 IF ~NumInPartyGT(1)~ EXTERN C0MMin MINERVA-3a
 IF ~!NumInPartyGT(1)~ EXTERN C0MMin MINERVA-3b
 
 CHAIN C0MMin MINERVA-2
-~Well, thank you! You're certainly a more appreciative audience than the folk I've met on the road. Of course, most of those were orcs and goblins.~
-= ~That aside, however, allow me to introduce myself.~
+~啊，谢谢！你可比我在路上遇见的那些人有品味多了。当然，那些大多是兽人和地精。~
+= ~不过，除了这些，让我先自我介绍。~
 EXTERN C0MMin MINERVA-1
 
 CHAIN C0MMin MINERVA-3a
-~Now then, let's have a look at you... you're the adventurers who arrived recently, yep? If I'm not mistaken—and rarely I am, that long-legged Hrothgar who just left the tavern asked something that only someone with a little bit of experience in the wild can handle. Whatever it is—and if it's not too much trouble, that is, I'd like to join in.~
+~那么，让我看看你们……你们就是最近到的那批冒险者，对吧？要是我没看错——我很少看错——那个刚离开酒馆、腿长得出奇的赫罗斯加托付了件事，那得有点野外经验的人才接得住。不管是什么——只要不太麻烦，我想跟着一起干。~
 EXTERN C0MMin MINERVA-4
 
 CHAIN C0MMin MINERVA-3b
-~Now then, let's have a look at you... you're the adventurer that arrived recently, yep? Hmm, wow... just the one of you? I didn't think I'd find another lone wanderer in these parts.~
-= ~If I'm not mistaken—and rarely I am, that long-legged Hrothgar who just left the tavern asked something that only someone with a little bit of experience in the wild can handle. Whatever it is—and if it's not too much trouble, that is, I'd like to join in.~
+~那么，让我看看你……你就是最近到的那位冒险者，对吧？唔，哇……就你一个人？我没想到这地方还能碰到另一个独行的流浪者。~
+= ~要是我没看错——我很少看错——那个刚离开酒馆、腿长得出奇的赫罗斯加托付了件事，那得有点野外经验的人才接得住。不管是什么——只要不太麻烦，我想跟着一起干。~
 EXTERN C0MMin MINERVA-4
 
 CHAIN C0MMin MINERVA-4
-~I'm a good hand with knives, traps, potions... standard fare for any student of Lantanese arts. Well, minus the knife-throwing. I picked that one up on my own. And I'm good... very good. If you don't believe me, I can demonstrate right—well, perhaps not right now.~
-= ~But suffice to say, I've got more than enough skill to make my company worth your while. That being said, you can do as you please.~
+~我使刀、拆陷阱、配药水都拿手……兰坦技艺的学生都学这些。嗯，除了飞刀。那是我自己琢磨出来的。而且我厉害……非常厉害。不信我现在就能表演——算了，也许现在不合适。~
+= ~总之，我的本事足够让你觉得带我一起不亏。话说到这份上，你爱怎么办就怎么办。~
 END
-++ ~I'd be happy to have you join me, Minerva.~ + MINERVA-JOIN
-+ ~NumInPartyGT(5)~ + ~I've got no more room for new companions, sadly.~ + MINERVA-END
+++ ~我很乐意让你加入，米涅瓦。~ + MINERVA-JOIN
++ ~NumInPartyGT(5)~ + ~可惜，我没位置再收新同伴了。~ + MINERVA-END
 + ~!NumInPartyGT(5)
 NumInPartyGT(1)~ + ~I've got all the company I need at the moment.~ + MINERVA-END
-+ ~!NumInPartyGT(1)~ + ~I'd rather travel alone for the time being.~ + MINERVA-END
-++ ~No way. Beat it, gnome.~ + MINERVA-END
++ ~!NumInPartyGT(1)~ + ~眼下我还是宁可独自上路。~ + MINERVA-END
+++ ~不行。滚开，侏儒。~ + MINERVA-END
 
 CHAIN C0MMin MINERVA-JOIN
-~Oh, splendiferous! A picnic of trout and cheese on a rooftop is well and good, but hardly a loss when great adventures await! You won't regret this.~
+~哦，太棒了！屋顶上吃鳟鱼配奶酪野餐是不错，可既然有伟大的冒险在等着，丢下它也不算损失！你不会后悔的。~
 DO ~JoinParty()~ EXIT
 
 CHAIN C0MMin MINERVA-END
-~Oh well, it is what it is, I suppose. I suppose I can't keep on talking if no one's listening. Tell you what, though, if you're ever interested in some more company, I'll be at the Snowdrift inn for the time being.~
+~唉，那就这样吧，我想。没人听，我也不能一直说下去。不过这样吧，你要是哪天想多个人作伴，我暂时住在雪堆旅店。~
 DO ~EscapeAreaMove("AR1008",368,520,W)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinBegin","GLOBAL",3)~ THEN C0MMin MINERVA-INN
-~Hello there! Is this just a friendly visit, or do you need something from me? I'm itching for an adventure.~ [C0BLANK]
+~你好呀！这是友好拜访，还是有事找我？我正手痒想冒险。~ [C0BLANK]
 END
-++ ~I'd be happy to have you join me, Minerva.~ + MINERVA-JOIN-2
-+ ~NumInPartyGT(5)~ + ~I've got no more room for new companions, sadly.~ EXIT
+++ ~我很乐意让你加入，米涅瓦。~ + MINERVA-JOIN-2
++ ~NumInPartyGT(5)~ + ~可惜，我没位置再收新同伴了。~ EXIT
 + ~!NumInPartyGT(5)
 NumInPartyGT(1)~ + ~I've got all the company I need at the moment.~ EXIT
-+ ~!NumInPartyGT(1)~ + ~I'd rather travel alone for the time being.~ EXIT
++ ~!NumInPartyGT(1)~ + ~眼下我还是宁可独自上路。~ EXIT
 
 CHAIN C0MMin MINERVA-JOIN-2
-~Gladly!~
+~乐意之至！~
 DO ~JoinParty()~ EXIT
 
 BEGIN C0MMinP
 
 CHAIN IF WEIGHT #-1 ~HappinessLT(Myself,-299)~ THEN C0MMinP MINERVA-LEAVES-LOWREP
-~And I thought travelling alone was bad! I'd be happier on my own.~
+~我还以为独自旅行已经够糟了！我一个人反倒更自在。~
 DO ~EscapeArea()~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("KickedOut","LOCALS",0)~ THEN C0MMinP MINERVA-KICKEDOUT
-~Oh, is that it? Do you need me to take a break for a while?~
+~哦，是这样？要不要我歇一阵子？~
 END
-++ ~No, I made a mistake. Stay.~ DO ~JoinParty()~ EXIT
+++ ~不用，我弄错了。留下。~ DO ~JoinParty()~ EXIT
 + ~!AreaCheck("AR1008")
 !AreaCheck("AR2114")~ + ~Wait here for now.~ DO ~SetGlobal("KickedOut","LOCALS",1)~ EXIT
-+ ~AreaCheck("AR1008")~ + ~Wait here for now.~ DO ~MoveToPoint([368.520]) SmallWait(1) Face(W) SetGlobal("KickedOut","LOCALS",1)~ EXIT
-+ ~AreaCheck("AR2114")~ + ~Wait here for now.~ DO ~MoveToPoint([235.211]) SmallWait(1) Face(NE) SetGlobal("KickedOut","LOCALS",1)~ EXIT
++ ~AreaCheck("AR1008")~ + ~先在这儿等着。~ DO ~MoveToPoint([368.520]) SmallWait(1) Face(W) SetGlobal("KickedOut","LOCALS",1)~ EXIT
++ ~AreaCheck("AR2114")~ + ~先在这儿等着。~ DO ~MoveToPoint([235.211]) SmallWait(1) Face(NE) SetGlobal("KickedOut","LOCALS",1)~ EXIT
 + ~!AreaCheck("AR1200")
 !AreaCheck("AR1201")
 !AreaCheck("AR1008")
@@ -165,8 +165,8 @@ Global("Exp_Pause","GLOBAL",1)
 Global("AR2100_visited","GLOBAL",1)~ + ~Go back to Kuldahar for now. I'll meet you at the Evening Shade.~ DO ~EscapeAreaMove("AR2114",235,211,NE) SetGlobal("KickedOut","LOCALS",1)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("KickedOut","LOCALS",1)~ THEN C0MMinP MINERVA-REJOIN
-~Oh, hello there! Have you come to pick me up?~
+~哦，你好呀！你是来接我的吗？~
 END
-++ ~Yes, join me.~ DO ~SetGlobal("KickedOut","LOCALS",0) JoinParty()~ EXIT
-++ ~No, not yet.~ EXIT
-++ ~I'll be back for you later.~ EXIT
+++ ~对，加入我。~ DO ~SetGlobal("KickedOut","LOCALS",0) JoinParty()~ EXIT
+++ ~不，还不是时候。~ EXIT
+++ ~我晚些再来接你。~ EXIT

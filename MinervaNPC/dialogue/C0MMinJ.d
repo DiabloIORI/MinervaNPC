@@ -4,96 +4,96 @@ BEGIN C0Modr
 // Blade of the Gathering Storm
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalkGatheringStorm","GLOBAL",1)~ THEN C0MMinJ MINERVA-BLADETALK
-~Nice blade. I've come across some weapons of Eastern design like this one before, but this one's the prettiest I've seen.~
+~好刀。我以前见过几件这种东方样式的兵器，可这把是我见过最漂亮的。~
 DO ~IncrementGlobal("C0MMinTalkGatheringStorm","GLOBAL",1)~
-= ~Mind if I give it a closer look-over?~
+= ~介意我仔细瞧瞧吗？~
 END
-++ ~Feel free.~ + MINERVA-BLADETALK-1
-++ ~Be careful with it. I'm sure the essence of lightning infused into it isn't just for show.~ + MINERVA-BLADETALK-2
-++ ~I don't think that's safe. We can try it out in battle later.~ + MINERVA-BLADETALK-X
+++ ~请便。~ + MINERVA-BLADETALK-1
+++ ~小心点。里头灌的雷电之精可不是摆着看的。~ + MINERVA-BLADETALK-2
+++ ~我觉得这不安全。要试等打起来再试。~ + MINERVA-BLADETALK-X
 
 CHAIN C0MMinJ MINERVA-BLADETALK-X
-~Boo. You're boring.~
+~嘘。你真没劲。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-BLADETALK-1
-~Hmm, nice balance... pretty good grip... not too weighty, either. I wonder how well it flies...? Hi-yah!~
-= ~Wow, it definitely handles well. Now that's my type of weapon... w—w—WHOA!~
-= ~Did... did you just see that? It came back to my hand... I just caught a lightning bolt! That was amazing!~
+~唔，配重不错……握把挺好……也不沉。不知道它飞起来怎么样……？嘿呀！~
+= ~哇，手感真好。这才是我喜欢的兵器……哇——哇——哇呀！~
+= ~你……你刚看见没？它自己回到我手里了……我刚抓住一道闪电！太厉害了！~
 END
-++ ~I saw that. Quite impressive.~ + MINERVA-BLADETALK-3
-++ ~Good thing you caught it.~ + MINERVA-BLADETALK-4
-++ ~Alright, stop playing with that. It's not a toy.~ + MINERVA-BLADETALK-X
+++ ~我看见了。相当了得。~ + MINERVA-BLADETALK-3
+++ ~幸好你接住了。~ + MINERVA-BLADETALK-4
+++ ~好了，别玩了。那不是玩具。~ + MINERVA-BLADETALK-X
 
 CHAIN C0MMinJ MINERVA-BLADETALK-2
-~Yep, I know. Don't worry, I haven't accidentally misused an artifact since... uh, let me say, there hasn't been a lethal misfire in some time.~
+~嗯，我知道。放心，我自从……呃，这么说吧，好久没出过致命的手误了。~
 EXTERN C0MMinJ MINERVA-BLADETALK-1
 
 CHAIN C0MMinJ MINERVA-BLADETALK-3
-~Ohh, I just have to try this thing out in action. This'll be too much fun!~
+~哦，我一定要拿它在实战里试试。那得多好玩！~
 EXIT
 
 CHAIN C0MMinJ MINERVA-BLADETALK-4
-~Of course I caught it! I never miss... not unless I mean to.~
+~我当然接住了！我从不失手……除非我是故意的。~
 EXTERN C0MMinJ MINERVA-BLADETALK-3
 
 // Optional Talk: Lucky Knucky
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalkFishboneCraft","GLOBAL",1)~ THEN C0MMinJ MINERVA-FISHBONE-CRAFT
-~Say, <PLAYER1>, that's a nice piece of knucklehead trout we've got with us.~ [C0BLANK]
-= ~It's a lot more valuable than it looks, you know. The people of the Ten Towns are well known for carving elegant scrimshaw out of these bones.~
+~喂，<PLAYER1>，咱们手上这块硬头鳟可真不错。~ [C0BLANK]
+= ~它可比看起来值钱多了。十镇的人拿这种骨头雕出精美骨雕，是出了名的。~
 DO ~IncrementGlobal("C0MMinTalkFishboneCraft","GLOBAL",1)~
-= ~I learned a bit of carving during my stay in Easthaven. I'm only an amateur, but why don't you let me do something with these? It might make a nice lucky charm for our travels!~
+= ~我在东港待着的时候学了点雕刻。我只是个业余的，不过不如让我拿这些做点什么？说不定能给咱们的旅途做个好运符！~
 END
-++ ~Sure, go ahead. I'm eager to see what you can make.~ + MINERVA-FISHBONE-CRAFT-1
-++ ~No, I'm going to sell them. They must be valuable.~ + MINERVA-FISHBONE-CRAFT-2
+++ ~当然，做吧。我挺想看你做出什么。~ + MINERVA-FISHBONE-CRAFT-1
+++ ~不，我要卖掉。它们肯定值钱。~ + MINERVA-FISHBONE-CRAFT-2
 
 CHAIN C0MMinJ MINERVA-FISHBONE-CRAFT-1
-~Great! I'll just hold onto them for now. When I'm done, you'll be the first to see my masterpiece!~
+~太好了！我先收着。等我做完，你是第一个看到我杰作的人！~
 DO ~SetGlobalTimer("C0MMinTalkFishboneCraftTimer","GLOBAL",ONE_DAY) TakePartyItem("fish") DestroyItem("fish")~ EXIT
 
 CHAIN C0MMinJ MINERVA-FISHBONE-CRAFT-2
-~I guess you could do that too. I really wanted to try my hand at making something impressive, though!~
+~你当然也可以那么办。不过我真的很想亲手做点拿得出手的东西！~
 DO ~SetGlobal("C0MMinTalkFishboneCraft","GLOBAL",-1)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalkFishboneCraft","GLOBAL",2)
 GlobalTimerExpired("C0MMinTalkFishboneCraftTimer","GLOBAL")~ THEN C0MMinJ MINERVA-FISHBONE-CRAFT2
-~Ta-da! Isn't it pretty? A 'lucky knucky', so to speak. Keep it close, and it'll bring good fortune!~ [C0BLANK]
+~当当！漂亮吧？可以说是个「幸运骨」了。贴身带着，它会带来好运！~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalkFishboneCraft","GLOBAL",1) GiveItemCreate("c0mfish",Player1,1,0,0)~
-= ~Here, you take it! Being the leader, I'm sure any luck it brings you will spread around. Haha!~
+= ~给，你拿着！你是领队，它给你带来的运气肯定能传开。哈哈！~
 EXIT
 
 // Optional Talk: After slaying goblins
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalkFishbone","AR1000",1)~ THEN C0MMinJ MINERVA-FISHBONE
-~Well, that battle wasn't anything out of the ordinary. Those knucklehead bones, though... those'll make for some nice ivory.~ [C0BLANK]
-= ~That aside... you're pretty good in a fight, <PLAYER1>. Looks like I was right to tag along with you!~
+~嗯，那场仗没什么特别的。不过那些硬头鳟的骨头……能做点不错的象牙料。~ [C0BLANK]
+= ~不说这个……<PLAYER1>，你打起来真不错。看来我跟着你没跟错！~
 DO ~IncrementGlobal("C0MMinTalkFishbone","AR1000",1)~
 END
-++ ~Same for you. Your knife-throwing skills are exceptional.~ + MINERVA-FISHBONE-1
-++ ~We'll have plenty more fights like that to come.~ + MINERVA-FISHBONE-2
-++ ~I suppose. I expected more from you, though.~ + MINERVA-FISHBONE-3
-++ ~No time for talk right now. We should bring these bones back.~ + MINERVA-FISHBONE-END
+++ ~你也一样。你的飞刀本事很出色。~ + MINERVA-FISHBONE-1
+++ ~这样的仗以后有的是。~ + MINERVA-FISHBONE-2
+++ ~也许吧。不过我本来指望你更行一点。~ + MINERVA-FISHBONE-3
+++ ~现在没时间说。这些骨头该带回去。~ + MINERVA-FISHBONE-END
 
 CHAIN C0MMinJ MINERVA-FISHBONE-END
-~Yes, you're right. Let's go.~
+~对，你说得对。走吧。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-FISHBONE-1
-~Aww, thanks. Hand-eye coordination's always been my forte. It comes in handy for more than aiming, too. A lot of the artificer's work demands near-surgical levels of precision.~
+~哎，谢谢。手眼协调一向是我的强项，而且它不只是用来瞄准。工匠的许多活儿都要求近乎外科手术级的精准。~
 EXTERN C0MMinJ MINERVA-FISHBONE-4
 
 CHAIN C0MMinJ MINERVA-FISHBONE-2
-~Uh-huh. I'm sure of that. If they're as easy as that fight was, though, we'll have no trouble... which means, of course things are only going to get more difficult. That's classic adventuring for you!~
+~嗯，我相信。可要是它们都像那场仗一样好打，咱们就没什么麻烦了……所以当然，接下来只会更难。经典冒险就是这么来的！~
 EXTERN C0MMinJ MINERVA-FISHBONE-4
 
 CHAIN C0MMinJ MINERVA-FISHBONE-3
-~Oho, is that a challenge now? I'll make you eat your words soon enough, <PLAYER1>!~
+~哦？这算是挑战了？<PLAYER1>，我很快就会让你把这话吞回去！~
 EXTERN C0MMinJ MINERVA-FISHBONE-4
 
 CHAIN C0MMinJ MINERVA-FISHBONE-4
-~I've got to say, though, it's great to have someone who's got my back for a change. I've got no problem sniping someone from twenty feet away, but it's always a pain when they get close.~
-= ~Plus, having someone to talk with is always a bonus. Let's make this adventure an interesting one for us both!~
+~不过我不得不说，难得有人替我看着背后，真不错。二十尺外放倒人我没问题，可他们一近身就麻烦了。~
+= ~再说，有人能聊天总是额外的好处。咱们把这次冒险弄得对两个人都够有意思！~
 END
 + ~Global("C0MMinHadBlastKnives","GLOBAL",1)
 !HasItem("C0MDagg1","C0MMin")
@@ -104,107 +104,107 @@ OR(3)
 HasItem("C0MDagg1","C0MMin")
 HasItem("C0MDagg2","C0MMin")
 HasItem("C0MDagg3","C0MMin")~ + ~By the way... what are those bronze knives you have? I don't think I've ever seen anything like them before.~ + MINERVA-FISHBONE-KNIVES
-+ ~Global("C0MMinHadBlastKnives","GLOBAL",1)~ + ~I aim to please.~ EXIT
-+ ~Global("C0MMinHadBlastKnives","GLOBAL",1)~ + ~No promises.~ EXIT 
++ ~Global("C0MMinHadBlastKnives","GLOBAL",1)~ + ~我一向力图让人满意。~ EXIT
++ ~Global("C0MMinHadBlastKnives","GLOBAL",1)~ + ~不保证。~ EXIT 
 IF ~!Global("C0MMinHadBlastKnives","GLOBAL",1)
 !HasItem("C0MDagg1","C0MMin")
 !HasItem("C0MDagg2","C0MMin")
 !HasItem("C0MDagg3","C0MMin")~ EXIT
 
 CHAIN C0MMinJ MINERVA-FISHBONE-KNIVES
-~Oh, those are what I call my 'secret weapon'. They're specially designed to house a specially-made explosive oil.~
+~哦，那是我自己起名的「秘密武器」。它们的构造专门为一种特制的爆炸油留了位置。~
 END
 + ~OR(2)
 CheckStatGT(Player1,14,INT)
 CheckStatGT(Player1,29,LORE)~ + ~I hear the Lantanese are expert alchemists. I assume the oil you use is different from the explosive oils I'm familiar with, too.~ + MINERVA-FISHBONE-KNIVES-1
 + ~!CheckStatGT(Player1,14,INT)
 !CheckStatGT(Player1,29,LORE)~ + ~A Lantanese trade secret, I assume?~ + MINERVA-FISHBONE-KNIVES-2
-++ ~I see. Well, now I know. Let's go.~ EXIT
+++ ~我明白了。好吧，现在我知道了。走吧。~ EXIT
 
 CHAIN C0MMinJ MINERVA-FISHBONE-KNIVES-1
-~I suppose so. Although it's less of a 'Lantanese trade secret' and more of a personal recipe I put together from adapting various alchemical formulae.~
+~算是吧。不过与其说是「兰坦的商业机密」，不如说是我改造整理各种炼金配方拼出来的私人方子。~
 EXTERN C0MMinJ MINERVA-FISHBONE-KNIVES-3
 
 CHAIN C0MMinJ MINERVA-FISHBONE-KNIVES-2
-~Well... less of a 'Lantanese trade secret' and more of a personal recipe I put together from adapting various alchemical formulae.~
+~嗯……与其说是「兰坦的商业机密」，不如说是我改造整理各种炼金配方拼出来的私人方子。~
 EXTERN C0MMinJ MINERVA-FISHBONE-KNIVES-3
 
 CHAIN C0MMinJ MINERVA-FISHBONE-KNIVES-3
-~Technically? I'm not supposed to be using my alchemical knowledge this way. The Gondar church frowns upon making explosive weaponry and generally restricts it for demolition uses only. So I just make enough to seal some in the hollowed spaces in the hilt and blade of these knives. Then I just light the fuses and throw.~
+~严格说？我不该把炼金知识这么用。贡德教会不赞成造爆炸兵器，一般只许用在拆毁用途上。所以我就做一点点，封在这些刀的刀柄和刀身空腔里。到时候点着引信，扔出去。~
 END
-++ ~That'll certainly be useful against any dangerous foes we come across.~ + MINERVA-FISHBONE-KNIVES-4
-++ ~If it's dangerous and restricted, how can you make and use it so freely?~ + MINERVA-FISHBONE-KNIVES-5
-++ ~I think I've heard enough. We'd better get back to town.~ EXIT
+++ ~这对付路上碰到的危险家伙肯定有用。~ + MINERVA-FISHBONE-KNIVES-4
+++ ~既然危险又受限制，你怎么能这么随便地造、随便地用？~ + MINERVA-FISHBONE-KNIVES-5
+++ ~我听够了。咱们最好回镇上。~ EXIT
 
 CHAIN C0MMinJ MINERVA-FISHBONE-KNIVES-4
-~My thoughts exactly. Might come in handy one day if we find ourselves fighting a dragon or something, hmm? Ha ha, that'd be quite a fight.~
+~我想的正是一样。哪天咱们要是得跟条龙之类的打，也许就派上用场了，嗯？哈哈，那可真是一场好仗。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-FISHBONE-KNIVES-5
-~Well... technically I shouldn't, so I'd rather you didn't go around and spread my secrets. That said, though, I do regulate carefully. As long as I'm not making too much and selling it in barrels, no one gets hurt. I mean, no one who isn't supposed to.~
-= ~Besides, knowledge isn't exactly useful if you're not allowed to make use of it, right? It'd be a waste if I didn't put everything I've learned to use somehow.~
+~嗯……严格说我不该做，所以你别到处去传我的秘密。不过我会很小心地控制。只要我不大量地造、不拿桶卖，就没人受伤。我是说，不该受伤的人不会。~
+= ~再说，不许用起来的知识并不真有用，对吧？我要是学了一堆却不拿来用，就白学了。~
 EXIT
 
 // Optional Talk: After clearing Cave
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalkContract","AR1201",1)~ THEN C0MMinJ MINERVA-FISHBONE
-~Ick... too bad about the caravan. At least we wiped out the cause and saved what's left of the supplies... hopefully someone'll be here to take care of this.~ [C0BLANK]
+~哎……那队商队太惨了。至少咱们把祸根清了，救下了剩下的物资……希望会有人来处理这事。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalkContract","AR1201",1)~
-= ~I think Gaspar'll be interested in seeing that contract, by the way. He's going to have a hard time if he doesn't learn what happened.~
+= ~顺便说，我想加斯帕会想看那份契约。他要是不知道出了什么事，日子会很难过。~
 EXIT
 
 // Optional Talk: Finding Erevain's Sword
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinErevainSword","AR4001",1)~ THEN C0MMinJ MINERVA-EREVAIN-SWORD
-~Oh no... that sword belonged to Erevain. I guess this really is him. I could barely recognize him with all the wounds.~ [C0BLANK]
+~哦不……那把剑是埃瑞文的。看来这真是他。伤成那样，我几乎认不出来。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinErevainSword","AR4001",1)~
 END
-+ ~Global("Erevain_Met","GLOBAL",1)~ + ~How in the gods' name did he end up here?~ + MINERVA-EREVAIN-SWORD-1
-+ ~!Global("Erevain_Met","GLOBAL",1)~ + ~I take it you knew him?~ + MINERVA-EREVAIN-SWORD-2
-+ ~Global("Erevain_Met","GLOBAL",1)~ + ~He seemed like a decent person, from the brief time I met him. Truly a tragedy.~ + MINERVA-EREVAIN-SWORD-3
-+ ~Global("Erevain_Met","GLOBAL",1)~ + ~So much for the wonders of adventure.~ + MINERVA-EREVAIN-SWORD-3
-+ ~!Global("Erevain_Met","GLOBAL",1)~ + ~Looks like the monsters here did a number on him.~ + MINERVA-EREVAIN-SWORD-4
-+ ~Global("Erevain_Met","GLOBAL",1)~ + ~I didn't know him well enough to have any particular feelings. We've got more important things to dwell on.~ EXIT
-+ ~!Global("Erevain_Met","GLOBAL",1)~ + ~Just another corpse in our way. We've got more important things to dwell on.~ EXIT
++ ~Global("Erevain_Met","GLOBAL",1)~ + ~神啊，他到底怎么会到这儿来？~ + MINERVA-EREVAIN-SWORD-1
++ ~!Global("Erevain_Met","GLOBAL",1)~ + ~我猜你认识他？~ + MINERVA-EREVAIN-SWORD-2
++ ~Global("Erevain_Met","GLOBAL",1)~ + ~我跟他只见过短短一会儿，可他看着是个不错的人。真是悲剧。~ + MINERVA-EREVAIN-SWORD-3
++ ~Global("Erevain_Met","GLOBAL",1)~ + ~冒险的奇妙之处，也不过如此。~ + MINERVA-EREVAIN-SWORD-3
++ ~!Global("Erevain_Met","GLOBAL",1)~ + ~看来这儿的怪物把他收拾得不轻。~ + MINERVA-EREVAIN-SWORD-4
++ ~Global("Erevain_Met","GLOBAL",1)~ + ~我跟他不熟，谈不上什么感觉。咱们有更要紧的事得操心。~ EXIT
++ ~!Global("Erevain_Met","GLOBAL",1)~ + ~不过是路上又一具尸体。咱们有更要紧的事得操心。~ EXIT
 
 CHAIN C0MMinJ MINERVA-EREVAIN-SWORD-1
-~I—I don't know. Maybe he heard what was happening over here and decided to come and try to help. He seemed like the type of person who'd do that.~
+~我——我不知道。也许他听说这边出了事，决定过来帮忙。他像是那种会这么做的人。~
 EXTERN C0MMinJ MINERVA-EREVAIN-SWORD-3
 
 CHAIN C0MMinJ MINERVA-EREVAIN-SWORD-2
-~We met... briefly. He was staying in the room next to me back in the inn at Easthaven. I knew his name, but didn't really get a chance to know him.~
+~我们见过……很短。在东港的旅店里，他住我隔壁房。我知道他的名字，可没什么机会真认识他。~
 EXTERN C0MMinJ MINERVA-EREVAIN-SWORD-4
 
 CHAIN C0MMinJ MINERVA-EREVAIN-SWORD-3
-~*sigh* If only he came with us instead instead of choosing to go out on his own. Why do elves have to be so stubborn sometimes?~
+~*叹气* 要是他跟咱们一起来，而不是自己出去就好了。精灵有时候为什么非得这么倔？~
 = IF ~Race(Player1,ELF)~ THEN ~Erm... not you, <PLAYER1>, of course. I'm glad you're not like that. I'd hate to imagine you dying in a place like this, all alone.~
 EXTERN C0MMinJ MINERVA-EREVAIN-SWORD-5
 
 CHAIN C0MMinJ MINERVA-EREVAIN-SWORD-4
-~Did he really come here to try and do something on his own? Imagine if he ran into us first instead. He'd probably still be alive.~
+~他真是一个人来这儿想干点什么？想想如果先碰上咱们，他大概还活着。~
 EXTERN C0MMinJ MINERVA-EREVAIN-SWORD-5
 
 CHAIN C0MMinJ MINERVA-EREVAIN-SWORD-5
-~I've always believed adventures were only worth it if you had a friend to share them with. Not just for the conversation, but more importantly... so you can protect each other.~
-= ~Otherwise, to end up dying like this... it's rather pitiable, don't you think?~
+~我一直觉得，冒险只有能跟朋友分享才值得。不只是为了有话说，更要紧的是……能互相护着。~
+= ~不然像这样死掉……挺可怜的，你不觉得吗？~
 EXIT
 
 // Optional Talk: False Eldathyns
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinFalseEldath","AR4004",1)~ THEN C0MMinJ MINERVA-FAKE-ELDATH
-~Hmm... I don't know. Something feels off here.~ [C0BLANK]
+~唔……我不知道。这地方有点不对劲。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinFalseEldath","AR4004",1)~
 END
-+ ~CheckStatGT(Player1,15,INT)~ + ~I agree. This place seems too convenient.~ + MINERVA-FAKE-ELDATH-1
-+ ~!CheckStatGT(Player1,15,INT)~ + ~What feels off?~ + MINERVA-FAKE-ELDATH-2
-++ ~You're overthinking things. Let's be grateful for the opportunity to have some peace.~ EXIT
++ ~CheckStatGT(Player1,15,INT)~ + ~我同意。这地方显得太方便了。~ + MINERVA-FAKE-ELDATH-1
++ ~!CheckStatGT(Player1,15,INT)~ + ~哪儿不对劲？~ + MINERVA-FAKE-ELDATH-2
+++ ~你想太多了。能有片刻安宁就该感激。~ EXIT
 
 CHAIN C0MMinJ MINERVA-FAKE-ELDATH-1
-~Yeah. My thoughts exactly.~
+~嗯。我想的正是一样。~
 EXTERN C0MMinJ MINERVA-FAKE-ELDATH-2
 
 CHAIN C0MMinJ MINERVA-FAKE-ELDATH-2
-~Besides the fact that a place like this even exists under everything we ran into on our way here, there's something about the way this temple is kept that seems terribly wrong.~
+~除了这地方竟存在在一路撞见的那些东西底下，这座神庙被维持的样子还有哪儿透着大不对劲。~
 == C0MMinJ IF ~GlobalGT("C0MMinTempusTemple","GLOBAL",0)~ THEN ~Remember what I said before about all temples having the same feeling of piety? Well... I'm not feeling that here. Not towards Eldath, anyway.~
 == C0MMinJ ~Eldath's the goddess of peace, pools, springs and waterfalls. Are you seeing any of those here? I can't imagine loyal Eldathyn choosing a place like this to revere their goddess's ideals.~
 == C0MMinJ ~I think we should ask Albion a few more questions. If he has something to hide, he'll let it slip sooner or later. Let's be ready for a fight, just in case.~
@@ -213,7 +213,7 @@ EXIT
 // Optional Talk: Quartus
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinQuartus","GLOBAL",1)~ THEN C0MMinJ MINERVA-QUARTUS
-~Yes... yes, I think I've done it! How's the body, Quartus?~ [C0BLANK]
+~对……对，我想我成了！夸图斯，这具身子怎么样？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinQuartus","GLOBAL",1)~
 == C0MODR ~*whirrs and clicks*~
 == C0MMinJ ~Okay, that's great! You'll be able to help out now, right?~
@@ -224,10 +224,10 @@ CheckStatGT(Player1,15,INT)
 CheckStatGT(Player1,40,LORE)~ + ~A modron?~ + MINERVA-QUARTUS-1
 + ~!CheckStatGT(Player1,15,INT)
 !CheckStatGT(Player1,40,LORE)~ + ~What is this thing?~ + MINERVA-QUARTUS-1
-++ ~If that thing's helpful to us, then make use of it. I don't need to know anything.~ EXIT
+++ ~那东西有用就用。我什么都不需要知道。~ EXIT
 
 CHAIN C0MMinJ MINERVA-QUARTUS-1
-~Say hi to Quartus. That's just the name I use for him, modrons usually don't have individual names. I found the poor fellow abandoned in an old mages' tower, probably summoned from his plane by whoever used to live there. I don't know what happened, but he had probably gone rogue and was in a pretty poor state at the time. He couldn't even get back to his own plane, so I fixed him up as much as I could and he followed me ever since.~
+~跟夸图斯打个招呼。这名字只是我给他起的，莫德伦一般没有各别的名字。我是在一座旧法师塔里发现这可怜家伙的，大概是被从前住那儿的人从他那界召来的。我不知道出了什么事，可他多半已经失了控，当时状况很糟。他连回自己那界都做不到，我就尽力把他修好，从那以后他就跟着我。~
 == C0MMinJ ~His old body kinda... fell apart, though, a while before we met, and there wasn't much I could do about it. I tried a few replacements, but this is one very picky spirit. It took me up until now to replicate the same creation process from Mechanus using the few things I could understand from Quartus... after a looooot of trial and error.~
 == C0MODR ~*whirring* *tap*~
 == C0MMinJ ~Anyways, now that he's got his new body. He's willing to help us out. To be honest, he's not that great in a fight since he refuses to use anything other than that wrench, but... I'm not sure where he learned it from, but he can use a little bit of magic. It might've been done by whoever summoned him. Maybe. I can only barely understand most of the things he says.~
@@ -236,11 +236,11 @@ EXIT
 // Optional Talk: Dorn's Deep
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinDornsDeep","AR6002",1)~ THEN C0MMinJ MINERVA-DORNDEEP
-~What happened here? The place looks like it's completely overrun. There's not a dwarf in sight!~ [C0BLANK]
+~这儿出了什么事？这地方像被彻底糟蹋了。一个矮人都看不见！~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinDornsDeep","AR6002",1)~
 END
-++ ~Maybe Larrel had something going about the dwarves driving themselves to ruin.~ + MINERVA-DORNDEEP-1
-++ ~They may have been driven further underground.~ + MINERVA-DORNDEEP-2
+++ ~也许拉瑞尔说过些话，讲矮人自己把自己毁了。~ + MINERVA-DORNDEEP-1
+++ ~他们也许被逼得更往地底去了。~ + MINERVA-DORNDEEP-2
 + ~!Global("C0MMinRomanceActive","GLOBAL",1)
 !Global("C0MMinRomanceActive","GLOBAL",2)
 Race(Player1,DWARF)~ + ~I can't believe it. Did my kinsmen really do this to themselves?~ + MINERVA-DORNDEEP-3
@@ -248,89 +248,89 @@ Race(Player1,DWARF)~ + ~I can't believe it. Did my kinsmen really do this to the
 Global("C0MMinRomanceActive","GLOBAL",1)
 Global("C0MMinRomanceActive","GLOBAL",2)
 Race(Player1,DWARF)~ + ~I can't believe it. Did my kinsmen really do this to themselves?~ + MINERVA-DORNDEEP-4
-+ ~!Race(Player1,DWARF)~ + ~And this is why living underground is stupid.~ + MINERVA-DORNDEEP-5
-++ ~Be quiet, and stay alert. It's too dangerous to talk right now.~ EXIT
++ ~!Race(Player1,DWARF)~ + ~住在地底下就是这么蠢。~ + MINERVA-DORNDEEP-5
+++ ~别出声，保持警觉。现在说话太危险。~ EXIT
 
 CHAIN C0MMinJ MINERVA-DORNDEEP-1
-~I don't know... dwarves are proud and stubborn, but betraying the elves? It's possible, I suppose... everyone's susceptible to making terrible decisions.~
+~我不知道……矮人骄傲又固执，可背叛精灵？我想也有可能……谁都可能做出糟糕透顶的决定。~
 EXTERN C0MMinJ MINERVA-DORNDEEP-5
 
 CHAIN C0MMinJ MINERVA-DORNDEEP-2
-~If that's true, there won't be many of them left. Dwarves are stubborn people. They'll fight until the very last to protect a place as important as this.~
+~若真是那样，剩下的也不会多了。矮人是倔脾气，会为守住这么要紧的地方打到最后一个。~
 EXTERN C0MMinJ MINERVA-DORNDEEP-5
 
 CHAIN C0MMinJ MINERVA-DORNDEEP-3
-~It's alright, <PLAYER1>... there's always a chance that the truth is different from what we were told. And even if it is true... it doesn't mean your people are all to blame.~
+~没事的，<PLAYER1>……真相总有可能跟咱们听说的不同。就算真是那样……也不代表你族人全都有罪。~
 EXTERN C0MMinJ MINERVA-DORNDEEP-5
 
 CHAIN C0MMinJ MINERVA-DORNDEEP-4
-~(Minerva lays a reassuring hand on your shoulder.)~
+~（米涅瓦把手放在你肩上，给你安慰。）~
 EXTERN C0MMinJ MINERVA-DORNDEEP-3
 
 CHAIN C0MMinJ MINERVA-DORNDEEP-5
-~I was hoping that time would be kinder to this place compared to the Severed Hand. But at least the elves stayed dedicated to preserving their memory. I could catch a glimpse of how majestic it must once have been, and I was in awe the whole time.~
-= ~Dorn's Deep as it is now... well, I look at what's left and I only feel hollow inside. Even if the dwarves brought this upon themselves—and I still don't want to believe it—it's still tragic.~
+~我本来希望时间对这地方比对断手塔更宽厚些。不过至少精灵一直尽心守着他们的记忆。我能瞥见它当年该有多宏伟，整个过程我都惊叹不已。~
+= ~多恩深渊如今这样……嗯，我看着剩下的这些，心里只觉得空。就算矮人是自找的——我还是不愿信——那也还是悲惨。~
 END
-+ ~Race(Player1,DWARF)~ + ~I wish I could've seen these halls during their time of glory, rather than like this.~ + MINERVA-DORNDEEP-6
-++ ~You're right. This place feels completely lifeless.~ + MINERVA-DORNDEEP-6
-+ ~!Race(Player1,ELF)~ + ~If the dwarves really betrayed the elves, then they had it coming.~ + MINERVA-DORNDEEP-6
-+ ~Race(Player1,ELF)~ + ~If the dwarves really betrayed my kin, then they had it coming.~ + MINERVA-DORNDEEP-6
-++ ~That's enough. We can talk more about this later.~ EXIT
++ ~Race(Player1,DWARF)~ + ~我要是能在这些厅堂还荣耀的时候看见它们就好了，而不是如今这样。~ + MINERVA-DORNDEEP-6
+++ ~你说得对。这地方一点生气都没有。~ + MINERVA-DORNDEEP-6
++ ~!Race(Player1,ELF)~ + ~矮人若真背叛了精灵，那就是他们活该。~ + MINERVA-DORNDEEP-6
++ ~Race(Player1,ELF)~ + ~矮人若真背叛了我族人，那就是他们活该。~ + MINERVA-DORNDEEP-6
+++ ~够了。这事以后再说。~ EXIT
 
 CHAIN C0MMinJ MINERVA-DORNDEEP-6
-~*sigh* I used to criticize my family and friends over being too narrow-minded and obsessed only with their own knowledge, but now I have to wonder if it's better to preserve what's yours, and avoid losing everything.~
-= ~Oh, look at how long I've been talking for, and I'm still going... This isn't really the time, is it? I'll stop.~
+~*叹气* 我以前老批评家人和朋友心胸太窄、只顾自己那点学问，可如今我得想，是不是守住自己那点东西、别全都丢掉，反倒更好。~
+= ~哦，看看我说了多久，还在说……现在真不是时候，对吧？我不说了。~
 EXIT
 
 // Optional Talk: Ice Salamanders
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinIceSalamander","AR7001",1)~ THEN C0MMinJ MINERVA-SALAMANDER
-~Wow. Isn't that a whale? I can't remember the last one I've seen one of those during my travels. And it's just... frozen there, possibly forever.~ [C0BLANK]
+~哇。那不是条鲸鱼吗？我想不起来上次在路上见到这种家伙是什么时候。而它就……冻在那儿，可能是永远。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinIceSalamander","AR7001",1)~
 END
 + ~OR(2)
 Class(Player1,RANGER_ALL)
 Class(Player1,DRUID_ALL)
 !Class(LastTalkedToBy,SHAMAN)~ + ~It's a travesty. A creature like this deserves better than to be preserved like a trophy.~ + MINERVA-SALAMANDER-1
-++ ~This is the most twisted museum I've ever seen in my life.~ + MINERVA-SALAMANDER-1
-++ ~Is that really a whale? I've never seen one of those before.~ + MINERVA-SALAMANDER-2
-++ ~Look at how enormous it is! I'd be terrified if it were moving.~ + MINERVA-SALAMANDER-3
-++ ~Not really all that impressive, in my opinion.~ + MINERVA-SALAMANDER-4
-++ ~I'm not interested in discussing marine life right now.~ EXIT
+++ ~这是我这辈子见过最扭曲的博物馆。~ + MINERVA-SALAMANDER-1
+++ ~那真是鲸鱼？我从没见过。~ + MINERVA-SALAMANDER-2
+++ ~看它多大！要是它还在动，我会吓死。~ + MINERVA-SALAMANDER-3
+++ ~在我看来，也没那么了不起。~ + MINERVA-SALAMANDER-4
+++ ~我现在没兴趣讨论海洋生物。~ EXIT
 
 CHAIN C0MMinJ MINERVA-SALAMANDER-1
-~I can agree with that. Still, I've never had a chance to take such a close look at one of these before...~
+~这点我同意。不过我以前从没机会这么近距离看过这种东西……~
 EXTERN C0MMinJ MINERVA-SALAMANDER-5
 
 CHAIN C0MMinJ MINERVA-SALAMANDER-2
-~Yep, it's a whale alright. I'm not surprised if it's your first time seeing one.~
+~嗯，确实是鲸鱼。你要是头一回见，我也不意外。~
 EXTERN C0MMinJ MINERVA-SALAMANDER-5
 
 CHAIN C0MMinJ MINERVA-SALAMANDER-3
-~Oh, I can agree with that. With their size, they can just open their mouths and eat whatever floats in. Terrifying stuff. *shudder*~
+~哦，这点我同意。它们那么大，只要张嘴就能把漂进来的东西吃掉。可怕。*打个寒颤*~
 EXTERN C0MMinJ MINERVA-SALAMANDER-5
 
 CHAIN C0MMinJ MINERVA-SALAMANDER-4
-~Really? I wonder what I could find that might impress you, then. Elephants? Krakens? Maybe a griffon?~
+~真的？那我不知道得找到什么才能让你觉得了不起。大象？克拉肯？或者狮鹫？~
 EXTERN C0MMinJ MINERVA-SALAMANDER-5
 
 CHAIN C0MMinJ MINERVA-SALAMANDER-5
-~It's surreal to realize that creatures like this actually exist somewhere far away from where you live. Imagine if I'd stayed in Lantan. Do you think I'd ever have seen a whale in my life?~
-= ~Actually, I think that could go for most of the things we've seen in this journey. Magical trees, elven ruins, now a frozen aquatic museum... and there's even more out there!~
-= ~Still... it's pretty terrible for all these creatures to just be suspended like this. For all we know, they could still be alive. I wish I could see them moving.~
+~想到这样的生物真真切切活在离你家很远的地方，就有种不真实感。想想我要是留在兰坦，你觉得我这辈子能见到鲸鱼吗？~
+= ~其实这一路上见的大多数东西都是这样。会魔法的树、精灵废墟，现在又有个冰冻的水族馆……外头还有更多！~
+= ~不过……这些生物就这么被悬在这儿，挺惨的。说不定它们还活着。我真希望能看见它们动起来。~
 EXIT
 
 // Optional Talk: Dwarf Puzzle
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinDwarfPuzzle","GLOBAL",1)~ THEN C0MMinJ MINERVA-DWARF-PUZZLE
-~Huh. Curious. I'd be careful stepping on anything, <PLAYER1>... there's a lightning-y smell in the air. Look, my nose is twitching. See that?~ [C0BLANK]
+~嗯。奇怪。走的时候小心别踩着什么，<PLAYER1>……空气里有股雷电的味儿。看，我鼻子在抽。看见没？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinDwarfPuzzle","GLOBAL",1)~
 END
-++ ~This appears to be some sort of puzzle. Any ideas?~ + MINERVA-DWARF-PUZZLE-1
-++ ~I'll... take your word for it.~ EXIT
+++ ~这像是某种谜题。有想法吗？~ + MINERVA-DWARF-PUZZLE-1
+++ ~那我就……信你一回。~ EXIT
 
 CHAIN C0MMinJ MINERVA-DWARF-PUZZLE-1
-~Well, some of these symbols are the same as the ones on that table in the other room...~
+~嗯，这里面有些符号跟另一间屋那张桌子上的同一个样……~
 END
 + ~OR(2)
 CheckStatGT(Player1,30,LORE)
@@ -339,485 +339,485 @@ Race(Player1,DWARF)~ + ~That table had the symbols of Moradin, Clangeddin and Be
 !Race(Player1,DWARF)~ + ~That's probably a clue of some sort.~ + MINERVA-DWARF-PUZZLE-3
 
 CHAIN C0MMinJ MINERVA-DWARF-PUZZLE-2
-~Yep, I was just about to say the same thing. Just make sure not to step on the wrong symbol. I have a feeling the lightning-y smell isn't just the atmosphere...~
+~嗯，我正要这么说。只是别踩错符号。我感觉那雷电的味儿不只是空气的事……~
 EXIT
 
 CHAIN C0MMinJ MINERVA-DWARF-PUZZLE-3
-~Hmm... I've visited a few dwarven holds in the past. The runes on that table were definitely the symbols of Moradin, Clangeddin and Berronar Truesilver. I think we're supposed to match them with the symbols on the floor here.~
-= ~Just make sure not to step on the wrong symbol. I have a feeling the lightning-y smell isn't just the atmosphere...~
+~唔……我以前去过几个矮人要塞。那张桌子上的符文肯定是摩拉丁、克兰格丁和贝罗娜·真银的记号。我想咱们是要把它们跟这儿地上的符号对上。~
+= ~只是别踩错符号。我感觉那雷电的味儿不只是空气的事……~
 EXIT
 
 // Optional Talk: Golem Building Book
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinGolemBook","GLOBAL",1)~ THEN C0MMinJ MINERVA-GOLEMS
-~Huh, what's this now? A golem manual?~ [C0BLANK]
+~嗯，这又是什么？魔像手册？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinGolemBook","GLOBAL",1)~
-= ~*flip* Wow, this is some interesting stuff. Why anyone'd leave something like this lying around is a mystery to me though. Someone could really wreak havoc with the command phrases written down here.~
-= ~They might be useful for future reference though. I'll just commit some of the more useful stuff to memory, just in case.~
+= ~*翻页* 哇，这可真是点有意思的东西。不过谁会把这种东西随手扔在这儿，我真想不通。这里头写下的命令词，足够让人闹出大乱子。~
+= ~不过以后也许有用。我就把其中比较有用的记在脑子里，以防万一。~
 EXIT
 
 // Optional Talk: Squirrels
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinSquirrels","GLOBAL",1)~ THEN C0MMinJ MINERVA-SQUIRRELS
-~Aww, look at the poor little squirrels. The box is too small for them, I think.~ [C0BLANK]
+~哎，看这些可怜的小松鼠。我觉得那盒子对它们来说太小了。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinSquirrels","GLOBAL",1)~
-= ~It'd be irresponsible to let them out here, though. There's got to be a safer place for them somewhere...~
+= ~可要是把它们在这儿放掉，就太不负责了。总该有个更安全的地方……~
 EXIT
 
 // First Talk: Leaving Easthaven
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk1","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK1
-~Finally, we're all set and ready to leave! Our first adventure together awaits us, <PLAYER1>. Is that not exciting?~ [C0BLANK]
+~终于，都准备好了，可以出发了！咱们的第一次共同冒险在等着，<PLAYER1>。这不让人兴奋吗？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk1","GLOBAL",1)~
 END
-++ ~Absolutely! I can't wait to see what awaits us.~ + MINERVA-TALK1-1
-++ ~I'm glad to see that you're so enthusiastic.~ + MINERVA-TALK1-2
-++ ~Calm down a little. We're not travelling for fun and games.~ + MINERVA-TALK1-3
-++ ~I don't care about how the journey goes, as long as I get paid.~ + MINERVA-TALK1-4
-++ ~This isn't really the time for you to share your excitement.~ EXIT
+++ ~当然！我迫不及待想看有什么在等着咱们。~ + MINERVA-TALK1-1
+++ ~很高兴看你这么有热情。~ + MINERVA-TALK1-2
+++ ~冷静点。咱们不是出去玩闹的。~ + MINERVA-TALK1-3
+++ ~我不在乎路上怎么样，只要给钱。~ + MINERVA-TALK1-4
+++ ~现在不是你说这些兴奋话的时候。~ EXIT
 
 CHAIN C0MMinJ MINERVA-TALK1-1
-~That's the spirit! As long as we take care of each other, I'm sure we'll have plenty of tales to tell soon enough.~
+~这就对了！只要咱们相互照应，我肯定很快就有不少故事可讲。~
 EXTERN C0MMinJ MINERVA-TALK1-5
 
 CHAIN C0MMinJ MINERVA-TALK1-2
-~Of course! Why travel if you're not going in with all smiles and anticipation?~
+~当然！要不是带着笑和期待上路，干嘛要旅行？~
 EXTERN C0MMinJ MINERVA-TALK1-5
 
 CHAIN C0MMinJ MINERVA-TALK1-3
-~Well, of course there is a time for solemnity, but come on now. The adventure has hardly started! Would you not rather begin with as much optimism as you can muster?~
+~嗯，严肃当然也有严肃的时候，可拜托，冒险才刚开始！你难道不愿拿出能鼓起的最大乐观来开始？~
 EXTERN C0MMinJ MINERVA-TALK1-5
 
 CHAIN C0MMinJ MINERVA-TALK1-4
-~If that's what you're interested in, then think of all the treasures that may be found! Lost, mystical artifacts, each with a story to tell. Doesn't that, at least, fill you with some measure of joy?~
+~你要关心的是这个，那就想想可能找到多少宝藏！失落的、神秘的神器，每一件都有故事可讲。至少这个，总能让你有点高兴吧？~
 EXTERN C0MMinJ MINERVA-TALK1-5
 
 CHAIN C0MMinJ MINERVA-TALK1-5
-~...Ha ha, I'm sorry. Maybe my enthusiasm is a little too much this early on. We've only just met, after all.~
-= ~I'm just glad I had this chance to find like-minded companions for this journey. I love adventuring, but I hate doing it alone.~
+~……哈哈，对不起。也许这么早我就热情过头了。毕竟咱们才刚认识。~
+= ~我只是高兴，能有这机会找到志同道合的同伴一起走这一趟。我爱冒险，可我讨厌一个人冒险。~
 END
-++ ~I agree. It's always preferable to have company.~ + MINERVA-TALK1-6
-++ ~Did you travel all the way to Easthaven alone?~ + MINERVA-TALK1-7
-++ ~I like companionship, but I could do with a bit less chatter.~ + MINERVA-TALK1-8
+++ ~我同意。有伴总是更好。~ + MINERVA-TALK1-6
+++ ~你是一路一个人走到东港的？~ + MINERVA-TALK1-7
+++ ~我喜欢有伴，不过话少一点我也受得住。~ + MINERVA-TALK1-8
 
 CHAIN C0MMinJ MINERVA-TALK1-6
-~That's exactly what I think, too. It's not as interesting without someone to fight alongside, or share bread, or just to talk to.~
+~我想的正是一样。没人并肩打架、分块面包、或者只是说话，就没那么有意思。~
 END
-++ ~Did you travel all the way to Easthaven alone?~ + MINERVA-TALK1-7
-++ ~I like companionship, but I could do with a bit less chatter.~ + MINERVA-TALK1-8
+++ ~你是一路一个人走到东港的？~ + MINERVA-TALK1-7
+++ ~我喜欢有伴，不过话少一点我也受得住。~ + MINERVA-TALK1-8
 
 CHAIN C0MMinJ MINERVA-TALK1-7
-~Well, not at first. I made a bit of coin escorting a caravan to Caer-Dineval, after which I set out on my own after I failed to find anyone else willing to make the journey to Easthaven.~
-= ~Actually, if I hadn't seen you coming into the town, I probably would have set out by myself again. As fun as it was in Easthaven, fishing and goblin-hunting isn't really a new experience for me.~
+~嗯，一开始不是。我护送一支商队到卡厄迪内瓦尔赚了点钱，之后没找到别人愿意跟我一起去东港，我就自己上路了。~
+= ~其实要不是看见你进城，我大概又自己上路了。东港虽然好玩，可钓鱼打地精对我来说不算什么新鲜事。~
 END
-++ ~You mentioned you were from Lantan, right? That's a long way from the North. What brought you here?~ + MINERVA-TALK1-9
-++ ~That's enough talking for now. Leave the rest for another time.~ + MINERVA-TALK1-8
+++ ~你说你从兰坦来，对吧？那离北方可远。是什么把你带到这儿来的？~ + MINERVA-TALK1-9
+++ ~话说到这儿够了。剩下的改天再说。~ + MINERVA-TALK1-8
 
 CHAIN C0MMinJ MINERVA-TALK1-8
-~Oh, have it your way. We'll have plenty of opportunities to talk during the journey, after all. And if you're not interested, there'll be plenty of other company that might be.~
+~哦，随你。反正路上说话的机会多得是。你要是没兴趣，也总会有别的愿意听的人。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK1-9
-~There's the question I was expecting sooner or later. Yes, I journeyed here from Lantan. Not directly, of course, I've had a few tale-worthy adventures down further south, but I'd rather focus on this story-to-be at the moment.~
-= ~My family, the Glimmershines, have a nice, comfortable position as inventors and teachers in our homeland, and I did involve myself in the family trade for some time, but it was all so formulaic and uninspiring after a while. I found there was more potential to be found in a practical application of my skills, in the larger world beyond our islands.~
-= ~So, when the opportunity came, I left my cozy teaching position at the Sambaran Academy for some experiential study, and travelled all the way from the Sword Coast to here. And now here I am.~
+~这问题我迟早等着的。对，我是从兰坦过来的。当然不是直奔这儿，我在更南边经历了几件值得一提的冒险，可眼下我更想专注这段还没开始的故事。~
+= ~我家姓闪辉，在家乡当发明家和教师，地位体面又安稳。我也在家族这行里干过一阵子，可过些时候就全成了套公式，一点提不起劲。我觉得把本事拿去实际派用场，在岛外更大的世界里，潜力多得多。~
+= ~所以机会一到，我就放下桑巴兰学院那份舒服的教职，去做些实地考察，从剑湾一路走到这儿。如今我就站在这儿了。~
 END
-++ ~I can approve of learning through experience.~ + MINERVA-TALK1-10
-++ ~You're an academic? I wouldn't have expected that from the looks of you.~ + MINERVA-TALK1-11
-++ ~I think I know enough about you now. Let's get moving.~ EXIT
+++ ~靠实践学习，我赞成。~ + MINERVA-TALK1-10
+++ ~你是学者？看你这模样我可想不到。~ + MINERVA-TALK1-11
+++ ~我想我对你了解够了。走吧。~ EXIT
 
 CHAIN C0MMinJ MINERVA-TALK1-10
-~Yep. Although, I still look back fondly on my studies now and again, even though my academic life was briefer than most. Some of the skills I've learned are still useful to this day.~
+~嗯。不过我时不时还会怀念那阵子学习，虽然我的学术生涯比大多数人短。我学的一些本事到今天还有用。~
 EXTERN C0MMinJ MINERVA-TALK1-12
 
 CHAIN C0MMinJ MINERVA-TALK1-11
-~Surprising, isn't it? To be honest, I'm not that much different in a classroom, aside from maybe the choice of outfit.~
+~挺意外吧？说实话在教室里我没多大不同，大概就是穿的衣服不一样。~
 EXTERN C0MMinJ MINERVA-TALK1-12
 
 CHAIN C0MMinJ MINERVA-TALK1-12
-~Oh, but I think we've talked for quite a while already. We should finish whatever we need to do then get a nice, long rest in a warm lodging, so we'll be ready for the journey ahead.~
+~哦，不过我看咱们已经聊了好一会儿了。该把要办的事办完，然后在暖和的地方好好歇一长觉，好为前面的路养足精神。~
 EXIT
 
 // Second Talk: Post-Avalanche
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk2","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK2
-~Wow. Look at all of that snow... it's all starting to sink in after the fact that it happened, huh?~ [C0BLANK]
+~哇。看这一片雪……事情过后才开始真真沉进心里，是吧？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk2","GLOBAL",1)~
 END
-++ ~That it is.~ + MINERVA-TALK2-1
-++ ~Poor Hrothgar.~ + MINERVA-TALK2-2
-++ ~We survived. That's all that matters.~ + MINERVA-TALK2-3
-++ ~Talking right now is a waste of time.~ + MINERVA-TALK2-END
+++ ~确实。~ + MINERVA-TALK2-1
+++ ~可怜的赫罗斯加。~ + MINERVA-TALK2-2
+++ ~咱们活下来了。这就够了。~ + MINERVA-TALK2-3
+++ ~现在说话是浪费时间。~ + MINERVA-TALK2-END
 
 CHAIN C0MMinJ MINERVA-TALK2-1
-~I'd talked with almost everyone in the expedition. I even promised to treat a few of them to a meal once we finished the journey. Ha ha... guess that's not possible anymore.~
-= ~To be honest, I wasn't expecting our journey to begin like this at all. The whole thing from the ambush to the avalanche... I don't think it was just a coincidence.~
+~我跟探险队里几乎每个人都聊过。我还答应过几个人，走完这趟请他们吃顿饭。哈哈……看来是办不到了。~
+= ~说实话，我完全没料到咱们的旅程会这样开始。从埋伏到雪崩这一整串……我不觉得只是巧合。~
 END
 + ~OR(2)
 CheckStatGT(Player1,15,INT)
 CheckStatGT(Player1,15,WIS)~ + ~I agree. It all seemed too well planned.~ + MINERVA-TALK2-4
 + ~!CheckStatGT(Player1,15,INT)
 !CheckStatGT(Player1,15,WIS)~ + ~I'm not sure. Now that you mention it, though...~ + MINERVA-TALK2-4
-++ ~If this was a plan to get us killed, someone's going to pay for it.~ + MINERVA-TALK2-4
-++ ~You look shaken. Will you be alright?~ + MINERVA-TALK2-5
-++ ~That's enough. We've still got a ways to go before we reach Kuldahar.~ + MINERVA-TALK2-END
+++ ~要是这是想弄死咱们的计划，有人得为此付账。~ + MINERVA-TALK2-4
+++ ~你看着心有余悸。你没事吧？~ + MINERVA-TALK2-5
+++ ~够了。到库尔达哈还有段路呢。~ + MINERVA-TALK2-END
 
 CHAIN C0MMinJ MINERVA-TALK2-2
-~Hrothgar, Accalia, Hildreth... all dead.~
+~赫罗斯加、阿卡莉娅、希尔德雷丝……都死了。~
 EXTERN C0MMinJ MINERVA-TALK2-1
 
 CHAIN C0MMinJ MINERVA-TALK2-3
-~But—no, of course I'm glad we're still alive. But...~
+~可——不，咱们还活着，我当然高兴。可是……~
 EXTERN C0MMinJ MINERVA-TALK2-1
 
 CHAIN C0MMinJ MINERVA-TALK2-4
-~It's just a guess, though. Maybe we were all just very, very unfortunate.~
+~不过那只是猜的。也许咱们只是运气实在、实在太差。~
 EXTERN C0MMinJ MINERVA-TALK2-6
 
 CHAIN C0MMinJ MINERVA-TALK2-5
-~I think I will be. I'm just a little shaken at the moment.~
+~我想我会没事的。只是这会儿有点心神不定。~
 EXTERN C0MMinJ MINERVA-TALK2-6
 
 CHAIN C0MMinJ MINERVA-TALK2-6
-~I guess this probably isn't the first near-death experience for either of us. But with so many people with us dead, it's a little dampening on the adventuring experience?~
-= ~But, then again... I'm glad that I'm alive, and I'm not the only one. Since we're the only ones alive, I guess we're meant to stay together, right?~
+~我猜这对咱们俩大概都不是头一回差点送命。可身边死了这么多人，冒险的兴致总有点被浇了水，不是吗？~
+= ~不过话说回来……我很高兴我活着，而且不是只剩我一个。既然活着就剩咱们俩，那大概就是要一起走下去，对吧？~
 END
-+ ~Global("C0MMinMatch","GLOBAL",1)~ + ~I'm glad you're alive. It would've saddened me to lose you.~ DO ~IncrementGlobal("C0MMinFlirt","GLOBAL",1)~ + MINERVA-TALK2-FLIRT
-++ ~We'll be counting on each other from now on.~ + MINERVA-TALK2-7
-++ ~I suppose, at least for the moment.~ + MINERVA-TALK2-7
-++ ~You wouldn't have been my first choice, but I could do for worse.~ + MINERVA-TALK2-8
++ ~Global("C0MMinMatch","GLOBAL",1)~ + ~我很高兴你活着。要是失去你，我会很伤心。~ DO ~IncrementGlobal("C0MMinFlirt","GLOBAL",1)~ + MINERVA-TALK2-FLIRT
+++ ~从今往后咱们就互相依靠了。~ + MINERVA-TALK2-7
+++ ~我想是吧，至少眼下。~ + MINERVA-TALK2-7
+++ ~你不会是我的第一选择，不过凑合也能更差。~ + MINERVA-TALK2-8
 
 CHAIN C0MMinJ MINERVA-TALK2-FLIRT
-~Ha ha. Oh, stop it. We've only known each other for a little while.~
-= ~That said, though... it's nice to know I've made that much of an impression on you already. I'm glad you're alive too.~
+~哈哈。哦，别说了。咱们才认识没多久。~
+= ~不过话虽如此……知道我已经给你留下这么深的印象，还挺好的。我也很高兴你活着。~
 EXTERN C0MMinJ MINERVA-TALK2-9
 
 CHAIN C0MMinJ MINERVA-TALK2-7
-~Yep. And as long as we're sticking together, I've got your back.~
+~嗯。只要咱们在一起，我就替你看着背后。~
 EXTERN C0MMinJ MINERVA-TALK2-9
 
 CHAIN C0MMinJ MINERVA-TALK2-8
-~Pfft. We just got out of a life-or-death situation and that's what you've got to say? Well, since we're the only ones left, I guess I'll forgive you.~
+~噗。咱们刚从生死关头出来，你就说这个？好吧，既然只剩咱们俩，我就原谅你。~
 EXTERN C0MMinJ MINERVA-TALK2-9
 
 CHAIN C0MMinJ MINERVA-TALK2-9
-~Come on, let's make our way east. Kuldahar shouldn't be far, and I hear it's lovely there.~
+~来吧，咱们往东走。库尔达哈应该不远，我听说那儿很美。~
 END
 IF ~!GlobalGT("C0MMinFlirt","GLOBAL",0)~ EXIT
 IF ~GlobalGT("C0MMinFlirt","GLOBAL",0)~ EXTERN C0MMinJ MINERVA-TALK2-FLIRT-2
 
 CHAIN C0MMinJ MINERVA-TALK2-FLIRT-2
-~I'd like for us both to go and see it together.~
+~我想咱们俩一起去看看。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK2-END
-~Right... sure. I'll be with you in a moment.~
+~好……当然。我马上就来。~
 EXIT
 
 // Third Talk: Entering Kuldahar
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk3","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK3
-~Oh, goodness... Kuldahar is beautiful! I never would've believed you if you told me beforehand that a place like this existed in the middle of the icy tundra we've been walking through.~ [C0BLANK]
+~哦，天哪……库尔达哈真美！你要是事先告诉我，在咱们走过的冰原中间有这样的地方，我绝不会信。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk3","GLOBAL",1)~
 END
 + ~Class(Player1,DRUID_ALL)
 !Class(LastTalkedToBy,SHAMAN)~ + ~The Tree is truly a great gift bestowed by Nature.~ + MINERVA-TALK3-1
-++ ~It was worth the trip.~ + MINERVA-TALK3-1
-++ ~I can't believe how warm it is here.~ + MINERVA-TALK3-1
-++ ~Large trees and greenery. Nothing exciting.~ + MINERVA-TALK3-2
-++ ~We're not here for sightseeing.~ EXIT
+++ ~这趟值了。~ + MINERVA-TALK3-1
+++ ~我真不敢相信这儿这么暖和。~ + MINERVA-TALK3-1
+++ ~大树和绿植。没什么稀奇的。~ + MINERVA-TALK3-2
+++ ~咱们不是来观光的。~ EXIT
 
 CHAIN C0MMinJ MINERVA-TALK3-1
-~Yes...~
+~对……~
 END
 IF ~!GlobalGT("C0MMinFlirt","GLOBAL",0)~ EXTERN C0MMinJ MINERVA-TALK3-3
 IF ~GlobalGT("C0MMinFlirt","GLOBAL",0)~ EXTERN C0MMinJ MINERVA-TALK3-FLIRT
 
 CHAIN C0MMinJ MINERVA-TALK3-2
-~Oh, come on. Where's your sense of wonder, <PLAYER1>?~
+~哦，拜托。你的惊叹心去哪儿了，<PLAYER1>？~
 END
 IF ~!GlobalGT("C0MMinFlirt","GLOBAL",0)~ EXTERN C0MMinJ MINERVA-TALK3-3
 IF ~GlobalGT("C0MMinFlirt","GLOBAL",0)~ EXTERN C0MMinJ MINERVA-TALK3-FLIRT
 
 CHAIN C0MMinJ MINERVA-TALK3-FLIRT
-~(Minerva sidles close to your side and gives you a pleased smile.)~
+~（米涅瓦靠到你身边，朝你满意地笑。）~
 EXTERN C0MMinJ MINERVA-TALK3-3
 
 CHAIN C0MMinJ MINERVA-TALK3-3
-~It'd be the perfect place to spend a nice, romantic evening with somebody. It's pretty, it's warm, it's quiet...~
-= ~Though I get the feeling that if you stayed too long, you'd never want to leave. And why would you?~
+~这地方拿来跟某人过个美好浪漫的夜晚再合适不过。漂亮、暖和、安静……~
+= ~不过我总觉得，待久了就再也不想走。又何必走呢？~
 END
-+ ~Global("C0MMinMatch","GLOBAL",1)~ + ~A romantic evening, huh? Why don't we find a place right now?~ DO ~IncrementGlobal("C0MMinFlirt","GLOBAL",1)~ + MINERVA-TALK3-FLIRT-2
-++ ~You're right. It's so peaceful, I'd love to stay.~ + MINERVA-TALK3-4
-++ ~Do you think you'd stay after your adventures are over?~ + MINERVA-TALK3-5
-++ ~I'd prefer a large mansion with silken sheets and an endless supply of wine.~ + MINERVA-TALK3-6
-++ ~That's enough. We can look around the place at our leisure later.~ EXIT
++ ~Global("C0MMinMatch","GLOBAL",1)~ + ~浪漫的夜晚，是吧？咱们何不现在就找个地方？~ DO ~IncrementGlobal("C0MMinFlirt","GLOBAL",1)~ + MINERVA-TALK3-FLIRT-2
+++ ~你说得对。这儿太安宁了，我倒想留下。~ + MINERVA-TALK3-4
+++ ~你觉得冒险结束后你会留下吗？~ + MINERVA-TALK3-5
+++ ~我更想要座大宅子，丝绸床单，还有喝不完的酒。~ + MINERVA-TALK3-6
+++ ~够了。以后有空再慢慢逛。~ EXIT
 
 CHAIN C0MMinJ MINERVA-TALK3-FLIRT-2
-~Wh—what? Ha ha ha... No, no, I didn't mean it like that! I mean, I wouldn't mind, but is now really the right time?~
+~什——什么？哈哈哈……不、不，我不是那个意思！我是说，我倒不介意，可现在是时候吗？~
 EXTERN C0MMinJ MINERVA-TALK3-7
 
 CHAIN C0MMinJ MINERVA-TALK3-4
-~I'm not the type to ever stay in one place for too long, but I'm envious of the people who have a chance to live here.~
+~我不是能在一个地方久待的人，可我羡慕有机会住在这儿的人。~
 EXTERN C0MMinJ MINERVA-TALK3-7
 
 CHAIN C0MMinJ MINERVA-TALK3-5
-~Nah. I mean, maybe, if I got tired of travelling the world one day... but chances are low for that to ever happen.~
+~不。我是说，也许哪天我走遍世界走累了……不过那种事发生的可能很低。~
 EXTERN C0MMinJ MINERVA-TALK3-7
 
 CHAIN C0MMinJ MINERVA-TALK3-6
-~I guess that'd be comfortable. I'd personally find it a little much, though. I wouldn't need that sort of thing in my life.~
+~那样大概很舒服。不过我自己会觉得有点过头。我生活里不需要那种排场。~
 EXTERN C0MMinJ MINERVA-TALK3-7
 
 CHAIN C0MMinJ MINERVA-TALK3-7
-~If I just decided to stop and settle down here... build a small house, meet some friends, make a living out of building small contraptions to make peoples' lives easier...~
-= ~Ha ha. It sounds great, but it's wouldn't be so different from the life I left behind in Lantan. Sooner or later, I'll wander off looking for another adventure. But it'd would be nice while it lasted.~
-= ~Okay, that's enough daydreaming for now. Let's see just how much Kuldahar has to show!~
+~要是我干脆停下，就在这儿安顿……盖间小屋，交些朋友，靠做点小机关让别人的日子好过些来谋生……~
+= ~哈哈。听着不错，可这跟我丢在兰坦的日子差不太多。迟早我还是会晃出去找下一场冒险。不过能撑多久就享受多久吧。~
+= ~好了，白日梦先做到这儿。看看库尔达哈到底有多少东西可看！~
 EXIT
 
 // Fourth Talk: Entering a Tomb
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk4","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK4
-~Ha ha... I was wondering when we'd find ourselves in a tomb or crypt or what have you. It's not a real adventure until you find yourself fighting for your life against the restless dead.~ [C0BLANK]
+~哈哈……我还在想咱们什么时候会进墓穴或地窖之类的地方。不跟不安分的死者拼上性命，就不算真冒险。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk4","GLOBAL",1)~
 END
-++ ~I could do with less disrupting the dead, honestly.~ + MINERVA-TALK4-1
-++ ~Let's see. Goblins, orcs, undead... I expect the dragon will be coming sooner of later.~ + MINERVA-TALK4-2
-++ ~The only thing I care about is what valuables these dead have buried with them.~ + MINERVA-TALK4-3
-++ ~Crypts filled with undead are not my idea of the best place for a chat, Minerva.~ EXIT
+++ ~说实话，我能少打扰死者就少打扰。~ + MINERVA-TALK4-1
+++ ~让我想想。地精、兽人、亡灵……我看那条龙迟早要来。~ + MINERVA-TALK4-2
+++ ~我唯一关心的是这些死者陪葬了什么值钱东西。~ + MINERVA-TALK4-3
+++ ~米涅瓦，满是亡灵的地窖可不是我心目中聊天的最佳场所。~ EXIT
 
 CHAIN C0MMinJ MINERVA-TALK4-1
-~Oh, agreed. A hundred percent. I think we could all do with a lot less walking dead in our lives.~
+~哦，同意。百分之百。我想咱们生活里少点行尸走肉都好。~
 EXTERN C0MMinJ MINERVA-TALK4-4
 
 CHAIN C0MMinJ MINERVA-TALK4-2
-~Ha ha. Well, if a dragon does show up, I'll just toss a knife between its eyes and hope for the best. Or maybe aiming for the heart might work better? I might even bring it down in one hit.~
+~哈哈。要是龙真来了，我就往它两眼之间扔把刀，听天由命。或者瞄心脏更管用？说不定我一刀就能放倒它。~
 EXTERN C0MMinJ MINERVA-TALK4-4
 
 CHAIN C0MMinJ MINERVA-TALK4-3
-~Do you really want to enrage these souls even more? Though I must admit, I'm curious. Maybe a peek wouldn't hurt... they're already trying to kill us as it is anyway.~
+~你真想再把这些灵魂惹得更火？不过我承认我好奇。也许看一眼不要紧……反正它们本来就在想弄死咱们。~
 EXTERN C0MMinJ MINERVA-TALK4-4
 
 CHAIN C0MMinJ MINERVA-TALK4-4
-~I'm a little relieved, actually. After what happened on the road here, I was expecting things to go all sorts of awry, but this is starting to feel like a classic adventure again.~
-= ~I'll have you know though, <PLAYER1>, I don't usually walk into crypts filled with undead. Not without trustworthy company, anyway.~
+~其实我有点松了口气。路上出了那事之后，我以为一切都会乱七八糟，可现在又开始像一场经典冒险了。~
+= ~不过你得知道，<PLAYER1>，我通常不会走进满是亡灵的地窖。至少不会在没有可信同伴的时候。~
 END
-++ ~I suppose that means you trust me?~ + MINERVA-TALK4-5
-++ ~Don't worry. I'll keep you safe.~ + MINERVA-TALK4-6
-++ ~If it comes down to one of us surviving, I'm saving myself. Just so you know.~ + MINERVA-TALK4-7
-++ ~That's enough talk.~ EXIT
+++ ~那是不是说，你信我？~ + MINERVA-TALK4-5
+++ ~别担心。我会保你平安。~ + MINERVA-TALK4-6
+++ ~要是到头来只能活一个，我保自己。先跟你说清楚。~ + MINERVA-TALK4-7
+++ ~话够了。~ EXIT
 
 CHAIN C0MMinJ MINERVA-TALK4-5
-~I do, actually, if that makes you feel better.~
+~其实我信，要是这能让你好受些。~
 EXTERN C0MMinJ MINERVA-TALK4-8
 
 CHAIN C0MMinJ MINERVA-TALK4-6
-~Thanks! Hearing you say that makes me feel much more confident.~
+~谢谢！听你这么说，我信心足多了。~
 EXTERN C0MMinJ MINERVA-TALK4-8
 
 CHAIN C0MMinJ MINERVA-TALK4-7
-~Eep. I'm... hoping it won't come to that.~
+~噫。我……希望不会到那一步。~
 EXTERN C0MMinJ MINERVA-TALK4-8
 
 CHAIN C0MMinJ MINERVA-TALK4-8
-~I trust you to cover my back, and you can trust me to make sure we don't trip a wire somewhere and die to darts or spears flying out of the ground. I'm sure we'll make it through the day.~
+~我信你替我看着背后，你也尽可信我别让咱们在哪儿绊着根线，然后被地里飞出来的飞镖长矛弄死。我肯定咱们能撑过今天。~
 EXIT
 
 // Fifth Talk: Inner Sanctum
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk5","GLOBAL",2)~ THEN C0MMinJ MINERVA-TALK5
-~This just keeps getting freakier and freakier, doesn't it?~ [C0BLANK]
+~这事儿越来越邪门，是吧？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk5","GLOBAL",1)~
 END
-++ ~Tell me about it.~ + MINERVA-TALK5-1
-++ ~I had this sinking feeling the Gem wouldn't be so easy to find.~ + MINERVA-TALK5-1
-++ ~Something tells me we haven't reached the freakiness threshold yet.~ + MINERVA-TALK5-2
-++ ~Not right now, Minerva.~ EXIT
+++ ~还用你说。~ + MINERVA-TALK5-1
+++ ~我一直有种沉下去的感觉，这宝石不会那么好找。~ + MINERVA-TALK5-1
+++ ~我感觉咱们还没到邪门的头儿。~ + MINERVA-TALK5-2
+++ ~现在不行，米涅瓦。~ EXIT
 
 CHAIN C0MMinJ MINERVA-TALK5-1
-~Well, when are things ever as easy as you want them to be? After a while, you kinda just have to expect things to go wrong.~
+~嗯，事情什么时候顺过你的意？干久了你就得习惯事情会出岔子。~
 EXTERN C0MMinJ MINERVA-TALK5-3
 
 CHAIN C0MMinJ MINERVA-TALK5-2
-~Haha. You're probably right. Then again, isn't that how most epic adventures are?~
+~哈哈。你大概说得对。可话说回来，大多数史诗冒险不就是这样吗？~
 EXTERN C0MMinJ MINERVA-TALK5-3
 
 CHAIN C0MMinJ MINERVA-TALK5-3
-~Hey, don't worry though! It's always when things go awry like this that the adventure really starts to get exciting. That I know from experience.~
+~嘿，不过别担心！事情出岔子的时候，冒险才真开始带劲。这我有经验。~
 END
-+ ~PartyHasItem("POISON")~ + ~You're right. By the way, do you have any idea what's in this vial?~ + MINERVA-TALK-5-4
-+ ~PartyHasItem("POISON")~ + ~Putting that aside for now... care to share your 'experience' regarding this mystery liquid we found?~ + MINERVA-TALK-5-4
-+ ~!PartyHasItem("POISON")~ + ~I sure hope you're right.~ EXIT
-+ ~!PartyHasItem("POISON")~ + ~We'll need more of that optimism where we're headed.~ EXIT
++ ~PartyHasItem("POISON")~ + ~你说得对。对了，你知道这小瓶里是什么吗？~ + MINERVA-TALK-5-4
++ ~PartyHasItem("POISON")~ + ~那个先放一边……关于咱们找到的这神秘液体，愿不愿意分享你的「经验」？~ + MINERVA-TALK-5-4
++ ~!PartyHasItem("POISON")~ + ~我真心希望你没错。~ EXIT
++ ~!PartyHasItem("POISON")~ + ~咱们要去的地方，需要更多这种乐观。~ EXIT
 
 CHAIN C0MMinJ MINERVA-TALK-5-4
-~Mmm. Don't take my word for it, but I think it's some sort of snake venom. I'm not sure what it could mean, although come to think of it, it's kind of strange... snake venom isn't the sort of thing most people carry around, since its potency doesn't last very long, so... hmm...~
-= ~Well, let's take it back to Arundel. I'm sure he'll be able to figure something out.~
+~唔。别全信我，不过我觉得是某种蛇毒。我不确定这能意味着什么，不过想想也挺怪……蛇毒不是大多数人会随身带的东西，因为它效力撑不了多久，所以……唔……~
+= ~嗯，带回给阿伦德尔吧。他肯定能琢磨出点什么。~
 EXIT
 
 // Sixth Talk: Dragon's Eye Exterior
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk6","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK6
-~We've been travelling together for a while now, <PLAYER1>, and I just realized... we don't really know all that much about each other yet, do we?~ [C0BLANK]
+~咱们一起走了好一阵了，<PLAYER1>，我刚发现……咱们彼此了解的其实并不多，对吧？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk6","GLOBAL",1)~
 END
-++ ~No, but I'd like it if we did.~ + MINERVA-TALK6-1
-++ ~Well... why don't you tell me something about yourself right now?~ + MINERVA-TALK6-2
-++ ~There's nothing about you I'd care to know.~ + MINERVA-TALK6-X
-++ ~I'd like to know more about you, but this isn't really the right place to talk.~ + MINERVA-TALK6-0
+++ ~不多，可我倒希望多点。~ + MINERVA-TALK6-1
+++ ~嗯……你何不现在就跟我讲讲你自己？~ + MINERVA-TALK6-2
+++ ~关于你，没什么我想知道的。~ + MINERVA-TALK6-X
+++ ~我倒想多了解你，可这儿真不是说话的地方。~ + MINERVA-TALK6-0
 
 CHAIN C0MMinJ MINERVA-TALK6-1
-~Ooh, you've said it. I'll tell you everything you should know, then!~
+~哦，你说了！那我就把该知道的都告诉你！~
 EXTERN C0MMinJ MINERVA-TALK6-2
 
 CHAIN C0MMinJ MINERVA-TALK6-2
-~Well, where should I start... I'm from Lantan, as you already know. Though truth is, I wasn't actually born there. I suppose you couldn't have guessed that, could you?~
-= ~My father's a scholar who does a lot of travelling to other nations, and my mother was a Waterdhavian seamstress. I was born in Waterdeep, in fact, but my parents brought me to Lantan at a very young age, so I barely remember the place.~
-= ~I started studying at the College of Artifice at the age of twenty, graduated at twenty-five, then spent the next thirty years or so working for various guilds around the nation. Boring stuff, really. I didn't dedicate myself to adventuring until... oh, it must be ten years by now. I boarded a ship to the Dalelands and basically never looked back.~
+~嗯，从哪儿说起……你知道，我来自兰坦。可事实是我并不是在那儿出生的。这你大概猜不到吧？~
+= ~我父亲是学者，常去别的国家游历，我母亲是深水城的裁缝。其实我生在深水城，可父母在我很小的时候就把我带到兰坦，所以那地方我几乎不记得。~
+= ~我二十岁进造物学院读书，二十五岁毕业，之后差不多三十年替国内各家行会做事。说实话挺无聊。我真正投身冒险是……哦，到如今该有十年了。我上了开往谷地的船，基本上再没回过头。~
 END
-++ ~And how old are you now, exactly?~ + MINERVA-TALK6-3
-++ ~You must've been away from your home for a long time, then.~ + MINERVA-TALK6-4
-++ ~That's enough talk for now. We can trade stories with each other later.~ + MINERVA-TALK6-0
-++ ~I didn't ask you for your life story.~ + MINERVA-TALK6-X
+++ ~那你现在到底多大？~ + MINERVA-TALK6-3
+++ ~那你离家一定很久了。~ + MINERVA-TALK6-4
+++ ~话到这儿够了。以后咱们再互相讲经历。~ + MINERVA-TALK6-0
+++ ~我没让你讲你的一生。~ + MINERVA-TALK6-X
 
 CHAIN C0MMinJ MINERVA-TALK6-3
-~Eighty-five. Don't really look it though, do I? I think I've been taking pretty good care of myself.~
+~八十五。不过我看着不像，对吧？我觉得我一直挺照顾自己的。~
 END
-+ ~!Race(Player1,GNOME)~ + ~You don't look that old, even for a gnome.~ + MINERVA-TALK6-3a
-+ ~Race(Player1,GNOME)~ + ~You don't look that old, even for one of our kind.~ + MINERVA-TALK6-3a
-++ ~Really. You certainly don't act much like your age.~ + MINERVA-TALK6-3b
-++ ~I didn't ask. Stop talking.~ + MINERVA-TALK6-X
++ ~!Race(Player1,GNOME)~ + ~就算按侏儒算，你看着也没那么老。~ + MINERVA-TALK6-3a
++ ~Race(Player1,GNOME)~ + ~就算按咱们这一族算，你看着也没那么老。~ + MINERVA-TALK6-3a
+++ ~真的。你的举止肯定不像这岁数。~ + MINERVA-TALK6-3b
+++ ~我没问。别说了。~ + MINERVA-TALK6-X
 
 CHAIN C0MMinJ MINERVA-TALK6-3a
-~Haha. I get my looks from my mother. She aged really well. If she were standing next to me, you might even confuse us for sisters.~
+~哈哈。我这模样随我母亲。她老得很慢。要是她站我旁边，你说不定会把咱们当成姐妹。~
 EXTERN C0MMinJ MINERVA-TALK6-3c
 
 CHAIN C0MMinJ MINERVA-TALK6-3b
-~Thanks! I try not to, so I'll take that as a compliment.~
+~谢谢！我一直努力不显老，那我就把这当夸奖了。~
 EXTERN C0MMinJ MINERVA-TALK6-3c
 
 CHAIN C0MMinJ MINERVA-TALK6-3c
-~I think my penchant for adventuring's got a lot to do with it. I stay active, train myself, keep in shape... I have to do all that if I intend to live long enough to see the world.~
+~我觉得这跟我爱冒险有很大关系。我保持活动、练自己、维持体格……我要是想活得够久看遍世界，就得这么做。~
 = IF ~Global("C0MMinMatch","GLOBAL",1)~ THEN ~Looking good's just a nice side benefit. Haha.~
 END
-++ ~Have you ever considered settling down?~ + MINERVA-TALK6-5
-++ ~You must've been away from your home for a long time, then.~ + MINERVA-TALK6-4
-++ ~You can tell me more about yourself later.~ + MINERVA-TALK6-0
-++ ~I didn't ask you for your life story.~ + MINERVA-TALK6-X
+++ ~你考虑过安顿下来吗？~ + MINERVA-TALK6-5
+++ ~那你离家一定很久了。~ + MINERVA-TALK6-4
+++ ~你的其他事以后再说。~ + MINERVA-TALK6-0
+++ ~我没让你讲你的一生。~ + MINERVA-TALK6-X
 
 CHAIN C0MMinJ MINERVA-TALK6-4
-~I go home to Lantan now and again. Not so much lately, though. Might be five years by now. Or was it more than that? Mmm, not sure.~
+~我时不时回兰坦。不过最近回得少了。到如今大概五年了。或者更久？唔，不确定。~
 END
-++ ~But don't you miss your family?~ + MINERVA-TALK6-4a
-++ ~Too caught up in adventuring?~ + MINERVA-TALK6-4b
-++ ~Whatever. Just be quiet.~ + MINERVA-TALK6-X
+++ ~你不想家人吗？~ + MINERVA-TALK6-4a
+++ ~太沉迷冒险了？~ + MINERVA-TALK6-4b
+++ ~随便。闭嘴吧。~ + MINERVA-TALK6-X
 
 CHAIN C0MMinJ MINERVA-TALK6-4a
-~I think about my papa and mama sometimes. And my two brothers. And my little sister. But they all understand. Plus, I know they'll always be there. I can always go back and see them when I want to.~
-= ~Right now, though? I just want to live life to the fullest. And the best way I can see myself doing that is by being as daring as possible.~
+~我有时会想我爹娘。还有我两个哥哥，和我小妹。可他们都懂。再说我知道他们总在那儿。我想回去看他们，随时都能回去。~
+= ~不过眼下？我只想把日子过得尽兴。在我看来，最好的办法就是尽可能胆大。~
 END
-++ ~Have you ever considered settling down?~ + MINERVA-TALK6-5
-++ ~And how old are you, anyway? You certainly look young.~ + MINERVA-TALK6-3
-++ ~You can tell me more about yourself later.~ + MINERVA-TALK6-0
-++ ~I didn't ask you for your life story.~ + MINERVA-TALK6-X
+++ ~你考虑过安顿下来吗？~ + MINERVA-TALK6-5
+++ ~那你到底多大？你看着确实年轻。~ + MINERVA-TALK6-3
+++ ~你的其他事以后再说。~ + MINERVA-TALK6-0
+++ ~我没让你讲你的一生。~ + MINERVA-TALK6-X
 
 CHAIN C0MMinJ MINERVA-TALK6-4b
-~Basically.~
+~差不多。~
 EXTERN C0MMinJ MINERVA-TALK6-4a
 
 CHAIN C0MMinJ MINERVA-TALK6-5
-~I've tried. Almost managed it, too! Lasted a good few years, too.~
+~我试过。差一点就成了！还撑了好几年呢。~
 END
-++ ~You did?~ + MINERVA-TALK6-6
-++ ~That's surprising.~ + MINERVA-TALK6-6
-++ ~Maybe I'll ask you the details some other time.~ + MINERVA-TALK6-0
+++ ~你试过？~ + MINERVA-TALK6-6
+++ ~真让人意外。~ + MINERVA-TALK6-6
+++ ~细节我改天再问你。~ + MINERVA-TALK6-0
 
 CHAIN C0MMinJ MINERVA-TALK6-6
-~You could never tell just from looking at me, could you? But it's true! I almost managed it, too. Even got married.~
+~光看我这模样，你永远看不出来，对吧？可这是真的！我差一点就成了。甚至还结了婚。~
 END
-+ ~Global("C0MMinMatch","GLOBAL",1)~ + ~Oh. I... wasn't expecting that.~ + MINERVA-TALK6-7
-++ ~You're married?~ + MINERVA-TALK6-7
++ ~Global("C0MMinMatch","GLOBAL",1)~ + ~哦。我……没想到。~ + MINERVA-TALK6-7
+++ ~你结婚了？~ + MINERVA-TALK6-7
 
 CHAIN C0MMinJ MINERVA-TALK6-7
-~Well... I *was* married. It's all in the past now.~
+~嗯……我*结过*婚。如今都成往事了。~
 END
-++ ~I'd like to know about it.~ + MINERVA-TALK6-8
+++ ~我想知道这事。~ + MINERVA-TALK6-8
 
 CHAIN C0MMinJ MINERVA-TALK6-8
-~Sure. It's not a particularly interesting life story, though.~
-= ~I was around sixty at the time. I was still young, but I already felt the wanterlust at that time. My parents weren't so happy with what they saw as a lack of purpose, and got me a teaching position at the Sambaran academy so I would stop chasing adventures for my whole life.~
-= ~It was alright for a while. I was talented, and I was happy to inspire young Lantanese students into skilled artificers. But I was never satisfied with it. My parents thought I was just lonely, and encouraged me to find somebody to spend my life with.~
-= ~*sigh* So I found one. His name was Arthur Dinelstrand, an inventor from Anchoril. I met him during one of my visits to the Sambaran research institute where he was working as an alchemist, working all sorts of dangerous and exciting experiments... that explosive oil I used for my knives? The original formula was made by him.~
-= ~He was kind, hardworking, intelligent—and he adored me. I think I liked him as well... enough to let him court me, at least. I thought he'd be a good person to spend my life with, even if I wasn't so excited over the idea... so I agreed immediately when he asked to marry me. We were married for over twenty years, and even had a child, a boy we named Kairos.~
-= ~It was a hard thing to admit that liking Arthur didn't mean I loved him. And even though I cared for Kairos, and I wasn't unhappy with my life, I still wanted nothing more than to board a ship and go back to the world beyond Lantan.~
+~当然。不过也不是什么特别有意思的人生故事。~
+= ~那时我大概六十岁。我还年轻，可那时就已经感到那种想上路的痒。父母看我这样没什么目标，不太高兴，就在桑巴兰学院给我弄了个教职，好让我别再一辈子追着冒险跑。~
+= ~有那么一阵还行。我有天分，也乐于鼓励兰坦的年轻学生成为熟练工匠。可我从来不满足。父母以为我只是孤单，就催我找个人一起过日子。~
+= ~*叹气* 于是我就找了一个。他叫亚瑟·迪内尔斯特兰德，安克里尔的发明家。我是在一次去桑巴兰研究所时遇见他的，他在那儿当炼金师，做各种又危险又刺激的实验……我刀上用那种爆炸油？最初配方就是他配的。~
+= ~他善良、勤快、聪明——而且很爱我。我想我也喜欢他……至少喜欢到让他追求我。我觉得他会是个能一起过一辈子的好人，虽然我对这念头并不怎么激动……所以他一求婚我就立刻答应了。我们结婚二十多年，还生了个孩子，男孩，取名凯罗斯。~
+= ~要承认「喜欢亚瑟并不等于爱他」是件难事。而且尽管我疼凯罗斯，日子也不能说我不幸福，我最想要的还是登上一艘船，回到兰坦之外的世界去。~
 DO ~SetGlobal("C0MMinKnowsFamily","GLOBAL",1)~
-= ~You can probably guess how it ended. Arthur and I couldn't compromise on the lives we wanted to live. His heart belonged to Lantan, and mine was... out there. We accepted that, ended our marriage, and both went back to the lives where we belonged.~
+= ~结局你大概猜得到。亚瑟和我在想过什么样的日子上没法妥协。他的心属于兰坦，我的心……在外头。我们接受了这点，结束了婚姻，各自回到属于自己的生活。~
 END
-++ ~It was irresponsible of you to do that.~ + MINERVA-TALK6-9
-++ ~I can't imagine your parents were all too happy.~ + MINERVA-TALK6-10
-++ ~How are your ex-husband and son now?~ + MINERVA-TALK6-11
-++ ~I've heard enough. We should move on.~ + MINERVA-TALK6-0
+++ ~你那么做太不负责任了。~ + MINERVA-TALK6-9
+++ ~我想你父母不会太高兴。~ + MINERVA-TALK6-10
+++ ~你前夫和儿子现在怎么样？~ + MINERVA-TALK6-11
+++ ~我听够了。咱们该走了。~ + MINERVA-TALK6-0
 
 CHAIN C0MMinJ MINERVA-TALK6-9
-~Maybe. I've definitely felt that way more than once. But I think the more irresponsible thing to do would have been to keep forcing that life. Maybe the most irresponsible action was trying to fit into it at all.~
+~也许吧。我肯定不止一次这么想过。可我觉得更不负责任的做法，是硬把自己塞进那种日子。也许最不负责任的事，就是当初硬去适应它。~
 EXTERN C0MMinJ MINERVA-TALK6-12
 
 CHAIN C0MMinJ MINERVA-TALK6-10
-~Yep, it was hard for them to accept it at first. I was their favorite daughter, the prodigy. And I wanted to travel instead of using my talent for Lantan. But they're good people. They didn't blame me in the end.~
+~嗯，一开始他们很难接受。我是他们最疼的女儿，是神童。我却想去旅行，而不是把自己的天分献给兰坦。可他们是好人。到最后也没怪我。~
 EXTERN C0MMinJ MINERVA-TALK6-12
 
 CHAIN C0MMinJ MINERVA-TALK6-11
-~I'm not sure. I haven't read a letter from them since I came to the North. I'm sure Arthur's still hard at work at the institute, if he's not already a Grand Artificer by now... and Kairos is probably studying at the academy... given how respected Arthur and I were, I'm sure they reserved a spot for him since his birth.~
+~我不确定。我到北方以后就没收到过他们的信。亚瑟肯定还在研究所埋头做事，说不定现在已经是大师级工匠了……凯罗斯大概在学院读书……凭我和亚瑟当年的名望，他一出生学院就给他留了位置吧。~
 EXTERN C0MMinJ MINERVA-TALK6-12
 
 CHAIN C0MMinJ MINERVA-TALK6-12
-~That's the life I used to have. Not as exciting as crypt crawling and artifact hunting, is it?~
+~那就是我以前的日子。没有爬地窖、找神器那么刺激，对吧？~
 END
-++ ~I'm glad I know more about you now, at least.~ + MINERVA-TALK6-13
-++ ~Others would give anything for the life you had.~ + MINERVA-TALK6-14
-++ ~I understand. Some of us aren't meant to settle down.~ + MINERVA-TALK6-15
-++ ~That was barely worth listening to.~ + MINERVA-TALK6-X
+++ ~至少现在我对你多知道些了，我挺高兴。~ + MINERVA-TALK6-13
+++ ~别人会不惜一切换你那种日子。~ + MINERVA-TALK6-14
+++ ~我明白。有些人天生就不该安顿下来。~ + MINERVA-TALK6-15
+++ ~这听着简直不值得。~ + MINERVA-TALK6-X
 
 CHAIN C0MMinJ MINERVA-TALK6-13
-~Oh, I'm glad that at least I didn't bore you.~
+~哦，那我高兴，至少没把你闷着。~
 END
 IF ~Global("C0MMinMatch","GLOBAL",1)~ THEN EXTERN C0MMinJ MINERVA-TALK6-ROM
 IF ~!Global("C0MMinMatch","GLOBAL",1)~ THEN EXTERN C0MMinJ MINERVA-TALK6-16
 
 CHAIN C0MMinJ MINERVA-TALK6-14
-~You're probably right. I do feel guilty about being so quick to give up a life that some people can't even have. It's why I don't like thinking about it.~
+~你大概说得对。这么快就放弃一种有些人根本求不到的日子，我确实有点内疚。所以我不爱想这事。~
 END
 IF ~Global("C0MMinMatch","GLOBAL",1)~ THEN EXTERN C0MMinJ MINERVA-TALK6-ROM
 IF ~!Global("C0MMinMatch","GLOBAL",1)~ THEN EXTERN C0MMinJ MINERVA-TALK6-16
 
 CHAIN C0MMinJ MINERVA-TALK6-15
-~I wouldn't mind settling down one day... but for now, I still have so much more to see, and so much more to learn.~
+~哪天安顿下来我倒不介意……可眼下我还有太多东西要看，太多东西要学。~
 END
 IF ~Global("C0MMinMatch","GLOBAL",1)~ THEN EXTERN C0MMinJ MINERVA-TALK6-ROM
 IF ~!Global("C0MMinMatch","GLOBAL",1)~ THEN EXTERN C0MMinJ MINERVA-TALK6-16
 
 CHAIN C0MMinJ MINERVA-TALK6-16
-~Anyways, I think we've had long enough of a break now. Shouldn't we be going in that cave, to find the treasure we've been looking for?~
+~总之，我看咱们歇得够久了。不该进那个洞去找咱们一直在找的宝物吗？~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK6-ROM
-~But... does it bother you, <PLAYER1>? That I've not only been married, had a child, but also willingly left it all behind?~
+~可是……<PLAYER1>，这让你介意吗？我不仅结过婚、有过孩子，还甘愿把那些全丢下。~
 END
-++ ~Why would you ask that?~ + MINERVA-TALK6-ROM-1
-++ ~It doesn't. Your past is what it is, and I'm more interested in the current you.~ + MINERVA-TALK6-ROM-2
-+ ~GlobalGT("C0MMinFlirt","GLOBAL",0)~ + ~If I had known, I wouldn't have done all that flirting.~ + MINERVA-TALK6-ROM-3
-++ ~I'm glad you told me, but I won't feel comfortable being more than friends with you now that I know.~ + MINERVA-TALK6-ROM-3
+++ ~你为什么问这个？~ + MINERVA-TALK6-ROM-1
+++ ~不介意。你的过去就是你的过去，我更在意现在的你。~ + MINERVA-TALK6-ROM-2
++ ~GlobalGT("C0MMinFlirt","GLOBAL",0)~ + ~我要是早知道，就不会那样跟你调情了。~ + MINERVA-TALK6-ROM-3
+++ ~我很高兴你告诉我，可既然知道了，我就没法安心跟你超出朋友的关系。~ + MINERVA-TALK6-ROM-3
 
 CHAIN C0MMinJ MINERVA-TALK6-ROM-1
-~Just in case... I wouldn't want you to be led on, only to find that our lives aren't compatible, or I might leave you one day for myself...~
+~以防万一……我不想让你被牵着走，结果发现咱们的日子根本合不来，或者哪天我为了自己离开你……~
 == C0MMINJ IF ~GlobalGT("C0MMinFlirt","GLOBAL",0)~ THEN ~I know we've been teasing each other throughout our adventure so far, and I've liked it... but that's something I'm used to. I'm not going to demand anything more. I like you, <PLAYER1>, and I don't want to end up hurting you.~
 == C0MMINJ ~But... if you're okay with that, or if we're more alike than I think... then maybe... I could think about starting anew. Maybe...~
 END
-++ ~I would like that, Minerva.~ + MINERVA-TALK6-ROM-2
-++ ~You have a point. I'm not sure we're fit for each other.~ + MINERVA-TALK6-ROM-3
+++ ~我愿意，米涅瓦。~ + MINERVA-TALK6-ROM-2
+++ ~你说得有道理。我不确定咱们彼此合适。~ + MINERVA-TALK6-ROM-3
 
 CHAIN C0MMinJ MINERVA-TALK6-ROM-2
-~Haha... now you've really surprised me, <PLAYER1>. I thought you'd give up on me for sure, but I guess there's always the chance for a pleasant surprise...~
+~哈哈……<PLAYER1>，你这下真让我意外了。我以为你肯定要放弃我了，看来总还有让人惊喜的机会……~
 == C0MMINJ IF ~OR(3)
 Race(Player1,HALFLING)
 Race(Player1,GNOME)
@@ -829,529 +829,529 @@ Race(Player1,DWARF)~ THEN ~(Without warning, she leans forward and gives you a t
 DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",1)~ EXTERN C0MMinJ MINERVA-TALK6-16
 
 CHAIN C0MMinJ MINERVA-TALK6-ROM-3
-~Yep. I understand, <PLAYER1>. No hard feelings.~
+~嗯。我明白，<PLAYER1>。不往心里去。~
 DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",3)~ EXTERN C0MMinJ MINERVA-TALK6-16
 
 CHAIN C0MMinJ MINERVA-TALK6-X
-~Ouch. Right to the point, huh? Well, I don't need to be a genius to know where my voice isn't wanted.~
+~哎哟。真够直截了当的，是吧？好吧，我不用是天才也知道自己的声音在哪儿不受欢迎。~
 END
 IF ~Global("C0MMinRomanceActive","GLOBAL",1)~ DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",3) SetGlobal("C0MMinShutUp","GLOBAL",1)~ EXIT
 IF ~!Global("C0MMinRomanceActive","GLOBAL",1)~ DO ~SetGlobal("C0MMinShutUp","GLOBAL",1)~ EXIT
 
 CHAIN C0MMinJ MINERVA-TALK6-0
-~Right. I get your point. Maybe later then?~
+~好。我明白你的意思。那改天？~
 EXIT
 
 // Seventh Talk: Dragon's Eye - Level 3
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk7","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK7
-~Lizard men after lizard men and undead after undead... at this rate, I'm going to run out of knives before we run out of enemies to fight.~ [C0BLANK]
+~蜥蜴人一个接一个，亡灵一波接一波……照这速度，我刀先没了，敌人都还没打完。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk7","GLOBAL",1)~
 END
-++ ~You're right. This is getting tiresome.~ + MINERVA-TALK7-1
-++ ~If you run out, just leave the rest to me.~ + MINERVA-TALK7-2
-++ ~Ever considered fighting up close once in a while?~ + MINERVA-TALK7-3
-++ ~Not right now, Minerva. Just keep an eye out for the next ambush.~ + MINERVA-TALK7-0
+++ ~你说得对。这越来越叫人腻烦。~ + MINERVA-TALK7-1
+++ ~你要是用完了，剩下的交给我。~ + MINERVA-TALK7-2
+++ ~有没有想过偶尔也贴身打一场？~ + MINERVA-TALK7-3
+++ ~现在不行，米涅瓦。留意下一次埋伏就好。~ + MINERVA-TALK7-0
 
 CHAIN C0MMinJ MINERVA-TALK7-0
-~True, true. I guess I should save a few blades, just in case something truly dangerous shows up, shouldn't I?~
+~对，对。我看我该省几把刀，万一真有什么危险的东西冒出来，对吧？~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK7-1
-~I'd resort to blowing things up, but that... didn't work so well the last time I tried it.~
+~我本想干脆把东西炸掉，可那……上回我试的时候效果不太好。~
 EXTERN C0MMinJ MINERVA-TALK7-4
 
 CHAIN C0MMinJ MINERVA-TALK7-2
-~Oh, don't worry. When I run out I usually just take out my encyclopedia and smack the monsters on the kneecaps with it. About the only thing I use it for nowadays.~
+~哦，别担心。刀用完了我通常就掏出我的百科全书，拿它敲怪物的膝盖。如今这本书大概就干这个用。~
 EXTERN C0MMinJ MINERVA-TALK7-4
 
 CHAIN C0MMinJ MINERVA-TALK7-3
-~Sure, I enjoy a good scrap once in a while. Stabbing kneecaps gets old real fast though.~
+~当然，偶尔打场好架我也享受。不过老捅膝盖很快就腻了。~
 EXTERN C0MMinJ MINERVA-TALK7-4
 
 CHAIN C0MMinJ MINERVA-TALK7-4
-~Anyways, what do you think's waiting for us at the end of the tunnel? A treasure trove guarded by dragons? An evil lich guarding magical secrets? Maybe... demons?~
+~总之，你觉得隧道尽头等着咱们的是什么？龙守着的宝藏？邪恶巫妖守着的魔法秘密？也许……恶魔？~
 END
-++ ~I hope it's a dragon. That would make this adventure for me.~ + MINERVA-TALK7-5
-++ ~Treasure sounds good. Rather not have to fight for it though.~ + MINERVA-TALK7-6
-++ ~Probably a lich. That'd explain all the skeletons.~ + MINERVA-TALK7-7
-++ ~Knowing our luck, it's probably less likely to be 'demons' and more an 'infernal invasion'.~ + MINERVA-TALK7-8
-++ ~Dragons, liches, demons... let them come. The more the merrier.~ + MINERVA-TALK7-9
-++ ~I want to find a bathhouse. That's not very likely, though.~ + MINERVA-TALK7-10
-++ ~It's a waste of time to speculate. We'll find out soon enough.~ + MINERVA-TALK7-0
+++ ~我希望是条龙。那这趟冒险对我就值了。~ + MINERVA-TALK7-5
+++ ~宝藏听着不错。不过最好不用为它打一架。~ + MINERVA-TALK7-6
+++ ~大概是巫妖。这就能解释那些骷髅了。~ + MINERVA-TALK7-7
+++ ~按咱们的运气看，大概不太会是「恶魔」，更可能是一场「邪魔入侵」。~ + MINERVA-TALK7-8
+++ ~龙、巫妖、恶魔……让它们来吧。越多越热闹。~ + MINERVA-TALK7-9
+++ ~我想找间澡堂。不过那不太可能。~ + MINERVA-TALK7-10
+++ ~瞎猜是浪费时间。很快就知道了。~ + MINERVA-TALK7-0
 
 CHAIN C0MMinJ MINERVA-TALK7-5
-~If it is a dragon, do you think it'd be the type to talk before it breathes fire at us? Maybe it'll enjoy riddles?~
+~要是真是龙，你觉得它会先跟咱们说话再喷火吗？说不定它爱猜谜？~
 EXTERN C0MMinJ MINERVA-TALK7-11
 
 CHAIN C0MMinJ MINERVA-TALK7-6
-~Treasure's nice. Never could carry it all with me with my short legs, though. I've been working on a design to carry things for me though. Maybe with spider legs... hmm.~
+~宝藏是好。可我这两条短腿从来没法把它全带上。不过我一直在设计个替我扛东西的玩意儿。也许用蜘蛛腿……唔。~
 EXTERN C0MMinJ MINERVA-TALK7-11
 
 CHAIN C0MMinJ MINERVA-TALK7-7
-~Yeesh. Liches always give me the creeps. All bones and curses... although there was this one I met in an Illefarn crypt who didn't want to suck my soul out of my body for a change. Had some interesting stories to tell too.~
+~咦。巫妖总让我发毛。全是骨头和诅咒……不过我在伊莱法恩一座地窖里遇见过一个，难得没想把我魂从身体里吸出来。还讲了些挺有意思的故事。~
 EXTERN C0MMinJ MINERVA-TALK7-11
 
 CHAIN C0MMinJ MINERVA-TALK7-8
-~That'd be a new one for me. I'm not sure I've prepared enough knives for a demon army. Maybe some explosive weapons wouldn't be such a bad idea after all.~
+~那对我来说倒是头一遭。我不确定自己备的刀够不够对付一支恶魔军。也许弄点爆炸武器终究不算坏主意。~
 EXTERN C0MMinJ MINERVA-TALK7-11
 
 CHAIN C0MMinJ MINERVA-TALK7-9
-~Imagine the stories they'd tell one day. "<PLAYER1> and Minerva, destroyers of the Legions of... Something." I wonder what they'd call a legion of lizardmen, undead and other beasties?~
+~想想他们有一天会怎么讲。「<PLAYER1>与米涅瓦，某某军团的毁灭者。」我好奇一队蜥蜴人、亡灵和别的怪物凑在一起该叫什么军团？~
 EXTERN C0MMinJ MINERVA-TALK7-11
 
 CHAIN C0MMinJ MINERVA-TALK7-10
-~That *would* be nice... a shame to clean off all this dirt, though. I think it adds authenticity to the journey. *sniffs* Though it does smell.~
+~那*倒*是不错……不过把这些脏东西洗掉就可惜了。我觉得它给这趟旅程添了真实感。*嗅嗅* 虽然确实有味儿。~
 EXTERN C0MMinJ MINERVA-TALK7-11
 
 CHAIN C0MMinJ MINERVA-TALK7-11
-~Well, in any case, I'll be with you no matter what's at the end of this tunnel. You can count on that.~
+~嗯，无论如何，不管这隧道尽头是什么，我都会跟你在一起。这点你尽可放心。~
 = IF ~Global("C0MMinRomanceActive","GLOBAL",1)~ THEN ~I wouldn't want you of all people to die, you know?~
 EXIT
 
 // Eighth Talk: After killing Yxunomei
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk8","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK8
-~So this is the Heartstone Gem! I've been wondering what it looked like... it's pretty. And there's a warmth to it that... it's hard to explain. It's nicer than sitting by a fireplace while it's snowing outdoors.~ [C0BLANK]
+~这就是心石宝石！我一直好奇它长什么样……真漂亮。而且它带着一种暖意，那种……很难说清。比外面下着雪时坐在壁炉边还舒服。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk8","GLOBAL",1)~
 END
-++ ~You aren't even going to comment on the marilith we just defeated?~ + MINERVA-TALK8-1
-++ ~The name is appropriate. It beats just like a heart does.~ + MINERVA-TALK8-2
-++ ~It's a pretty gem. I don't see what's so special about it.~ + MINERVA-TALK8-3
-++ ~Leave whatever you have to say for later. I'm exhausted after that fight.~ + MINERVA-TALK8-0
+++ ~你连评价一下咱们刚打败的玛丽利斯都不打算？~ + MINERVA-TALK8-1
+++ ~这名字起得合适。它跳得就跟心脏一样。~ + MINERVA-TALK8-2
+++ ~是块漂亮的宝石。我看不出有什么特别的。~ + MINERVA-TALK8-3
+++ ~有话以后再说。那场仗把我累垮了。~ + MINERVA-TALK8-0
 
 CHAIN C0MMinJ MINERVA-TALK8-0
-~Okay, fine. Dibs on holding onto the Heartstone Gem until we bring it to Arundel, though. It's surprisingly warm and cuddly for a magical stone.~
+~好，行。不过在心石送到阿伦德尔之前，归我抱着。作为一块魔法石，它暖得出奇，还挺好抱。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK8-1
-~What? Oh, right. That wasn't so bad. The eerie stuff she said spooked me out, but I'm sure it'll make more sense to us when we learn more in the future. The Heartstone, though... it's like it's alive, just like a heart.~
+~什么？哦，对。那倒不算太糟。她说的那些怪话把我吓着了，不过我相信以后知道得更多，就能明白些。至于心石……它像活的，就真像颗心。~
 EXTERN C0MMinJ MINERVA-TALK8-4
 
 CHAIN C0MMinJ MINERVA-TALK8-2
-~Yep, like a heart. No wonder it's a druidic artifact. It's almost like it's alive... or maybe it is.~
+~嗯，像颗心。难怪是德鲁伊的神器。它几乎就像活的……也许它真是。~
 EXTERN C0MMinJ MINERVA-TALK8-4
 
 CHAIN C0MMinJ MINERVA-TALK8-3
-~It's definitely more than just a pretty gem. It's like... it's alive. Just like a heart.~
+~它肯定不只是块漂亮宝石。它就像……活的。就跟心脏一样。~
 EXTERN C0MMinJ MINERVA-TALK8-4
 
 CHAIN C0MMinJ MINERVA-TALK8-4
-~No, not a heart... more like, an eye... an eye that can see anything, everything... in every direction, all at once.~
+~不，不像心……更像一只眼……一只能一眼看尽任何东西、所有东西、四面八方的那只眼。~
 END
-++ ~How can you tell that much just from holding it?~ + MINERVA-TALK8-5
-++ ~That's disturbing. Now I feel like it's watching me, too.~ + MINERVA-TALK8-6
-++ ~Enough. Put it somewhere safe. It's not to be played with.~ + MINERVA-TALK8-0
+++ ~你就抱着它一会儿，怎么看出这么多？~ + MINERVA-TALK8-5
+++ ~这真叫人不安。现在我觉得它也在盯着我。~ + MINERVA-TALK8-6
+++ ~够了。放到安全的地方。那不是拿来玩的。~ + MINERVA-TALK8-0
 
 CHAIN C0MMinJ MINERVA-TALK8-5
-~Call it an artificer's instinct. Like when I sniff out dangers and secrets wherever I venture to. It becomes as natural as breathing.~
+~就当是工匠的直觉。就像我去哪儿都能嗅出危险和秘密。这跟呼吸一样自然。~
 EXTERN C0MMinJ MINERVA-TALK8-7
 
 CHAIN C0MMinJ MINERVA-TALK8-6
-~Oh, I'm sure it doesn't mean any harm, even if it was watching. Isn't that right, Heartstone Gem? Mmm, maybe I need to think of a friendlier name to call it...~
+~哦，我肯定它没恶意，就算它在看。对吧，心石宝石？唔，也许我得给它起个更亲昵的名字……~
 EXTERN C0MMinJ MINERVA-TALK8-7
 
 CHAIN C0MMinJ MINERVA-TALK8-7
-~Hmm, it's too bad I can't use its magic, though. There's so much I'd like to know! Like where I should go for my next adventure, or where I can find a platinum dragon, or...~
-= ~I could even take a look at my home, if I wanted to. Wouldn't that be nice?~
+~唔，可惜我不能用它的魔法。我想知道的事太多了！比如下次冒险该去哪儿，比如哪儿能找到铂金龙，还有……~
+= ~我要是愿意，甚至能看看自己的家。那不好吗？~
 END
-++ ~Miss home after all, do you?~ + MINERVA-TALK8-8
-++ ~Wouldn't that ruin the mystery of adventuring?~ + MINERVA-TALK8-9
-++ ~I don't care. Just don't drop the thing.~ + MINERVA-TALK8-0
+++ ~到底还是想家，是吧？~ + MINERVA-TALK8-8
+++ ~那不会毁了冒险的神秘感吗？~ + MINERVA-TALK8-9
+++ ~我不管。别把那东西掉了就行。~ + MINERVA-TALK8-0
 
 CHAIN C0MMinJ MINERVA-TALK8-8
-~Sure. I wish I could go back, but I'd feel like I'm not making the best use of my time. If only I could be in two places at once!~
+~当然。我真希望能回去，可那样我会觉得自己没把时间用在该用的地方。要是我能同时身在两地就好了！~
 EXTERN C0MMinJ MINERVA-TALK8-10
 
 CHAIN C0MMinJ MINERVA-TALK8-9
-~Hmm... true. Maybe it's for the best I can't use the Gem, then. I wouldn't be able to stop myself!~
+~唔……对。那也许我用不了这宝石是好事。我根本会停不下来！~
 EXTERN C0MMinJ MINERVA-TALK8-10
 
 CHAIN C0MMinJ MINERVA-TALK8-10
-~Well, let's take it back to Arundel so he can work its magic. I'm excited to see exactly how it works!~
+~嗯，把它带给阿伦德尔，让他施展它的魔法。我太想看它到底怎么运作了！~
 EXIT
 
 // Ninth Talk: Leaving Dragon's Eye
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk9","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK9
-~Phew... finally out of those tunnels. I feel like I haven't seen the sky for days, even though it hasn't nearly been that long... I think.~ [C0BLANK]
+~呼……终于出了那些隧道。我觉得好几天没见着天了，虽然其实根本没这么久……我想。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk9","GLOBAL",1)~
 END
-++ ~Maybe it has been that long. It was quite a lengthy venture, after all.~ + MINERVA-TALK9-1
-++ ~I've never been more glad to see the sky in my life.~ + MINERVA-TALK9-2
-++ ~We're alive, and that's all that counts.~ + MINERVA-TALK9-3
-++ ~Less talk, more walk. We're not done until we've brought the Gem back to Kuldahar.~ + MINERVA-TALK9-0
+++ ~也许真有那么久。毕竟这趟跋涉挺长。~ + MINERVA-TALK9-1
+++ ~我这辈子从没这么高兴见到天空。~ + MINERVA-TALK9-2
+++ ~咱们活着，这就最要紧。~ + MINERVA-TALK9-3
+++ ~少说话，多走路。宝石没送回库尔达哈，咱们就不算完。~ + MINERVA-TALK9-0
 
 CHAIN C0MMinJ MINERVA-TALK9-0
-~*sigh* You know what? I'm not even going to argue with you this time. I want to go back, too. There'd better be some hot tea ready for us at the inn once we get back!~
+~*叹气* 你知道吗？这回我都不跟你争了。我也想回去。等咱们回去，旅店里最好有热茶备着！~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK9-1
-~Hmm... hey, does my skin look any lighter? I think it has been, with all that time spent underground.~
+~唔……嘿，我的皮肤看着是不是白了点？在地底下待那么久，我觉得是白了。~
 EXTERN C0MMinJ MINERVA-TALK9-4
 
 CHAIN C0MMinJ MINERVA-TALK9-2
-~Right! Same here. Oh, thank you, beautiful sky, for not forsaking us after all this time! *breathes* Ahh... fresh air's never tasted so good.~
+~对！我也一样。哦，谢谢你，美丽的天空，过了这么久还没丢下咱们！*深呼吸* 啊啊……新鲜空气从没这么好吃过。~
 EXTERN C0MMinJ MINERVA-TALK9-4
 
 CHAIN C0MMinJ MINERVA-TALK9-3
-~Yep! And with all of our fingers and toes still attached to boot!~
+~嗯！而且手指脚趾一个都没少！~
 EXTERN C0MMinJ MINERVA-TALK9-4
 
 CHAIN C0MMinJ MINERVA-TALK9-4
-~Anyways, you think there'll be welcoming celebration waiting for us when we make it back to Kuldahar? Or maybe some other kind of surprise?~
+~总之，你觉得咱们回到库尔达哈会有欢迎的庆祝吗？或者别的什么惊喜？~
 END
-++ ~Careful, you'll jinx it. Next thing you know there'll be monsters waiting for us.~ + MINERVA-TALK9-5
-++ ~I hope there's cake. There'd better be cake.~ + MINERVA-TALK9-6
-++ ~Probably not. They're probably taking bets on our odds of survival.~ + MINERVA-TALK9-7
-++ ~No celebrating for me, thanks. I'd rather just fall into bed for a while, at least until our next quest.~ + MINERVA-TALK9-8
+++ ~当心，别乌鸦嘴。说不定下一件事就是怪物在等咱们。~ + MINERVA-TALK9-5
+++ ~我希望有蛋糕。最好有蛋糕。~ + MINERVA-TALK9-6
+++ ~大概没有。他们大概正拿咱们的存活几率下注呢。~ + MINERVA-TALK9-7
+++ ~庆祝就不用了，谢了。我宁可先扑到床上躺一阵，至少躺到下一个任务。~ + MINERVA-TALK9-8
 
 CHAIN C0MMinJ MINERVA-TALK9-5
-~Haha, that can't be true. We just killed all the monsters, remember?~
+~哈哈，那不可能。咱们刚把怪物都杀光了，记得吗？~
 EXTERN C0MMinJ MINERVA-TALK9-9
 
 CHAIN C0MMinJ MINERVA-TALK9-6
-~Ooh, cake. That's a good idea. We should get cake!~
+~哦，蛋糕。好主意。咱们该弄个蛋糕！~
 EXTERN C0MMinJ MINERVA-TALK9-9
 
 CHAIN C0MMinJ MINERVA-TALK9-7
-~Haha. Who'd ever want to bet against us?~
+~哈哈。谁会想押咱们输？~
 EXTERN C0MMinJ MINERVA-TALK9-9
 
 CHAIN C0MMinJ MINERVA-TALK9-8
-~Oh... now that you mention it, that would be nice. *sniff* And a bath, too. I'm covered in all sorts of grimy muck. Eww.~
+~哦……你这么说，那倒不错。*嗅* 还有洗个澡。我身上糊满了各种脏东西。呃。~
 EXTERN C0MMinJ MINERVA-TALK9-9
 
 CHAIN C0MMinJ MINERVA-TALK9-9
-~Well, guess we'll see for ourselves. Race you back to Kuldahar, <PLAYER1>!~
-= ~...On second thought, we're a preeeetty long distance away for running the whole route, aren't we? I guess we'll just have to settle for a leisurely walk down the scenic path instead. Come on!~
+~嗯，到了自己看吧。跑回库尔达哈，<PLAYER1>，我跟你比！~
+= ~……再想想，这一整段路跑下来可远得……挺远的，对吧？我看咱们还是凑合着沿风景好的小道慢慢走吧。来！~
 EXIT
 
 // Tenth Talk: Severed Hand - 2nd Level
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk10","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK10
-~What a beautiful place... even in ruin. It must have been breathtaking when during its time.~ [C0BLANK]
+~多美的地方……就算成了废墟。当年一定美得让人屏息。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk10","GLOBAL",1)~
 END
-+ ~Race(Player1,ELF)~ + ~I can't believe this is what's left of my people's lands.~ + MINERVA-TALK10-ELF
-+ ~!Race(Player1,ELF)~ + ~It's tragic to see it in such disarray.~ + MINERVA-TALK10-1
-++ ~What happened here? Everything's in such a state of unrest.~ + MINERVA-TALK10-2
-++ ~Some glorious elven fortress this turned out to be! How pathetic.~ + MINERVA-TALK10-3
-++ ~Hopefully Larrel's still here.~ + MINERVA-TALK10-4
-++ ~There's no time for musing. We need to find Larrel.~ + MINERVA-TALK10-0
++ ~Race(Player1,ELF)~ + ~我真不敢相信我族人的土地就剩下这些。~ + MINERVA-TALK10-ELF
++ ~!Race(Player1,ELF)~ + ~看它这么残破，真是悲惨。~ + MINERVA-TALK10-1
+++ ~这儿出了什么事？一切都这么不安宁。~ + MINERVA-TALK10-2
+++ ~好一座辉煌的精灵要塞！真可悲。~ + MINERVA-TALK10-3
+++ ~希望拉瑞尔还在这儿。~ + MINERVA-TALK10-4
+++ ~没时间感慨。咱们得找到拉瑞尔。~ + MINERVA-TALK10-0
 
 CHAIN C0MMinJ MINERVA-TALK10-ELF
-~I'm sorry, <PLAYER1>. This must be especially hard on you.~
+~对不起，<PLAYER1>。这对你肯定格外难受。~
 EXTERN C0MMinJ MINERVA-TALK10-1
 
 CHAIN C0MMinJ MINERVA-TALK10-0
-~Right. Hopefully he'll explain what happened here... assuming he's still around...~
+~对。希望他能解释这儿出了什么事……前提是他还在……~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK10-1
-~It's one thing for a place and its people to have died out, but this... something far worse happened here.~
+~一个地方和它的人消亡，这是一回事，可这儿……这儿发生过远比那更糟的事。~
 EXTERN C0MMinJ MINERVA-TALK10-5
 
 CHAIN C0MMinJ MINERVA-TALK10-2
-~I know. It's strange... it's not that this place was abandoned. It's like... something happened to all the people here... all at once, just... suddenly.~
+~我知道。这很奇怪……不是这地方被弃了。而是像……这儿所有人都出了事……同时、就那么……突然。~
 EXTERN C0MMinJ MINERVA-TALK10-5
 
 CHAIN C0MMinJ MINERVA-TALK10-3
-~Don't be so awful, <PLAYER1>. Whatever caused this place to become the way it is must've been... worse than anything I can imagine.~
+~别说得那么可怕，<PLAYER1>。把这儿弄成这样的东西，一定……比我所能想象的都糟。~
 EXTERN C0MMinJ MINERVA-TALK10-5
 
 CHAIN C0MMinJ MINERVA-TALK10-4
-~I'm sure he is. Arundel said so, didn't he? I'm sure he was confident about his last... his last bit of guidance.~
+~我肯定他还在。阿伦德尔这么说过，对吧？他对他最后……最后那点指引，肯定是有把握的。~
 EXTERN C0MMinJ MINERVA-TALK10-5
 
 CHAIN C0MMinJ MINERVA-TALK10-5
-~Can you hear that, <PLAYER1>? It's almost like the air itself is... crying. And screaming... there's hundreds of years of suffering in that voice.~
+~<PLAYER1>，你听见了吗？几乎像空气本身在……哭。还在尖叫……那声音里有几百年的苦。~
 END
-+ ~Race(Player1,ELF)~ + ~I hear the voice of elves... some are speaking as though all is well, others... confused, lost, trapped. This place is cursed.~ + MINERVA-TALK10-ELF2
-+ ~!Race(Player1,ELF)~ + ~I do hear it. It's like... the voice of spirits, trapped, as though by a curse.~ + MINERVA-TALK10-6
-++ ~I hear nothing. Are you sure you're not imagining things?~ + MINERVA-TALK10-7
-++ ~That's enough. We can hear the truth from Larrel when we find him.~ + MINERVA-TALK10-0
++ ~Race(Player1,ELF)~ + ~我听见精灵的声音……有些说得像一切都好，另一些……困惑、迷失、被困住。这地方被诅咒了。~ + MINERVA-TALK10-ELF2
++ ~!Race(Player1,ELF)~ + ~我确实听见了。那像是……精灵的声音，被困住，像被诅咒困着。~ + MINERVA-TALK10-6
+++ ~我什么都没听见。你确定不是自己想出来的？~ + MINERVA-TALK10-7
+++ ~够了。等找到拉瑞尔，听他讲真相。~ + MINERVA-TALK10-0
 
 CHAIN C0MMinJ MINERVA-TALK10-ELF2
-~You're right... I didn't even notice all of that.~
+~你说得对……那些我都没注意到。~
 EXTERN C0MMinJ MINERVA-TALK10-8
 
 CHAIN C0MMinJ MINERVA-TALK10-6
-~That's what I thought as well.~
+~我也是这么想的。~
 EXTERN C0MMinJ MINERVA-TALK10-8
 
 CHAIN C0MMinJ MINERVA-TALK10-7
-~No, definitely not. I'm sure I can hear it.~
+~不，绝对不是。我肯定我听得见。~
 EXTERN C0MMinJ MINERVA-TALK10-8
 
 CHAIN C0MMinJ MINERVA-TALK10-8
-~I had a feeling when we came in, but I wasn't so sure of it until now... but it's like... the Hand itself is 'alive'. Not... like us, but in the same way as the Great Oak—powerful, aware, almost like a god.~
-= ~The fact that the Severed Hand is still in such good condition... relatively speaking, anyway, for how ancient it is, makes it almost seem as if... it's not affected by time.~
+~咱们进来时我就有感觉，可直到现在才比较确定……它就像……这座断手塔本身是「活的」。不是……像咱们那样，而是像大橡树那样——强大、有知觉，几乎像神明。~
+= ~断手塔还能保持这么好的状态……相对而言，按它这么古老的年头说，几乎让人觉得……它不受时间影响。~
 END
-++ ~You think the Hand is not only alive, but immortal?~ + MINERVA-TALK10-9
-++ ~If that's true, how did it come to be like this?~ + MINERVA-TALK10-10
-++ ~What nonsense.~ + MINERVA-TALK10-11
-++ ~Enough speculation. We're here to see Larrel.~ + MINERVA-TALK10-0
+++ ~你觉得这座塔不仅活着，还不死？~ + MINERVA-TALK10-9
+++ ~若真是那样，它怎么会变成这样？~ + MINERVA-TALK10-10
+++ ~胡说。~ + MINERVA-TALK10-11
+++ ~别猜了。咱们是来见拉瑞尔的。~ + MINERVA-TALK10-0
 
 CHAIN C0MMinJ MINERVA-TALK10-9
-~It's just a hunch. But if I'm right... what happened to 'sever' it, so to speak? What could be so powerful?~
+~只是直觉。可要是我没错……是什么把它「切断」了，这么说吧？什么东西能这么强大？~
 EXTERN C0MMinJ MINERVA-TALK10-12
 
 CHAIN C0MMinJ MINERVA-TALK10-10
-~That's what scares me.~
+~这才让我害怕。~
 EXTERN C0MMinJ MINERVA-TALK10-12
 
 CHAIN C0MMinJ MINERVA-TALK10-11
-~*shrug* Maybe it is nonsense... but I'm worried. A place with so much power doesn't just... slowly rot away like this.~
+~*耸肩* 也许是胡说……可我担心。一个力量这么大的地方，不会就这么……慢慢烂成这样。~
 EXTERN C0MMinJ MINERVA-TALK10-12
 
 CHAIN C0MMinJ MINERVA-TALK10-12
-~I have a feeling that our quest to see Larrel isn't going to be easy, <PLAYER1>. In fact, it'll be the exact opposite of easy.~
+~我感觉咱们去见拉瑞尔这一趟不会容易，<PLAYER1>。其实会是「容易」的绝对反面。~
 EXIT
 
 // Eleventh Talk: After Larrel
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk11","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK11
-~I've come across a lot of people in my life, but never someone like Larrel. To be honest, I'm not sure whether to pity or envy him.~ [C0BLANK]
+~我这辈子遇过不少人，可从没遇过拉瑞尔这样的。说实话，我不知道该可怜他还是羡慕他。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk11","GLOBAL",1)~
-= ~Can you imagine it, <PLAYER1>? Living as a good person for however long, and one mistake. One mistake... and your punishment is to exist like that for eternity. Not only him, either, but the people he's responsible for.~
+= ~你能想象吗，<PLAYER1>？当个好人活了不知多久，然后犯一个错。一个错……惩罚就是永远以那副样子存在。而且不只他，还有他担着责任的那些人。~
 END
-++ ~It's pitiable. For sure. But why would you envy him?~ + MINERVA-TALK11-1
-++ ~Bold of you to assume he was a good person. I saw nothing more than foolish pride.~ + MINERVA-TALK11-2
-++ ~He deserved every bit of his fate.~ + MINERVA-TALK11-3
-++ ~I don't care to speak of Larrel. We're done with him.~ + MINERVA-TALK11-0
+++ ~是可怜。确实。可你干嘛羡慕他？~ + MINERVA-TALK11-1
+++ ~你倒敢假设他是个好人。我只看见愚蠢的骄傲。~ + MINERVA-TALK11-2
+++ ~他那下场一点不冤。~ + MINERVA-TALK11-3
+++ ~我不想谈拉瑞尔。跟他有关的事完了。~ + MINERVA-TALK11-0
 
 CHAIN C0MMinJ MINERVA-TALK11-0
-~Oh... okay. Never mind, then.~
+~哦……好吧。那就算了。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK11-1
-~I don't know. Maybe it's just how strongly I felt his words... the ones he spoke while in his maddened state. "Free my people. Astrolabe, whirls, twirls."~
+~我不知道。也许只是他那些话给我的感触太强……他疯癫时说的那些。「解放我的人民。星盘，旋转，回绕。」~
 EXTERN C0MMinJ MINERVA-TALK11-4
 
 CHAIN C0MMinJ MINERVA-TALK11-2
-~Maybe. But I believe he was a good person. One that made a mistake, because he was desperate, but still...~
+~也许吧。可我相信他是好人。一个犯了错的人，因为他走投无路，可还是……~
 EXTERN C0MMinJ MINERVA-TALK11-4
 
 CHAIN C0MMinJ MINERVA-TALK11-3
-~Maybe he did. I think even he would agree with you, honestly.~
+~也许他确实该。老实说，我想连他自己都会同意你。~
 EXTERN C0MMinJ MINERVA-TALK11-4
 
 CHAIN C0MMinJ MINERVA-TALK11-4
-~Even as we found him, he could barely think, but he still held onto what mattered the most—his people, his astrolabe, his purpose. He never went truly mad, and held on—long enough for us to help him.~
-= ~I wonder why Labelas punished him the way he did. To watch over his failure, not to fix it. It doesn't seem right... unless it was because he couldn't.~
-= ~I don't know whether or not we were meant to find him from the beginning, but I'm glad we had a chance to help him, and his people.~
+~就算咱们找到他时，他几乎不能思考，他还是抓着最要紧的东西——他的人民、他的星盘、他的目的。他从没真疯掉，一直撑着——撑到咱们能帮他。~
+= ~我想不通拉贝拉斯为什么那样罚他。要他守着自己的失败，却不许他修补。这不太对……除非是因为他补不了。~
+= ~我不知道咱们是不是从一开始就被安排要找到他，可我很高兴有机会帮他，和他的人民。~
 END
-+ ~Race(Player1,ELF)~ + ~His people were my people. It was only right.~ + MINERVA-TALK11-5
-+ ~!Race(Player1,ELF)~ + ~It was the right thing to do.~ + MINERVA-TALK11-5
-++ ~We sought to perform one heroic task and ended up solving another. Just another day for an adventurer.~ + MINERVA-TALK11-5
-++ ~If it weren't so we could use the Heartstone Gem, I wouldn't have bothered.~ + MINERVA-TALK11-6
-++ ~I don't want to talk about Larrel or the elves right now.~ + MINERVA-TALK11-0
++ ~Race(Player1,ELF)~ + ~他的人民就是我的人民。本来就该如此。~ + MINERVA-TALK11-5
++ ~!Race(Player1,ELF)~ + ~这是该做的事。~ + MINERVA-TALK11-5
+++ ~咱们本来要完成一件英雄事迹，结果顺手解决了另一件。对冒险者来说，不过是又一天。~ + MINERVA-TALK11-5
+++ ~要不是为了能用上心石宝石，我才不费这劲。~ + MINERVA-TALK11-6
+++ ~我现在不想谈拉瑞尔或精灵。~ + MINERVA-TALK11-0
 
 CHAIN C0MMinJ MINERVA-TALK11-5
-~Thank the stars above for adventurers, right? Haha.~
+~该感谢天上的星星有冒险者，对吧？哈哈。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK11-6
-~*shrug* I didn't mind it, personally. It was a good journey.~
+~*耸肩* 我个人倒不介意。这趟走得不错。~
 EXIT
 
 // Twelfth Talk: Svirf Village
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk12","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK12
-~What a sweet-looking place. Even though it's underground, it's... pretty.~ [C0BLANK]
+~多可人的地方。虽然在地底下，可……挺好看的。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk12","GLOBAL",1)~
 END
-++ ~Feeling at home?~ + MINERVA-TALK12-1
-++ ~I like it here, too.~ + MINERVA-TALK12-2
-++ ~I'm not a fan of the underground, I'm afraid.~ + MINERVA-TALK12-3
-++ ~Don't get distracted. We're not here for leisure.~ + MINERVA-TALK12-0
+++ ~觉得像在家？~ + MINERVA-TALK12-1
+++ ~我也喜欢这儿。~ + MINERVA-TALK12-2
+++ ~可惜我不太喜欢地底。~ + MINERVA-TALK12-3
+++ ~别分心。咱们不是来消闲的。~ + MINERVA-TALK12-0
 
 CHAIN C0MMinJ MINERVA-TALK12-0
-~I know that. Can't I enjoy a moment anyway?~
+~我知道。就不能让我享受一下吗？~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK12-1
-~A little bit. You wouldn't see any colorful lanterns or glowing moss in my hometown, though. Mostly just cute flowers.~
+~有一点。不过在我家乡可见不到这种彩色灯笼和发光的苔藓。大多是些可爱的小花。~
 EXTERN C0MMinJ MINERVA-TALK12-2
 
 CHAIN C0MMinJ MINERVA-TALK12-2
-~Mostly I'm just glad the svirfneblin can have a place like this, as safe and comfortable as they can manage to be, even somewhere as dangerous as here.~
-= ~I admire my underground-dwelling cousins. I wish more of them could get the chance to be free, explore the world, find friends in other lands... but as they are, living such difficult lives, they haven't resorted to cruelty or selfishness like other Underdark races.~
+~我主要是高兴斯维尔夫内布林能有这么个地方，能在这么危险的地界里也尽量过得安全舒服。~
+= ~我敬佩这些住在地底的远亲。我希望他们更多人有机会自由、去探索世界、在别的地方交到朋友……可他们过得这么苦，却没像幽暗地域别的种族那样变得残暴自私。~
 END
-++ ~They're a strong people.~ + MINERVA-TALK12-4
-++ ~Their lack of cruelty is a weakness. It's why they're forced to live like this.~ + MINERVA-TALK12-5
-++ ~Come on, Minerva. We've still got work to do.~ + MINERVA-TALK13-0
+++ ~他们是很坚韧的种族。~ + MINERVA-TALK12-4
+++ ~他们不残暴就是弱点。所以他们才被迫这么活。~ + MINERVA-TALK12-5
+++ ~来吧，米涅瓦。咱们还有活要干。~ + MINERVA-TALK13-0
 
 CHAIN C0MMinJ MINERVA-TALK12-3
-~It is a little suffocating, isn't it? I'm too used to the blue sky. But I could see myself getting used to it!~
+~确实有点闷，对吧？我太习惯蓝天了。不过我看我也能适应！~
 EXTERN C0MMinJ MINERVA-TALK12-2
 
 CHAIN C0MMinJ MINERVA-TALK12-4
-~I think my people could stand to learn a lot from the svirfneblin. It's too bad they exist so far apart from each other.~
+~我觉得我族人该跟斯维尔夫内布林学不少东西。可惜他们彼此住得太远了。~
 EXTERN C0MMinJ MINERVA-TALK12-6
 
 CHAIN C0MMinJ MINERVA-TALK12-5
-~Nah, I don't think so. I think if they were as vicious and mean as the rest, they wouldn't have survived for so long.~
+~不，我不这么想。我觉得要是他们跟其余那些一样凶狠歹毒，根本活不了这么久。~
 EXTERN C0MMinJ MINERVA-TALK12-6
 
 CHAIN C0MMinJ MINERVA-TALK12-6
-~I'd love to stay for longer, but I know we're busy. I'll take just long enough to commit this place to memory... okay! I'm good to go.~
+~我很想多待一会儿，可我知道咱们有事。我就花点时间把这地方记进脑子里……好！我可以走了。~
 EXIT
 
 // Thirteenth Talk: Return to Easthaven
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk13","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK13
-~We're back in Easthaven... well, it is Easthaven, right? It's not even close to how I remember it.~ [C0BLANK]
+~咱们回到东港了……嗯，这是东港，对吧？跟我记忆里一点都不像了。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk13","GLOBAL",1)~
 END
-++ ~Poquelin... or whoever he really is. This was his work.~ + MINERVA-TALK13-1
-++ ~How horrible. That fiend has a lot to answer for.~ + MINERVA-TALK13-2
-++ ~We'll fix things.~ + MINERVA-TALK13-3
-++ ~Hardly a great loss.~ + MINERVA-TALK13-4
-++ ~We don't have time to mourn, Minerva.~ + MINERVA-TALK13-0
+++ ~波奎林……或者不管他真是谁。这是他干的。~ + MINERVA-TALK13-1
+++ ~太可怕了。那恶棍有很多账要交代。~ + MINERVA-TALK13-2
+++ ~咱们会把事情修好。~ + MINERVA-TALK13-3
+++ ~算不上多大损失。~ + MINERVA-TALK13-4
+++ ~咱们没时间哀悼，米涅瓦。~ + MINERVA-TALK13-0
 
 CHAIN C0MMinJ MINERVA-TALK13-0
-~You're right. We're going to find that fake priest of Ilmater and make him pay.~
+~你说得对。咱们要找到那个假扮伊尔玛特祭司的家伙，让他付代价。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-TALK13-1
-~He'll pay for this.~
+~他会为此付账。~
 EXTERN C0MMinJ MINERVA-TALK13-5
 
 CHAIN C0MMinJ MINERVA-TALK13-2
-~Yes. He does. And we're the ones who'll make him answer.~
+~对。他欠着。而咱们就是让他交代的人。~
 EXTERN C0MMinJ MINERVA-TALK13-5
 
 CHAIN C0MMinJ MINERVA-TALK13-3
-~Can something like this ever be fixed? Even if you rebuild everything exactly the way it was before, even then... no, no. I shouldn't say that. It's the best anyone can do.~
+~这样的事真能修好吗？就算你把一切照旧重建起来，就算那样……不，不。我不该这么说。这已经是任何人能做到的最好了。~
 EXTERN C0MMinJ MINERVA-TALK13-5
 
 CHAIN C0MMinJ MINERVA-TALK13-4
-~I'm going to pretend you didn't say that, <PLAYER1>.~
+~<PLAYER1>，我就当没听见你说这话。~
 EXTERN C0MMinJ MINERVA-TALK13-5
 
 CHAIN C0MMinJ MINERVA-TALK13-5
-~If there's one reason I'll never leave this life behind, never for good... it's to make sure things like this never happen. And if they do happen, I'm going to be there to fix it.~
-= ~It's fun and exciting to adventure, sure... but when I see people get hurt, that's when I know I really am needed. Far more than being locked up in a workshop.~
+~要是有一个理由让我永不彻底丢下这种生活……那就是确保这样的事不再发生。要是真发生了，我要在那儿把它修好。~
+= ~冒险当然好玩又刺激……可当我看见有人受伤，我才知道我是真被需要。远比被锁在工坊里强。~
 END
-++ ~I agree. The world needs people like us.~ + MINERVA-TALK13-6
-++ ~This is probably the most serious you've been this whole journey.~ + MINERVA-TALK13-7
-++ ~That's what they call hero syndrome.~ + MINERVA-TALK13-8
-++ ~I just hope I still get paid once this is done.~ + MINERVA-TALK13-9
-++ ~That's enough. We can talk later.~ + MINERVA-TALK13-0
+++ ~我同意。这世界需要咱们这样的人。~ + MINERVA-TALK13-6
+++ ~这大概是这一路上你最认真的一回。~ + MINERVA-TALK13-7
+++ ~这就叫英雄情结。~ + MINERVA-TALK13-8
+++ ~我只希望这事完了还能拿到钱。~ + MINERVA-TALK13-9
+++ ~够了。以后再谈。~ + MINERVA-TALK13-0
 
 CHAIN C0MMinJ MINERVA-TALK13-6
-~You're right, it does. Luckily, here we are to save the day.~
+~你说得对，确实需要。幸好有咱们来救场。~
 EXTERN C0MMinJ MINERVA-TALK13-10
 
 CHAIN C0MMinJ MINERVA-TALK13-7
-~You mean to say I haven't been acting serious this whole time? Haha. Maybe you still have a lot to learn about me.~
+~你的意思是我这一路都不认真？哈哈。也许你对我还有很多要学。~
 EXTERN C0MMinJ MINERVA-TALK13-10
 
 CHAIN C0MMinJ MINERVA-TALK13-8
-~Whatever you want to call it... it doesn't change the fact that we should do the right thing. Because we can.~
+~随你怎么叫……这改变不了一个事实：咱们该做对的事。因为咱们做得到。~
 EXTERN C0MMinJ MINERVA-TALK13-10
 
 CHAIN C0MMinJ MINERVA-TALK13-9
-~Oh, someone'll be paying alright. But it'll be that priest, and it'll be with his blood.~
+~哦，当然有人要付账。不过是那个祭司，用他的血付。~
 EXTERN C0MMinJ MINERVA-TALK13-10
 
 CHAIN C0MMinJ MINERVA-TALK13-10
-~Let's go, <PLAYER1>. There's hero work to be done.~
+~走吧，<PLAYER1>。还有英雄的活要干。~
 EXIT
 
 // Fourteenth Talk: Before Battle
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTalk14","GLOBAL",1)~ THEN C0MMinJ MINERVA-TALK13
-~You know, <PLAYER1>... I think I will take a break from adventuring after this is over.~ [C0BLANK]
+~你知道吗，<PLAYER1>……我想这事完了以后，我要从冒险里歇一阵。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTalk14","GLOBAL",1)~
 END
-+ ~Global("C0MMinRomanceActive","GLOBAL",2)~ + ~Shall we go somewhere nice together? Just the two of us, I mean.~ + MINERVA-TALK14-ROM
-++ ~I never would've expected you to say that.~ + MINERVA-TALK14-1
-++ ~What are you going to do instead?~ + MINERVA-TALK14-2
-++ ~Me too. I could use a long break from travelling.~ + MINERVA-TALK14-3
-++ ~You're very optimistic to assume we'll get out of this alive.~ + MINERVA-TALK14-4
-++ ~Now is hardly the time to be talking about this.~ + MINERVA-TALK14-0
++ ~Global("C0MMinRomanceActive","GLOBAL",2)~ + ~咱们一起去个不错的地方好吗？我是说，就咱们两个。~ + MINERVA-TALK14-ROM
+++ ~我真没想到你会这么说。~ + MINERVA-TALK14-1
+++ ~那你打算干什么？~ + MINERVA-TALK14-2
+++ ~我也是。我确实需要一段长时间不赶路。~ + MINERVA-TALK14-3
+++ ~你倒很乐观，假设咱们能活着出去。~ + MINERVA-TALK14-4
+++ ~现在可不太是谈这个的时候。~ + MINERVA-TALK14-0
 
 CHAIN C0MMinJ MINERVA-TALK14-0
-~Sure, sure. I'll tell you what I was thinking once we've won the battle. Drinks are on me.~
+~好，好。等咱们打赢了，我再告诉你我在想什么。酒我请。~
 EXTERN C0MMinJ MINERVA-TALK14-9
 
 CHAIN C0MMinJ MINERVA-TALK14-ROM
-~Oh, definitely. I don't think you even needed to ask. There was something else I wanted to do, though.~
+~哦，当然。我觉得你都不必问。不过我还想干另一件事。~
 EXTERN C0MMinJ MINERVA-TALK14-2
 
 CHAIN C0MMinJ MINERVA-TALK14-1
-~Me neither. I'm not saying I'll retire, mind you! But I just had an idea while we were climbing up this tower.~
+~我也没想到。注意，我不是说要退休！只是咱们爬这座塔的时候，我有了个主意。~
 EXTERN C0MMinJ MINERVA-TALK14-2
 
 CHAIN C0MMinJ MINERVA-TALK14-2
-~I think I'm going to write a book about everything that's happened in our adventure. That's going to take a bit of time. How <PLAYER1> and Minerva met atop a fisherman's rooftop in the quiet town of Easthaven...~
+~我想写本书，把咱们冒险里发生的一切都写下来。那得花些时间。《<PLAYER1>与米涅瓦如何在安静的东港小城、一个渔夫的屋顶上相遇》……~
 == C0MMinJ ~...defeating a marilith and recovering the Heartstone Gem, venturing through the Severed Hand and restoring Larrel's astrolabe, delving to the ancient halls of Dorn's Deep...~
 == C0MMinJ IF ~Global("HOW_COMPLETED","GLOBAL",1)~ THEN ~...riding the wind to Lonelywood and defeating an immortal white wyrm...~
 == C0MMinJ IF ~Global("Master_Quest","GLOBAL",7)~ THEN ~...venturing to Castle Maluradek and conquering the trials of the spectral Luremaster...~
 == C0MMinJ ~...and now, climbing the steps of a crystal tower to save the Ten Towns from a demonic invasion. That'd make for a excellent story, don't you think?~
 END
-+ ~Class(Player1,BARD_ALL)~ + ~I'd love to co-write such an epic tale.~ + MINERVA-TALK14-BARD
-++ ~It certainly would.~ + MINERVA-TALK14-5
-++ ~I couldn't have done it without you.~ + MINERVA-TALK14-6
-++ ~Just leave my name out of it.~ + MINERVA-TALK14-7
-++ ~Whatever.~ + MINERVA-TALK14-8
++ ~Class(Player1,BARD_ALL)~ + ~我很乐意跟你合写这么一部史诗。~ + MINERVA-TALK14-BARD
+++ ~那当然会。~ + MINERVA-TALK14-5
+++ ~没有你我可做不到。~ + MINERVA-TALK14-6
+++ ~别把我名字写进去。~ + MINERVA-TALK14-7
+++ ~随便。~ + MINERVA-TALK14-8
 
 CHAIN C0MMinJ MINERVA-TALK14-3
-~Oh, no, I wasn't thinking that. I'm perfectly willing to go on another adventure if I had the time. It's just that...~
+~哦，不，我不是在想那个。要是有时间，我完全愿意再去冒险。只是……~
 EXTERN C0MMinJ MINERVA-TALK14-2
 
 CHAIN C0MMinJ MINERVA-TALK14-4
-~Well, what's the point of planning under the assumption that I'm going to die? If it happens, it happens. If I live, though...~
+~嗯，假设自己要死还做什么计划？要死就死。可我要是活着……~
 EXTERN C0MMinJ MINERVA-TALK14-2
 
 CHAIN C0MMinJ MINERVA-TALK14-BARD
-~Of course! That'll make the writing process even more fun. And then we could go on another journey together. I was thinking of going eastwards to Kara-Tur...~
+~当然！那写起来更有意思。然后咱们还能一起再走一趟。我本想着往东去卡拉图……~
 EXTERN C0MMinJ MINERVA-TALK14-5
 
 CHAIN C0MMinJ MINERVA-TALK14-5
-~I wonder what I'll name it? "The Heroes of Icewind Dale" seems so bland. "Trials of the Ten Towns"? Nah, too impersonal. Hmm... I suppose I'll need time to figure that one out too.~
+~不知道我该给它起什么名。《冰风谷的英雄》太平淡。《十镇的试炼》？不，太没人情味。唔……这个我也得花点时间想。~
 EXTERN C0MMinJ MINERVA-TALK14-8
 
 CHAIN C0MMinJ MINERVA-TALK14-6
-~Sure you could have. You're the hero of the story, after all! I mean, it wouldn't have been as easy or as fun, but...~
+~你当然做得到。毕竟你是这故事里的英雄！我是说，不会那么轻松，也不会那么好玩，可……~
 EXTERN C0MMinJ MINERVA-TALK14-5
 
 CHAIN C0MMinJ MINERVA-TALK14-7
-~If you want, but I highly recommend coming up with an alias for me soon. Or else, I'll make up my own, and you won't like it! Haha.~
+~随你，不过我强烈建议你快点给我编个别名。不然我自己编一个，你可不会喜欢！哈哈。~
 EXTERN C0MMinJ MINERVA-TALK14-5
 
 CHAIN C0MMinJ MINERVA-TALK14-8
-~Well, why am I worrying about that right now anyway? This story isn't over yet! Shall we see how it ends, <PLAYER1>?~
+~嗯，我干嘛现在操心这个？这故事还没完！<PLAYER1>，咱们去看看它怎么结尾？~
 END
-+ ~Global("C0MMinRomanceActive","GLOBAL",2)~ + ~Yes. Let's end this now... together.~ + MINERVA-TALK14-ROM2
-+ ~!Global("C0MMinRomanceActive","GLOBAL",2)~ + ~Yes. Let's end this now.~ + MINERVA-TALK14-9
-++ ~I was about to get to that.~ + MINERVA-TALK14-9
-++ ~Enough talk.~ + MINERVA-TALK14-9
++ ~Global("C0MMinRomanceActive","GLOBAL",2)~ + ~对。现在就了结……一起。~ + MINERVA-TALK14-ROM2
++ ~!Global("C0MMinRomanceActive","GLOBAL",2)~ + ~对。现在就了结。~ + MINERVA-TALK14-9
+++ ~我正要说到这事儿。~ + MINERVA-TALK14-9
+++ ~别说废话。~ + MINERVA-TALK14-9
 
 CHAIN C0MMinJ MINERVA-TALK14-ROM2
-~Yep! You and me, <PLAYER1>. We could take on anything together!~
+~对！你和我，<PLAYER1>。咱们一起什么都能对付！~
 EXTERN C0MMinJ MINERVA-TALK14-9
 
 CHAIN C0MMinJ MINERVA-TALK14-9
-~Onward, to victory!~
+~前进，去胜利！~
 EXIT
 
 // Romance Talk 1
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinRomanceTalk1","GLOBAL",1)~ THEN C0MMinJ MINERVA-ROM-TALK1
-~*yaaaawn* My goodness, I don't think I've ever been so tired... it's been a rough few days, hasn't it?~ [C0BLANK]
+~*打哈欠* 我的天，我想我从没这么累过……这几天真难熬，不是吗？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinRomanceTalk1","GLOBAL",1)~
-= ~Hey, <PLAYER1>, mind if I set up my bedroll next to you tonight? It'd be nice to have someone to talk to before I doze off.~
+= ~嘿，<PLAYER1>，今晚我把铺盖铺在你旁边行吗？睡着前有人聊两句挺不错的。~
 END
-++ ~Sure, go ahead.~ + MINERVA-ROM-TALK1-1
-++ ~Just don't keep me awake for too long.~ + MINERVA-ROM-TALK1-2
-++ ~I'm not interested in talking, Minerva. Just go to bed.~ + MINERVA-ROM-TALK1-X
+++ ~当然，来吧。~ + MINERVA-ROM-TALK1-1
+++ ~只是别让我醒着太久。~ + MINERVA-ROM-TALK1-2
+++ ~米涅瓦，我没兴趣说话。去睡吧。~ + MINERVA-ROM-TALK1-X
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-X
-~Right, right... sleep well and all that... sorry I bothered you...~
+~好，好……好好睡之类的……抱歉打扰你了……~
 DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",3)
 ClearAllActions()
 StartCutSceneMode()
@@ -1363,99 +1363,99 @@ RestParty()
 FadeFromColor([20.0],0)~ EXIT
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-1
-~*sigh* Aahh, this is nice...~
-= ~I think my limbs have already gone to sleep, <PLAYER1>. Can't move a muscle anymore. What about you?~
+~*叹气* 啊啊，这样真好……~
+= ~<PLAYER1>，我觉得四肢已经睡着了。一点都动不了。你呢？~
 END
-++ ~Same here. I'm exhausted.~ + MINERVA-ROM-TALK1-3
-++ ~I'm not feeling that tired yet.~ + MINERVA-ROM-TALK1-4
-++ ~That's enough. Stop talking and let me sleep.~ + MINERVA-ROM-TALK1-X
+++ ~我也一样。我累坏了。~ + MINERVA-ROM-TALK1-3
+++ ~我还没觉得那么累。~ + MINERVA-ROM-TALK1-4
+++ ~够了。别说了，让我睡。~ + MINERVA-ROM-TALK1-X
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-2
-~Of course, don't worry! You ever get tired of listening, just turn over and go to sleep and I'll stop talking. Probably.~
+~当然，别担心！你要是听烦了，就翻个身睡觉，我就不说了。大概。~
 EXTERN C0MMinJ MINERVA-ROM-TALK1-1
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-3
-~When I'm this tired, even a woolen blanket feels like silk. Reminds me of the days when I was still studying at the Sambaran academy... I'd pull all-nighters and fall asleep at my table. Good times...~
-= ~Of course, that's not really all that much compared to the sort of things we're dealing with now. How are you feeling, <PLAYER1>? It must be especially rough on you, being the leader and all.~
+~我这么累的时候，连毛毯都像丝绸。想起我还在桑巴兰学院读书的日子……我会熬夜通宵，然后趴在桌上睡着。好时光……~
+= ~当然，跟咱们如今碰上的这些比，那不算什么。<PLAYER1>，你感觉怎么样？你是领队，肯定格外辛苦。~
 END
-++ ~Not so much when I have you around.~ + MINERVA-ROM-TALK1-5
-++ ~It is hard. But I think I'll manage.~ + MINERVA-ROM-TALK1-6
-++ ~It's rough when an annoying gnome keeps me awake with chatter. I'm going to sleep.~ + MINERVA-ROM-TALK1-X
+++ ~有你在身边就没那么辛苦。~ + MINERVA-ROM-TALK1-5
+++ ~是辛苦。不过我想我撑得住。~ + MINERVA-ROM-TALK1-6
+++ ~有个烦人的侏儒唠叨着不让我睡，可真够受。我睡了。~ + MINERVA-ROM-TALK1-X
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-4
-~Really? Wow, you must be made of steel or something. Can I get your workout routine sometime? Haha. Just kidding.~
+~真的？哇，你大概是钢铁做的。哪天能把你的锻炼法子教我吗？哈哈。开玩笑的。~
 EXTERN C0MMinJ MINERVA-ROM-TALK1-3
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-5
-~Aww, that's nice. But I'm just doing my part, you know. I feel kind of bad sometimes, leaving most of the important decisions to you.~
+~哎，你真好。可我不过是尽我的本分。有时候把大半重要决定都推给你，我心里还挺过意不去。~
 EXTERN C0MMinJ MINERVA-ROM-TALK1-6
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-6
-~You know I'm here to help if you need anything, right? If there's something I can do, don't ever be shy to ask! I wouldn't say no to you.~
+~你知道你需要什么我都能帮，对吧？要是有我能做的事，可别不好意思开口！我不会拒绝你。~
 EXTERN C0MMinJ MINERVA-ROM-TALK1-7
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-7
-~Still... adventuring can be hard, but peaceful moments like these never change. It's nice that we can still have them from time to time.~
-= ~The sky's a lot clearer here in the North compared to Lantan, too. All those stars and the moon above... it's pretty.~
-= ~Ooh, is that a shooting star? Well, a comet, but calling it 'shooting star' is better for luck. That's a good sign!~
+~不过……冒险可能辛苦，可这样安宁的时刻从不变样。还能时不时有这样的片刻，真好。~
+= ~北方的天空也比兰坦清亮多了。那些星星，还有头上的月亮……真美。~
+= ~哦，那是流星吗？嗯，是彗星，不过叫它「流星」比较吉利。那是好兆头！~
 END
-++ ~I hope that means we'll be successful.~ + MINERVA-ROM-TALK1-8
-++ ~Do you want to make a wish?~ + MINERVA-ROM-TALK1-9
-++ ~Just a stupid star. I'm tired, so leave me alone.~ + MINERVA-ROM-TALK1-X
+++ ~我希望那意味着咱们会成功。~ + MINERVA-ROM-TALK1-8
+++ ~你想许个愿吗？~ + MINERVA-ROM-TALK1-9
+++ ~不过是颗傻星。我累了，别烦我。~ + MINERVA-ROM-TALK1-X
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-8
-~Yep, I'm sure that's what it means... but we'd better make a wish to be sure!~
+~嗯，我肯定就是这个意思……不过为了保险，咱们最好许个愿！~
 EXTERN C0MMinJ MINERVA-ROM-TALK1-10
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-9
-~Ooh, now that's a great idea.~
+~哦，这主意真棒。~
 EXTERN C0MMinJ MINERVA-ROM-TALK1-10
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-10
-~What're you wishing for, <PLAYER1>? I believe wishes are more likely to come true if you share them with people you trust!~
+~<PLAYER1>，你许什么愿？我相信愿望要是跟你信得过的人分享，更容易实现！~
 END
-++ ~I wish we can find the evil we seek and protect the Ten Towns.~ + MINERVA-ROM-TALK1-11
-++ ~I wish that the two of us will stay together.~ + MINERVA-ROM-TALK1-12
-++ ~I wish that I will live a long and happy life.~ + MINERVA-ROM-TALK1-11
-++ ~I wish that the people I love will remain safe.~ + MINERVA-ROM-TALK1-11
-++ ~I wish for gold, power and glory. Immortality wouldn't be bad, either.~ + MINERVA-ROM-TALK1-11
-++ ~I don't need wishes. I'll get what I want with my own hands.~ + MINERVA-ROM-TALK1-13
-++ ~This is stupid and childish. I'm not bothering with it.~ + MINERVA-ROM-TALK1-X
+++ ~我希望咱们能找到要寻的邪恶，守住十镇。~ + MINERVA-ROM-TALK1-11
+++ ~我希望咱们两个能一直在一起。~ + MINERVA-ROM-TALK1-12
+++ ~我希望我能活得长久又快乐。~ + MINERVA-ROM-TALK1-11
+++ ~我希望我爱的人都能平安。~ + MINERVA-ROM-TALK1-11
+++ ~我要金子、权力和荣耀。不死之身也不错。~ + MINERVA-ROM-TALK1-11
+++ ~我不需要许愿。我要的东西我自己会拿到。~ + MINERVA-ROM-TALK1-13
+++ ~这又蠢又幼稚。我不掺和。~ + MINERVA-ROM-TALK1-X
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-11
-~Nice! I'm sure something out there heard your wish, <PLAYER1>.~
+~不错！<PLAYER1>，我肯定有谁听见了你的愿望。~
 EXTERN C0MMinJ MINERVA-ROM-TALK1-14
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-12
-~Really? That's what you're wishing for? Haha... that's funny.~
+~真的？你就许这个愿？哈哈……真好笑。~
 END
-++ ~What's so funny about it?~ + MINERVA-ROM-TALK1-12-A
+++ ~有什么好笑的？~ + MINERVA-ROM-TALK1-12-A
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-12-A
-~Well... I just never would've imagined that both of us would wish for the same thing.~
+~嗯……我只是从没想到咱们俩会许同一个愿。~
 EXTERN C0MMinJ MINERVA-ROM-TALK1-16
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-13
-~That's very practical. I'm a bit of a dreamer, though. Soooo...~
+~那很务实。不过我有点爱做梦。所以嘛……~
 EXTERN C0MMinJ MINERVA-ROM-TALK1-14
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-14
-~Me? I'm going to make a wish for the near future. I'm certain it'll come true.~
+~我？我要为不久的未来许个愿。我肯定它会实现。~
 END
-++ ~What did you wish for?~ + MINERVA-ROM-TALK1-15
-++ ~"For the near future"? What do you mean?~ + MINERVA-ROM-TALK1-15
-++ ~I'm sure it will.~ + MINERVA-ROM-TALK1-16
+++ ~你许了什么愿？~ + MINERVA-ROM-TALK1-15
+++ ~「不久的未来」？什么意思？~ + MINERVA-ROM-TALK1-15
+++ ~我肯定它会。~ + MINERVA-ROM-TALK1-16
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-15
-~Well... don't laugh, okay? I just wished that the two of us will stay together, and have even more fun adventures after this one. Together.~
+~嗯……别笑，好吗？我刚刚许愿咱们俩能一直在一起，这次之后还有更多好玩的冒险。一起。~
 EXTERN C0MMinJ MINERVA-ROM-TALK1-16
 
 CHAIN C0MMinJ MINERVA-ROM-TALK1-16
-~Okay, that was nice and fuzzy, but we should get some sleep! Wishes are well and good, but we still have to do our part in getting them, right?~
-= ~Let's both do our best, <PLAYER1>. I'm sure the two of us together can accomplish any... thing... *yaawn*~
-= ~Zzz...~
+~好了，这话又甜又暖，可咱们该睡了！许愿是不错，可咱们还得自己出力去实现，对吧？~
+= ~咱们都尽力吧，<PLAYER1>。我肯定咱们两个在一起什么都能做成……*打哈欠*~
+= ~呼……~
 END
-++ ~Good night, Minerva.~ DO ~ClearAllActions()
+++ ~晚安，米涅瓦。~ DO ~ClearAllActions()
 StartCutSceneMode()
 Wait(1)
 FadeToColor([20.0],0)
@@ -1467,99 +1467,99 @@ FadeFromColor([20.0],0)~ EXIT
 // Romance Talk 2
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinRomanceTalk2","GLOBAL",1)~ THEN C0MMinJ MINERVA-ROM-TALK2
-~Brrr... it's freezing here. I don't know if it's because we just got away from that nice, warm underground forge, but I think this is the chilliest it's been.~ [C0BLANK]
+~哆嗦……这儿冻死了。我不知道是不是因为咱们刚从那个暖和的地底锻炉离开，可我觉得这是最冷的一回。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinRomanceTalk2","GLOBAL",1)~
-= ~Mind if I snuggle up against you for a bit while we're walking, <PLAYER1>? At least until I stop shivering.~
+= ~<PLAYER1>，走的时候我靠着你蹭一会儿行吗？至少蹭到我不发抖。~
 END
-++ ~Of course you can.~ + MINERVA-ROM-TALK2-1
-++ ~I'd rather have some personal space right now.~ + MINERVA-ROM-TALK2-2
-++ ~Leave me alone.~ + MINERVA-ROM-TALK2-X
+++ ~当然可以。~ + MINERVA-ROM-TALK2-1
+++ ~我现在宁可留点自己的空间。~ + MINERVA-ROM-TALK2-2
+++ ~别烦我。~ + MINERVA-ROM-TALK2-X
 
 CHAIN C0MMinJ MINERVA-ROM-TALK2-X
-~Wow, I didn't think you'd be that mean... okay, I'll just take care of myself from now on.~
+~哇，我没想到你会这么绝情……好吧，往后我自己照顾自己。~
 DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",3)~ EXIT
 
 CHAIN C0MMinJ MINERVA-ROM-TALK2-1
-~Thanks! Oh, now this is so much better. Your hands are nice and warm, you know that?~
+~谢谢！哦，这下好多了。你的手挺暖的，你知道吗？~
 EXTERN C0MMinJ MINERVA-ROM-TALK2-3
 
 CHAIN C0MMinJ MINERVA-ROM-TALK2-2
-~Aww. Well, I hope you don't mind chatting for a while, at least. That'll keep my mind off the cold.~
+~哎。嗯，至少希望你不介意聊一会儿。那能让我别老想着冷。~
 EXTERN C0MMinJ MINERVA-ROM-TALK2-3
 
 CHAIN C0MMinJ MINERVA-ROM-TALK2-3
-~You know? I don't think I knew what I was missing out on when I was travelling without someone like you with me. Having you around is... really, *really* nice.~
-= ~Not just for helping out, or watching my back... even just having someone to talk to, and be close to when it gets cold... kind of a luxury, I know. But I wouldn't like to go without it.~
+~你知道吗？我以前没有你这样的人陪着旅行时，不觉得自己缺了什么。有你在身边……真的、*真的*很好。~
+= ~不只是帮忙、替我看着背后……就算只是有人说话，冷了能挨近点……我知道这有点奢侈。可我不想少了它。~
 END
-++ ~I'll be here for you whenever you need me, Mini.~ + MINERVA-ROM-TALK2-4
-++ ~Were you just looking for an excuse to try and cuddle up against me?~ + MINERVA-ROM-TALK2-5
-++ ~Ugh, you're being sentimental. We're on an adventure, not a romantic trip.~ + MINERVA-ROM-TALK2-X
+++ ~你需要我的时候，我都在，小咪。~ + MINERVA-ROM-TALK2-4
+++ ~你只是找个借口想往我身上贴吧？~ + MINERVA-ROM-TALK2-5
+++ ~呃，你太多愁善感了。咱们是在冒险，不是浪漫旅行。~ + MINERVA-ROM-TALK2-X
 
 CHAIN C0MMinJ MINERVA-ROM-TALK2-4
-~Whenever, huh? Even after this adventure's over? Oh, that'd be great. I've been hoping we won't have to go our separate ways. I'd miss you terribly.~
+~都在，是吧？就算这次冒险完了以后？哦，那太好了。我一直希望咱们不必各走各的。我会想你想得厉害。~
 EXTERN C0MMinJ MINERVA-ROM-TALK2-6
 
 CHAIN C0MMinJ MINERVA-ROM-TALK2-5
-~No...? Maybe? Are you saying I *don't* need an excuse to cuddle? You should've told me that sooner!~
+~不是……？也许？你是说我要贴过来*不用*借口？你该早点告诉我！~
 EXTERN C0MMinJ MINERVA-ROM-TALK2-6
 
 CHAIN C0MMinJ MINERVA-ROM-TALK2-6
-~*sigh* This adventure wouldn't have been half as fun without you.~
+~*叹气* 要是没有你，这次冒险连一半的乐趣都没有。~
 EXIT
 
 // Romance Talk 3
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinRomanceTalk3","GLOBAL",1)~ THEN C0MMinJ MINERVA-ROM-TALK3
-~Hey, <PLAYER1>?~ [C0BLANK]
+~嘿，<PLAYER1>？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinRomanceTalk3","GLOBAL",1)~
 END
-++ ~Yes, Minerva?~ + MINERVA-ROM-TALK3-1
-++ ~What is it, Mini?~ + MINERVA-ROM-TALK3-1
-++ ~Can you wait until later?~ + MINERVA-ROM-TALK3-2
-++ ~I don't have time to waste on listening to you.~ + MINERVA-ROM-TALK3-X
+++ ~怎么了，米涅瓦？~ + MINERVA-ROM-TALK3-1
+++ ~什么事，小咪？~ + MINERVA-ROM-TALK3-1
+++ ~能等以后再说吗？~ + MINERVA-ROM-TALK3-2
+++ ~我没时间浪费在听你说。~ + MINERVA-ROM-TALK3-X
 
 CHAIN C0MMinJ MINERVA-ROM-TALK3-X
-~Right. That's fine. That's juuust fine.~
+~好。没关系。完全、没关系。~
 DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",3)~ EXIT
 
 CHAIN C0MMinJ MINERVA-ROM-TALK3-1
-~Thanks for bringing me along. It's been a great adventure.~
+~谢谢你带我一起。这真是场很棒的冒险。~
 END
-++ ~The best.~ + MINERVA-ROM-TALK3-3
-++ ~It wouldn't have been half as fun without you.~ + MINERVA-ROM-TALK3-4
-++ ~Is that all you had to say? Stop wasting my time.~ + MINERVA-ROM-TALK3-X
+++ ~最棒的。~ + MINERVA-ROM-TALK3-3
+++ ~没有你，连一半的乐趣都没有。~ + MINERVA-ROM-TALK3-4
+++ ~你就只有这些要说？别浪费我时间。~ + MINERVA-ROM-TALK3-X
 
 CHAIN C0MMinJ MINERVA-ROM-TALK3-2
-~I'll be quick, I promise.~
+~我会很快，我保证。~
 EXTERN C0MMinJ MINERVA-ROM-TALK3-1
 
 CHAIN C0MMinJ MINERVA-ROM-TALK3-3
-~It's funny how these things are just... decided by chance. The fact we met, that is.~
-= ~Imagine if we hadn't, or if you hadn't agreed to let me join. What wonderful memories I would've missed!~
+~真有意思，这种事就那么……由偶然决定了。我是说，咱们遇上了。~
+= ~想想要是咱们没遇上，或者你没答应让我加入。我会错过多少美好的回忆！~
 END
-++ ~I'd never have missed your beautiful singing voice.~ + MINERVA-ROM-TALK3-5
-++ ~That'd never have happened. You caught my eye from the moment I saw you.~ + MINERVA-ROM-TALK3-6
-++ ~It is quite lucky. I definitely think I'm lucky, at least.~ + MINERVA-ROM-TALK3-7
-++ ~That's enough. The adventure's not over yet.~ + MINERVA-ROM-TALK3-8
+++ ~我绝不会错过你那副好听的嗓子。~ + MINERVA-ROM-TALK3-5
+++ ~那绝不会发生。我第一眼看见你，你就吸住了我的眼。~ + MINERVA-ROM-TALK3-6
+++ ~是挺走运的。至少我肯定我觉得自己走运。~ + MINERVA-ROM-TALK3-7
+++ ~够了。冒险还没完。~ + MINERVA-ROM-TALK3-8
 
 CHAIN C0MMinJ MINERVA-ROM-TALK3-4
-~Haha. We really are made for each other, aren't we?~
+~哈哈。咱们真是天生一对，对吧？~
 EXTERN C0MMinJ MINERVA-ROM-TALK3-3
 
 CHAIN C0MMinJ MINERVA-ROM-TALK3-5
-~Haha. Maybe I should practice more, if you like it that much?~
+~哈哈。你要是那么喜欢，也许我该多练练？~
 EXTERN C0MMinJ MINERVA-ROM-TALK3-8
 
 CHAIN C0MMinJ MINERVA-ROM-TALK3-6
-~Aww. I'm glad I chose the rooftop on that day then, so that you didn't miss me!~
+~哎。那我真高兴那天选了屋顶，好让你没错过我！~
 EXTERN C0MMinJ MINERVA-ROM-TALK3-8
 
 CHAIN C0MMinJ MINERVA-ROM-TALK3-7
-~That makes two of us!~
+~我也一样！~
 EXTERN C0MMinJ MINERVA-ROM-TALK3-8
 
 CHAIN C0MMinJ MINERVA-ROM-TALK3-8
-~I'm sure we'll have plenty more adventures together, but this one will always hold a special place in my heart. The one where the two of us met...~
+~我肯定咱们还会有很多冒险，可这一次会在我心里永远占个特别的位置。咱们两个相遇的那一次……~
 == C0MMinJ IF ~OR(3)
 Race(Player1,HALFLING)
 Race(Player1,GNOME)
@@ -1573,241 +1573,241 @@ DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",2)~ EXIT
 // HoW Talk 1: Lonelywood
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinHoWTalk1","GLOBAL",1)~ THEN C0MMinJ MINERVA-HOW-TALK1
-~So this is Lonelywood? Wow... it's so pretty! If I had to pick a place in the North to live the rest of my days, I'd choose here without a hesitation.~ [C0BLANK]
+~这就是孤木镇？哇……真漂亮！要我在北方挑个地方过完余生，我会毫不犹豫选这儿。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinHoWTalk1","GLOBAL",1)~
 END
-++ ~Agreed. It's nice and warm here. Relative to the rest of the Dales, anyway.~ + MINERVA-HOW-TALK1-1
-++ ~Really? I thought settling down was the last thing you'd ever do.~ + MINERVA-HOW-TALK1-2
-++ ~It's too bad. I was starting to get used to the frigidness of the North.~ + MINERVA-HOW-TALK1-3
-++ ~I'm really not interested in sightseeing, Minerva. Shut it.~ + MINERVA-HOW-TALK1-0
+++ ~同意。这儿又舒服又暖和。至少跟谷地其他地方比。~ + MINERVA-HOW-TALK1-1
+++ ~真的？我以为安顿下来是你最不会做的事。~ + MINERVA-HOW-TALK1-2
+++ ~真可惜。我才开始习惯北方的严寒。~ + MINERVA-HOW-TALK1-3
+++ ~米涅瓦，我真没兴趣观光。闭嘴。~ + MINERVA-HOW-TALK1-0
 
 CHAIN C0MMinJ MINERVA-HOW-TALK1-0
-~Boooo. You remember we're not going to get to stay here, right? Don't you want a moment to let this place seem into your memory? No? Hmpf, you're no fun.~
+~嘘——你记得咱们不会留在这儿，对吧？你不想留一刻让这地方渗进记忆里？不想？哼，你真没趣。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-HOW-TALK1-1
-~Exactly. There's just enough snow here to be pretty, but at the same time, I don't have to feel like my toes are freezing off. Ooh, my poor toes! They've suffered the bite of the cold for too long.~
+~正是。这儿的雪刚好够好看，可同时我又不必觉得脚趾要冻掉。哦，我可怜的脚趾！它们挨冻挨得太久了。~
 EXTERN C0MMinJ MINERVA-HOW-TALK1-4
 
 CHAIN C0MMinJ MINERVA-HOW-TALK1-2
-~I'm just talking possibilities here, you know? When I'm old and tired, or if I finally manage to see everything in the world... this would be a nice place to live out my days.~
+~我只是说说可能性，你知道吗？等我老了、累了，或者我终于把世界看遍……这儿会是个度余生的好地方。~
 EXTERN C0MMinJ MINERVA-HOW-TALK1-4
 
 CHAIN C0MMinJ MINERVA-HOW-TALK1-3
-~Ooh, I didn't consider that. When we go back to where we were, it's going to feel even colder than ever, isn't it? Now I wish I could stay here... brr...~
+~哦，我没考虑到。等咱们回到原来那地方，会觉得比以往更冷，对吧？现在我真希望能留在这儿……哆嗦……~
 EXTERN C0MMinJ MINERVA-HOW-TALK1-4
 
 CHAIN C0MMinJ MINERVA-HOW-TALK1-4
-~Well, anyways, why're we just standing around? I want to check out the sights! Oh, and the food. We've got to try the local food before we leave! Mmm...~
+~嗯，总之，咱们干嘛干站着？我想去看看风景！哦，还有吃的。走之前咱们一定得尝尝本地菜！唔……~
 EXIT
 
 // HoW Talk 2: Burial Isle
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinHoWTalk2","GLOBAL",1)~ THEN C0MMinJ MINERVA-HOW-TALK2
-~Look at this. You bury your dead here, and sooner or later they get right back up again. You'd think people would learn to take better care of the ancestors they respect so much.~ [C0BLANK]
+~看看这个。你们把死者埋在这儿，他们迟早又爬起来。按理说人们该学会更好地照看自己那么敬重的祖先。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinHoWTalk2","GLOBAL",1)~
 END
-++ ~How do the Lantanese handle their dead? If you don't mind me asking.~ + MINERVA-HOW-TALK2-1
-++ ~Now is DEFINITELY not the time for small talk, Minerva. Wait until we're off this island.~ + MINERVA-HOW-TALK2-0
+++ ~兰坦人怎么处理死者？要是你不介意我问。~ + MINERVA-HOW-TALK2-1
+++ ~米涅瓦，现在*绝对*不是闲聊的时候。等咱们离开这座岛再说。~ + MINERVA-HOW-TALK2-0
 
 CHAIN C0MMinJ MINERVA-HOW-TALK2-0
-~What? Oh, sorry, was I being too loud? I was just talking to myself.~
+~什么？哦，抱歉，我声音太大了吗？我只是在自言自语。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-HOW-TALK2-1
-~We don't really 'handle' our dead one way back home. Mostly the clans treat their dead the way they want to. The Lantanese don't care much for what happens to our bodies when we die. It's all flesh and bones, after all.~
-= ~The only thing that matters to us is the knowledge we leave behind. That's our legacy. It's the dream of every Lantanese researcher to have a theorem or formula named after them and quoted for centuries after they're gone.~
+~我们家乡其实不讲究怎么「处理」死者。各家氏族大多照自己的意思办。兰坦人不太在乎死后身体怎么样。毕竟不过是血肉骨头。~
+= ~我们在乎的只有留下的知识。那是我们的遗产。每个兰坦研究者都梦想有个定理或公式以自己命名，死后几百年还有人引用。~
 END
-++ ~Is that what you want as well?~ + MINERVA-HOW-TALK2-2
+++ ~你也想要这个？~ + MINERVA-HOW-TALK2-2
 
 CHAIN C0MMinJ MINERVA-HOW-TALK2-2
-~Me? Haha! I've got a couple to my name already. If you ever come across a copy of "Material Theory of the Lantanna", check page one-hundred and fifty-two. That's my name on there. I think.~
-= ~Not that it's that big of a deal. I'd rather write a book on everything I've learned around the world and be remembered of that, instead.~
-= ~Although... I don't need a grand mausoleum built for me when I pass away, but I'd still prefer something better than to be left in a cold, nasty island like this. No wonder the rising dead are angry. These living... er, un-living conditions are horrible!~
+~我？哈哈！我已经有几样以我命名的东西了。你要是哪天看见一本《兰坦材料理论》，翻到第一百五十二页。上头是我的名字。我想。~
+= ~倒也不是什么大不了的事。我更想写本书，把我走遍世界学到的东西都写下来，靠那个被人记住。~
+= ~不过……我死了不需要给我盖座宏伟陵墓，可我总希望比被丢在这么个又冷又恶心的岛上强点。难怪死者要爬起来发火。这些居住……呃，「非居住」条件太糟了！~
 EXIT
 
 // HoW Talk 3: Gloomfrost
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinHoWTalk3","GLOBAL",1)~ THEN C0MMinJ MINERVA-HOW-TALK3
-~*huff* Goodness, it's cold. I'm freezing my toes off here. Maybe I've just gotten too used to Lonelywood...~ [C0BLANK]
+~*哼气* 天哪，真冷。我脚趾都要冻掉了。也许我只是太习惯孤木镇了……~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinHoWTalk3","GLOBAL",1)~
 END
-++ ~It's very cold. Unnaturally so.~ + MINERVA-HOW-TALK3-1
-++ ~I've never wanted more for a fireplace and hot soup than right now.~ + MINERVA-HOW-TALK3-2
-++ ~Mmf. C-n't t-lk. Lips. Fr-zzn.~ + MINERVA-HOW-TALK3-3
-++ ~Walking will get you warmed up. Come on, let's go.~ + MINERVA-HOW-TALK3-0
+++ ~非常冷。冷得不正常。~ + MINERVA-HOW-TALK3-1
+++ ~我从没像现在这样想要个壁炉和一碗热汤。~ + MINERVA-HOW-TALK3-2
+++ ~唔。说、说不了话。嘴唇。冻、冻住。~ + MINERVA-HOW-TALK3-3
+++ ~走走就暖过来了。来吧，走。~ + MINERVA-HOW-TALK3-0
 
 CHAIN C0MMinJ MINERVA-HOW-TALK3-0
-~Oh, fine. I—*whooooa!* I nearly slipped... it's hard walking when you can barely feel your feet. Eek...~
+~哦，好吧。我——*哇呀呀！* 我差点滑倒……几乎感觉不到脚的时候走路真难。噫……~
 EXIT
 
 CHAIN C0MMinJ MINERVA-HOW-TALK3-1
-~Unnatural is right! Creepy would be an even better way to put it. It's like the sun doesn't even shine here.~
+~「不正常」说得对！说「瘆人」更合适。就像这儿连太阳都不照。~
 EXTERN C0MMinJ MINERVA-HOW-TALK3-4
 
 CHAIN C0MMinJ MINERVA-HOW-TALK3-2
-~I'd kill for some cocoa with marshmallows. Too bad you can't find any in the North.~
+~为了一杯加棉花糖的可可，我什么都肯干。可惜北方找不到。~
 EXTERN C0MMinJ MINERVA-HOW-TALK3-4
 
 CHAIN C0MMinJ MINERVA-HOW-TALK3-3
-~That bad, huh? I—oh, mine are going numb too. Mmf. H'rd to t'lk like d'is. L'ts j'st guh.~
+~这么糟，是吧？我——哦，我的也麻了。唔。这、这样说话真难。咱、咱们走吧。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-HOW-TALK3-4
-~Someone knew what they were doing when they called this place "Gloomfrost". Gloomy. Frost. Frost full of gloom. Not a nice place.~
-= ~But it wouldn't be an adventure if we didn't explore the worst of places, right? Gloom or not, we'll just have to lighten the place up ourselves!~
+~给这地方起名「幽霜」的人挺懂行。幽暗。霜。满是幽暗的霜。不是个好地方。~
+= ~可要是不去探最糟的地方，就不算冒险，对吧？管它幽不幽暗，咱们自己把这地方弄亮点就是了！~
 EXIT
 
 // HoW Talk 4: Post-Seer Death
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinHoWTalk4","GLOBAL",1)~ THEN C0MMinJ MINERVA-HOW-TALK4
-~So... the Seer died. Just like she knew she would.~ [C0BLANK]
+~所以……先知死了。就跟她知道的那样。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinHoWTalk4","GLOBAL",1)~
-= ~It's normal to be afraid of dying, but... living while knowing exactly how you'll die, right up until the moment... that's terrifying beyond words.~
-= ~*shudder* I wouldn't want to know how I'm going to die. There's still so much I haven't seen... I don't want to know exactly how little time I have left to see them.~
-= ~Brr... I'm feeling a chill again, and I don't think it's because of the cold. C'mon, <PLAYER1>. We've got a dragon to hunt down.~
+= ~怕死是常事，可……活着却知道自己会怎么死，一直知道到那一刻……那可怕得无法形容。~
+= ~*打寒颤* 我可不想知道自己会怎么死。我还有那么多东西没看见。~
+= ~哆嗦……又觉得一阵寒意，我看不是因为天冷。来吧，<PLAYER1>。咱们有条龙要猎。~
 EXIT
 
 // HoW Talk 5: Final Talk
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinHoWTalk5","GLOBAL",1)~ THEN C0MMinJ MINERVA-HOW-TALK5
-~Hey, wait up, <PLAYER1>. So before we go in...~ [C0BLANK]
+~嘿，等等我，<PLAYER1>。进之前……~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinHoWTalk5","GLOBAL",1)~
 END
-++ ~What is it?~ + MINERVA-HOW-TALK5-1
-++ ~Cold feet?~ + MINERVA-HOW-TALK5-2
-++ ~We can talk later.~ + MINERVA-HOW-TALK5-0
+++ ~什么事？~ + MINERVA-HOW-TALK5-1
+++ ~脚冷了？~ + MINERVA-HOW-TALK5-2
+++ ~以后再谈。~ + MINERVA-HOW-TALK5-0
 
 CHAIN C0MMinJ MINERVA-HOW-TALK5-0
-~Can we? Well... alright, <PLAYER1>. Hope we both make it through this one.~
+~能吗？嗯……好吧，<PLAYER1>。希望咱们俩都能撑过这一回。~
 EXIT
 
 CHAIN C0MMinJ MINERVA-HOW-TALK5-1
-~It's just... we're about to go toe-to-toe with a dragon, you know? A *dragon*. And dragons have BIG toes.~
-= ~Not just any dragon, either. An ancient, immortal angry dragon that should've died a long time ago! This definitely isn't something you have to deal with every day.~
-= ~So, uh... just in case this all goes sideways and we all end up eaten, or frozen into icicles for the rest of eternity, I just wanted to say in advance... I've had a great time, <PLAYER1>.~
-= ~And, if we really do end up frozen... worth it. Every last second of it.~
+~只是……咱们就要跟一条龙正面对上了，你知道吧？一条*龙*。龙可有很大的脚趾。~
+= ~而且不是随便什么龙。一条古老、不死、愤怒、早就该死掉的龙！这绝对不是天天都得应付的事。~
+= ~所以，呃……万一这一趟全歪了，咱们都给吃了，或者冻成冰柱过完永恒，我只想先说……我过得很开心，<PLAYER1>。~
+= ~还有，要是咱们真冻住了……也值。每一秒都值。~
 END
-+ ~Global("C0MMinRomanceActive","GLOBAL",2)~ + ~Don't worry. I'll protect you.~ + MINERVA-HOW-TALK5-ROM
-++ ~Thank you, Minerva.~ + MINERVA-HOW-TALK5-3
-++ ~Worth it indeed.~ + MINERVA-HOW-TALK5-3
-++ ~We won't die, I promise.~ + MINERVA-HOW-TALK5-4
-++ ~You have a strange idea of what serves as motivational words.~ + MINERVA-HOW-TALK5-5
-++ ~That's enough. We've got a dragon to slay.~ + MINERVA-HOW-TALK5-6
++ ~Global("C0MMinRomanceActive","GLOBAL",2)~ + ~别担心。我会保护你。~ + MINERVA-HOW-TALK5-ROM
+++ ~谢谢你，米涅瓦。~ + MINERVA-HOW-TALK5-3
+++ ~确实值。~ + MINERVA-HOW-TALK5-3
+++ ~咱们不会死，我保证。~ + MINERVA-HOW-TALK5-4
+++ ~你对什么叫激励人心的说法，想法挺特别。~ + MINERVA-HOW-TALK5-5
+++ ~够了。咱们有条龙要杀。~ + MINERVA-HOW-TALK5-6
 
 CHAIN C0MMinJ MINERVA-HOW-TALK5-2
-~No, that's not—well, yes, my feet *are* cold, but that's not what I meant.~
+~不，不是——嗯，对，我的脚*确实*冷，可我不是说这个。~
 EXTERN C0MMinJ MINERVA-HOW-TALK5-1
 
 CHAIN C0MMinJ MINERVA-HOW-TALK5-ROM
-~I've never had someone say that to me before. It makes me feel... warm. And fuzzy. Exactly what I needed right now, so... thank you!~
-= ~But don't do anything crazy for my sake. I want you to live too, <PLAYER1>. We're both supposed to make it.~
+~以前从没人跟我说过这话。让我觉得……暖。还有点软乎乎。正是我现在需要的，所以……谢谢！~
+= ~可别为了我做傻事。我也希望你活着，<PLAYER1>。咱们俩都得活着。~
 EXTERN C0MMinJ MINERVA-HOW-TALK5-3
 
 CHAIN C0MMinJ MINERVA-HOW-TALK5-3
-~*exhale* Whew! Now that we've got the nice and cuddly words out of the way, let's do this!~
+~*呼气* 呼！好话暖话都说完了，那就干吧！~
 EXIT
 
 CHAIN C0MMinJ MINERVA-HOW-TALK5-4
-~Yep. That's the spirit. We're unstoppable together, after all!~
+~嗯。这就对了。毕竟咱们在一起无人可挡！~
 EXTERN C0MMinJ MINERVA-HOW-TALK5-3
 
 CHAIN C0MMinJ MINERVA-HOW-TALK5-5
-~I know, I know. In my defense though, we *are* about to fight an ancient lich-dragon.~
+~我知道，我知道。不过为我辩护一句，咱们*确实*就要去打一条古老的巫妖龙了。~
 EXTERN C0MMinJ MINERVA-HOW-TALK5-3
 
 CHAIN C0MMinJ MINERVA-HOW-TALK5-6
-~Right. I know that. Just give me a second! *breathes* Hmm... *exhales*~
-= ~Alright! I'm all hyped up and ready to go. Let's do this!~
+~好。我知道。给我一秒钟！*吸气* 唔……*呼气*~
+= ~好了！我全身来劲，准备好了。干吧！~
 EXIT
 
 // ToTL Talk 1
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinToTLTalk1","GLOBAL",1)~ THEN C0MMinJ MINERVA-TOTL-TALK1
-~Phew! What have we gotten ourselves into this time?~ [C0BLANK]
+~呼！这回咱们又把自己弄进什么麻烦里了？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinToTLTalk1","GLOBAL",1)~
 END
-++ ~Who knows. Keep your guard up.~ + MINERVA-TOTL-TALK1-1
-++ ~I'm starting to think this wasn't such a good idea...~ + MINERVA-TOTL-TALK1-2
-++ ~That stupid halfling has some explaining to do.~ + MINERVA-TOTL-TALK1-3
+++ ~谁知道。提着防。~ + MINERVA-TOTL-TALK1-1
+++ ~我开始觉得这不是什么好主意了……~ + MINERVA-TOTL-TALK1-2
+++ ~那个蠢半身人得好好解释解释。~ + MINERVA-TOTL-TALK1-3
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK1-1
-~Anyways, we're... I don't think we're even in Icewind Dale anymore. The heat and dryness of the air... we've been brought to a desert. This can't be the Anauroch, could it? And that structure ahead of us...~
-= ~Looks like some sort of castle... like the sort you'd imagine from fairytales. Although fairytales usually leave out the part about grisly undead and shrieking harpies.~
+~总之，咱们……我觉得咱们甚至都不在冰风谷了。这空气又热又干……咱们被带到了沙漠。这不会是安纳洛克吧？还有前面那建筑……~
+= ~看着像座城堡……童话里那种。不过童话一般不提那些狰狞的亡灵和尖啸的鹰身女妖。~
 EXTERN C0MMinJ MINERVA-TOTL-TALK1-4
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK1-2
-~Well, look on the bright side! When you have no idea what to expect, you'll never be disappointed by what you find!~
+~嗯，往好处看！你完全不知道会遇着什么，就永远不会对发现的东西失望！~
 END
-++ ~Umm... right.~ + MINERVA-TOTL-TALK1-1
-++ ~I'm plenty disappointed. Look at the disappointment on my face.~ + MINERVA-TOTL-TALK1-1
-++ ~What a load of nonsense.~ + MINERVA-TOTL-TALK1-1
+++ ~呃……对。~ + MINERVA-TOTL-TALK1-1
+++ ~我已经够失望了。看我这脸上的失望。~ + MINERVA-TOTL-TALK1-1
+++ ~一派胡言。~ + MINERVA-TOTL-TALK1-1
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK1-3
-~Didn't he just run into that little shack in front of us? Unless he's got a load of traps ready to spring on us in there, I don't think he's trying to run away.~
+~他不就是刚跑进咱们前面那间小屋了吗？除非他在里头备了一堆陷阱等着弹咱们，我不觉得他是想逃。~
 EXTERN C0MMinJ MINERVA-TOTL-TALK1-1
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK1-4
-~Anyways, it's times like these where we have to stay close and work together. I'm ready to keep watch for any dangers or oddities. Just point me where you want me to go.~
+~总之，这种时候咱们得靠紧、一起干。我随时能留意危险和怪东西。你指哪儿我去哪儿。~
 EXIT
 
 // ToTL Talk 2
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinToTLTalk2","GLOBAL",1)~ THEN C0MMinJ MINERVA-TOTL-TALK2
-~Ha ha... I'm glad that's finally over. If I had to fight one more revenant in here, I'd never want to set foot in another crypt again.~ [C0BLANK]
+~哈哈……终于完了，我真高兴。要是再在这儿打一个亡魂，我这辈子都不想再踏进地窖。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinToTLTalk2","GLOBAL",1)~
 END
-++ ~And if I had to find another secret passage in this labyrinth, I would've gone insane.~ + MINERVA-TOTL-TALK2-1
-++ ~No kidding. I'm so sick and tired of fighting endless hordes of shambling, stinking, stupid undead.~ + MINERVA-TOTL-TALK2-2
-++ ~Now is really not the best time to indulge in small talk, Minerva.~ EXIT
+++ ~要是再让我在这迷宫里找一条密道，我会疯。~ + MINERVA-TOTL-TALK2-1
+++ ~可不是。我烦透了打那些无穷无尽、摇摇晃晃、臭烘烘的蠢亡灵。~ + MINERVA-TOTL-TALK2-2
+++ ~米涅瓦，现在真不是闲聊的时候。~ EXIT
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK2-1
-~Oh, I didn't mind that. It was actually kind of fun. Made the experience a bit more bearable.~
+~哦，我倒不介意。其实还挺好玩。让这经历好受了一点。~
 EXTERN C0MMinJ MINERVA-TOTL-TALK2-3
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK2-2
-~Shambling, stinking and stupid indeed. Why can't undead be smart and sociable for a change?~
+~确实摇晃、臭烘烘又蠢。亡灵怎么就不能偶尔聪明点、会交际点？~
 EXTERN C0MMinJ MINERVA-TOTL-TALK2-3
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK2-3
-~There's something strange about all of this, though... it's like this entire place is haunted with restless spirits. I have a feeling the inside of the castle will be exactly like this, or close enough.~
-= ~I'm terribly curious as to what happened to this place, so I'm eager to have a look, but let's be careful, okay?~
+~不过这一切有点怪……就像整座地方都闹着不安分的鬼。我感觉城堡里面也会一模一样，或者差不多。~
+= ~我太好奇这地方出了什么事，急着想看看，可咱们小心点，好吗？~
 EXIT
 
 // ToTL - Door Comment
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinToTLDoorTalk","AR9717",1)~ THEN C0MMinJ MINERVA-TOTL-DOORTALK
-~A door with a mouth that takes two skulls to pass through? This place just keeps getting freakier.~ [C0BLANK]
+~一扇带嘴的门，要两个头骨才能过去？这地方越来越邪。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinToTLDoorTalk","AR9717",1)~
 EXIT
 
 // ToTL Talk 3
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinToTLTalk3","GLOBAL",1)~ THEN C0MMinJ MINERVA-TOTL-TALK3
-~Oh, by my dear old nan's wrinkled toes, this is... what the heck is this?! I can't believe it... we're trapped!~ [C0BLANK]
+~哦，凭我老祖母那皱巴巴的脚趾，这是……这到底是什么鬼东西？！我不敢信……咱们被困住了！~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinToTLTalk3","GLOBAL",1)~
 END
-++ ~Yep. This is bad.~ + MINERVA-TOTL-TALK3-1
-++ ~It'll be alright. We'll find a way out.~ + MINERVA-TOTL-TALK3-2
-++ ~I don't think I've ever seen you panic.~ + MINERVA-TOTL-TALK3-3
-++ ~(Ignore her)~ EXIT
+++ ~嗯。这很糟。~ + MINERVA-TOTL-TALK3-1
+++ ~会没事的。咱们会找到出路。~ + MINERVA-TOTL-TALK3-2
+++ ~我好像从没见过你慌张。~ + MINERVA-TOTL-TALK3-3
+++ ~（别理她）~ EXIT
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK3-1
-~Ohhh, this is worse than bad. Way, way worse.~
+~哦——这比糟还糟。糟得多得多。~
 EXTERN C0MMinJ MINERVA-TOTL-TALK3-4
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK3-2
-~Okay, okay. I trust you have a plan. Because if you don't... *shudder*~
+~好，好。我相信你有计划。因为要是没有……*打寒颤*~
 EXTERN C0MMinJ MINERVA-TOTL-TALK3-4
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK3-3
-~What? This isn't panicking yet. Give me a few days, then you'll see panicking!~
+~什么？这还不算慌。给我几天，你就见着什么叫慌了！~
 EXTERN C0MMinJ MINERVA-TOTL-TALK3-4
 
 CHAIN C0MMinJ MINERVA-TOTL-TALK3-4
-~Ooh, I haaaate being stuck in closed spaces. Reminds me too much of when I accidentally locked myself in an abandoned workshop at the age of ten. Three days until someone found me.~
-= ~Although that wasn't even nearly the worst case. Did I tell you about the time when I was locked in a Chultan tomb with giant snakes? Twenty-five days before I found a way out. Twenty-five days. I had to live on moss. *shudder*~
-= ~Let's... let's just go forward and hope this isn't some kind of cruel trap, okay? Hopefully there's a way out. Hopefully...~
+~哦，我——最——讨厌被困在封闭的地方。太容易让我想起十岁那年不小心把自己锁在一间废弃工坊里。三天后才有人找到我。~
+= ~不过那还算不上最糟的。我跟你说过我那次被锁在楚尔特一座有巨蛇的墓里吗？二十五天才找到出路。二十五天。我只能靠吃苔藓活着。*打寒颤*~
+= ~咱们……咱们就往前走吧，希望这不是什么残忍的陷阱，好吗？希望有出路。希望……~
 EXIT
 
 // Albion
@@ -1838,16 +1838,16 @@ END
 ADD_TRANS_TRIGGER DAPSEL 4 ~!IsValidForPartyDialogue("C0MMin")~ DO 2 3
 
 EXTEND_TOP DAPSEL 4 #3
-+ ~IsValidForPartyDialogue("C0MMin")~ + ~How am I supposed to get the door open if you broke the key off in the lock?~ DO ~SetGlobal("C0MMinApselDoor","AR1000",1)~ EXTERN C0MMinJ MINERVA-APSEL
++ ~IsValidForPartyDialogue("C0MMin")~ + ~你把钥匙断在锁里了，我怎么开门？~ DO ~SetGlobal("C0MMinApselDoor","AR1000",1)~ EXTERN C0MMinJ MINERVA-APSEL
 END
 
 CHAIN C0MMinJ MINERVA-APSEL
-~Oh, that'll be no issue. I'm sure whatever lock on that rickety-looking door'll be easy to pick. I could do it in my sleep.~
+~哦，那不成问题。那扇看着晃里晃当的门，锁不管什么样都好撬。我睡着都能开。~
 == DAPSEL ~"Rickety?"—er, um, that's not the point right now. Could you help me, then?~
 COPY_TRANS DAPSEL 14
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinApselDoor","AR1000",2)~ THEN C0MMinJ MINERVA-APSEL-DOOR
-~See? Told you it was a rickety thing.~ [C0BLANK]
+~看？跟你说了那是晃里晃当的东西。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinApselDoor","AR1000",1)~
 EXIT
 
@@ -1863,7 +1863,7 @@ I_C_T DARUNDEL 7 C0MMinArundel1
 END
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinArundelDying","GLOBAL",1)~ THEN C0MMinJ MINERVA-ARUNDEL-DYING
-~Oh no, Arundel...~ [C0BLANK]
+~哦不，阿伦德尔……~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinArundelDying","GLOBAL",1) ActionOverride("ARUNDEL",StartDialogueNoSet(Player1))~ EXIT
 
 // Baldemar
@@ -1973,7 +1973,7 @@ Global("C0MMinGaspar","LOCALS",0)
 IsValidForPartyDialogue("C0MMin")
 See("C0MMin")
 !StateCheck("C0MMin",CD_STATE_NOTVALID)~ THEN DGASPAR GASPAR
-~Ah... it's you, Minerva. I'm surprised to see you indoors for a change.~
+~啊……是你，米涅瓦。难得见你在屋里，我倒有点意外。~
 DO ~SetGlobal("C0MMinGaspar","LOCALS",1)~
 == C0MMinJ ~Well, 'tis true I don't care much for walls or a roof... the underside of one, anyway. But one must make sacrifices now and again.~
 == DGASPAR ~And I can't say I care much for you climbing atop my roof and using it as your picnic table, nor encouraging my son to do the same.~
@@ -1984,7 +1984,7 @@ IF ~See(Player1)~ EXTERN DGASPAR GASPAR-1
 IF ~!See(Player1)~ EXIT
 
 CHAIN DGASPAR GASPAR-1
-~Regardless, I think I should attend to your companion. I am Gaspar the fishmonger. What can I do for you this fine day?~
+~无论如何，我看我该照料你的同伴。我是鱼贩加斯帕。这美好的一天，我能为你做什么？~
 COPY_TRANS DGASPAR 0
 
 // Gelarith
@@ -1992,11 +1992,11 @@ COPY_TRANS DGASPAR 0
 ADD_TRANS_TRIGGER DGELARIT 1 ~!IsValidForPartyDialogue("C0MMin")~ DO 0
 
 EXTEND_TOP DGELARIT 1
-+ ~IsValidForPartyDialogue("C0MMin")~ + ~What missing pieces?~ EXTERN C0MMinJ MINERVA-GELARITH
++ ~IsValidForPartyDialogue("C0MMin")~ + ~什么缺的部件？~ EXTERN C0MMinJ MINERVA-GELARITH
 END
 
 CHAIN C0MMinJ MINERVA-GELARITH
-~The missing pieces of this machinery here, of course! Can't you tell, it's not moving as it should be?~
+~当然是这儿这台机器缺的部件！你看不出来吗，它动得不对劲？~
 EXTERN DGELARIT 2
 
 I_C_T DGELARIT 9 C0MinervaGelarith
@@ -2013,13 +2013,13 @@ END
 // Girdle of Gond
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinGirdleGond","GLOBAL",1)~ THEN C0MMinJ GIRDLE-OF-GOND
-~Hmm, a magical belt made by the Gondar church? Fancy finding something like that here.~ [C0BLANK]
+~唔，贡德教会做的魔法腰带？在这儿找到这种东西倒稀奇。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinGirdleGond","GLOBAL",1)~
-= ~The enchantments on it seem to have faded a little, though... usually you can do more with one of these. I don't really have the means to fix it up myself, though.~
+= ~不过上头的附魔好像淡了些……一般这种腰带能做的更多。可我自己没那个手段修它。~
 EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinGnomishTools","GLOBAL",1)~ THEN C0MMinJ GNOME-TOOLS
-~Hmm? Those are standard tools for gnomish crafts... they're common in every Lantanese household, but what are these ones doing here?~ [C0BLANK]
+~嗯？那是侏儒手工的标准工具……兰坦家家都有，可这些怎么会在这种地方？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinGnomishTools","GLOBAL",1)~
 EXIT
 
@@ -2050,7 +2050,7 @@ EXTEND_TOP DHAILEE 33
 END
 
 CHAIN C0MMinJ MINERVA-HAILEE-SONG
-~Ha ha, what a cute song, <GABBER>! It might not make you famous, but I like it.~
+~哈哈，多可爱的一首歌，<GABBER>！也许不能让你出名，可我喜欢。~
 EXTERN DHAILEE 34
 
 // Hermit
@@ -2096,7 +2096,7 @@ END
 // Jermsy
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinJermsyCellar","AR2005",1)~ THEN C0MMinJ JERMSY-CELLAR
-~Hmm...?~ [C0BLANK]
+~唔……？~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinJermsyCellar","AR2005",1)~
 END
 + ~!CheckStatGT(Player1,16,DEX)
@@ -2111,19 +2111,19 @@ CheckStatGT(Player1,16,DEX)
 CheckStatGT(Player1,14,INT)~ + ~*whisper* That door there, under the stairs? Be ready. It could be more goblins.~ + JERMSY-CELLAR-3
 
 CHAIN C0MMinJ JERMSY-CELLAR-1
-~I can't be sure, but that door under the stairs... I'm almost certain I heard a noise.~
+~我不敢确定，可楼梯下那扇门……我几乎肯定听见了动静。~
 EXTERN C0MMinJ JERMSY-CELLAR-4
 
 CHAIN C0MMinJ JERMSY-CELLAR-2
-~Yep. That door under the stairs. If we both heard that noise, then we're definitely not imagining things.~
+~嗯。楼梯下那扇门。要是咱们俩都听见了，那就肯定不是幻觉。~
 EXTERN C0MMinJ JERMSY-CELLAR-4
 
 CHAIN C0MMinJ JERMSY-CELLAR-3
-~*nods*~
+~*点头*~
 EXIT
 
 CHAIN C0MMinJ JERMSY-CELLAR-4
-~It could just be a rat, or it might be an ambush... I'll ready another knife either way, just in case.~
+~可能只是只老鼠，也可能是埋伏……不管哪种，我都再备一把刀，以防万一。~
 EXIT
 
 I_C_T DJERMSY 0 C0MMinJermsy1
@@ -2148,11 +2148,11 @@ END
 ADD_TRANS_TRIGGER DKRESSEL 30 ~!IsValidForPartyDialogue("C0MMin")~ DO 0
 
 EXTEND_TOP DKRESSEL 30
-+ ~IsValidForPartyDialogue("C0MMin")~ + ~That is not the answer I was promised, spirit.~ EXTERN C0MMinJ MINERVA-KRESSELACK
++ ~IsValidForPartyDialogue("C0MMin")~ + ~精灵，这可不是答应给我的答案。~ EXTERN C0MMinJ MINERVA-KRESSELACK
 END
 
 CHAIN C0MMinJ MINERVA-KRESSELACK
-~Well... *technically* he didn't promise an answer, so he's not really obligated to tell you anything, and as it turns out we got cheated... uh, I'll shut up now.~
+~嗯……*严格说*他没答应给答案，所以他其实没义务告诉你什么，而结果就是咱们被骗了……呃，我闭嘴。~
 EXTERN DKRESSEL 40
 
 // Larrel
@@ -2202,8 +2202,8 @@ Enemy()~ EXTERN C0MMinJ MINERVA-MALAVON
 END
 
 CHAIN C0MMinJ MINERVA-MALAVON
-~Gladly!~
-= ~Kalam, Stam. Too bad for you!~
+~乐意之至！~
+= ~卡拉姆，斯塔姆。算你们倒霉！~
 EXTERN DMALASIM 10
 
 // Maluradek
@@ -2233,16 +2233,16 @@ END
 // Orrick
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinBeenToOrrickTower","GLOBAL",2)~ THEN C0MMinJ ORRICK-TOWER-TALK
-~I haven't been inside of many wizard's towers in my travels. They're a great deal different from the towers of Orlil.~ [C0BLANK]
+~我这一路没进过几座法师塔。它们跟奥尔利尔的塔差得远。~ [C0BLANK]
 DO ~SetGlobal("C0MMinBeenToOrrickTower","GLOBAL",3)~
 END
-++ ~The towers of Orlil?~ + ORRICK-TOWER-TALK-1
-++ ~You don't need to elaborate. I'm not interested.~ EXIT
+++ ~奥尔利尔的塔？~ + ORRICK-TOWER-TALK-1
+++ ~不必细说。我没兴趣。~ EXIT
 
 CHAIN C0MMinJ ORRICK-TOWER-TALK-1
-~Oops, I probably should've explained. Orlil's one of the islands that make up Lantan. It's the home of the few Lantanese arcanists, who live in their own magical towers.~
-= ~Their towers aren't nearly as high or as grand as this one here. Even the mages of Lantan follow many of the ideals of the nation, so they keep their homes efficient and practical. Nothing like these towers, which seem to all be trying to outdo each other.~
-= ~Although I suppose mages don't usually care much for others' standards of practicality. Well, I don't mean anything by it. Seeing how Orrick built his tower just made me think a little.~
+~哦，我大概该解释一下。奥尔利尔是组成兰坦的岛屿之一。那儿住着少数兰坦奥术师，各自住在自己的魔法塔里。~
+= ~他们的塔远没有这一座高、这么宏伟。连兰坦的法师都遵循本国的许多理念，所以他们的住处讲究高效实用。跟这些塔完全不同——这些塔好像都在争着压别人一头。~
+= ~不过我猜法师一般不太在乎别人那套实用标准。嗯，我没别的意思。看见奥里克怎么盖他的塔，我就是想了想。~
 EXIT
 
 // Oswald
@@ -2294,15 +2294,15 @@ SetGlobal("C0MMinKilledPurvis","GLOBAL",1)
 StartDialogueNoSet(Player1)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinKilledPurvis","GLOBAL",1)~ THEN C0MMinJ MINERVA-KILLED-PURVIS
-~No one outruns my knives.~ [C0BLANK]
+~没人快得过我的刀。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinKilledPurvis","GLOBAL",1)~
 END
-++ ~Well done.~ EXIT
-++ ~Remind me never to get on your bad side.~ EXIT
-++ ~Do something like that without my call again, and we're going to have problems.~ + MINERVA-KILLED-PURVIS-1
+++ ~干得好。~ EXIT
+++ ~提醒我永远别惹你。~ EXIT
+++ ~再没我招呼就干这种事，咱们就有问题。~ + MINERVA-KILLED-PURVIS-1
 
 CHAIN C0MMinJ MINERVA-KILLED-PURVIS-1
-~Noted. Will I listen though? ...Probably not. I was not about to let him get away.~
+~记下了。可我会听吗？……大概不会。我可没打算让他跑掉。~
 EXIT
 
 // Quimby
@@ -2310,21 +2310,21 @@ EXIT
 ADD_TRANS_TRIGGER DQUIMBY 2 ~False()~ DO 2
 
 EXTEND_TOP DQUIMBY 2 #2
-+ ~IsValidForPartyDialogue("C0MMin")~ + ~Do you get ANY travelers at this time of year?~ EXTERN DQUIMBY MINERVA-QUIMBY1
-+ ~!IsValidForPartyDialogue("C0MMin")~ + ~Do you get ANY travelers at this time of year?~ EXTERN DQUIMBY MINERVA-QUIMBY2
++ ~IsValidForPartyDialogue("C0MMin")~ + ~这个季节你们这儿有旅人吗？~ EXTERN DQUIMBY MINERVA-QUIMBY1
++ ~!IsValidForPartyDialogue("C0MMin")~ + ~这个季节你们这儿有旅人吗？~ EXTERN DQUIMBY MINERVA-QUIMBY2
 END
 
 CHAIN DQUIMBY MINERVA-QUIMBY1
-~We have two! Ha-HA! That's more than I've had in months! The gnome lass you've got with you there is one!~
+~我们有两个！哈——哈！这比我几个月来的都多！你身边那位侏儒姑娘就算一个！~
 == C0MMinJ IF ~!IsGabber("C0MMin")~ THEN ~*psst!* I'd just like to say, <GABBER>, that there's a point where a warm reception goes too far and ends up in the opposite direction...~
 EXTERN DQUIMBY MINERVA-QUIMBY3
 
 CHAIN DQUIMBY MINERVA-QUIMBY2
-~We have two! Ha-HA! That's more than I've had in months! There was a gnome lass somewhere around here, but sadly, she doesn't use the room much at all! *sigh*~
+~我们有两个！哈——哈！这比我几个月来的都多！这附近原先有个侏儒姑娘，可惜她几乎不住那间房！*叹气*~
 EXTERN DQUIMBY MINERVA-QUIMBY3
 
 CHAIN DQUIMBY MINERVA-QUIMBY3
-~Other than her, there's the one in the other room, yes! Yes, his name is Erevain something or another. He is an elf AND an adventurer to boot!~
+~除了她，另一间房还住着一个，对！对，他叫埃瑞文什么的。他是个精灵，而且还是冒险者！~
 COPY_TRANS DQUIMBY 4
 
 // Rakshasa
@@ -2352,60 +2352,60 @@ I_C_T DEVERARD 16 C0MMinEverard2
 END
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinTempusTemple","GLOBAL",1)~ THEN C0MMinJ TEMPUS-TEMPLE
-~The Temple of Tempus... ha ha, strange. It's as different as can be from your standard Gondar church, yet somehow manages to exude the same sense of piety.~ [C0BLANK]
+~坦帕斯神庙……哈哈，奇怪。它跟标准的贡德教堂差得不能再差，可又不知怎么透出一样的虔诚气息。~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinTempusTemple","GLOBAL",1)~
 END
-+ ~Kit(LastTalkedToBy,OHTEMPUS)~ + ~I would not show contempt in the halls of the Foehammer if I were you.~ + TEMPUS-TEMPLE-OHTEMPUS
-++ ~As different as can be, eh?~ + TEMPUS-TEMPLE-1
-++ ~Do you worship Gond, Minerva?~ + TEMPUS-TEMPLE-2
-++ ~We've no time for small talk right now.~ + TEMPUS-TEMPLE-END
++ ~Kit(LastTalkedToBy,OHTEMPUS)~ + ~我要是你，就不会在仇锤的殿堂里露出轻蔑。~ + TEMPUS-TEMPLE-OHTEMPUS
+++ ~差得不能再差，是吧？~ + TEMPUS-TEMPLE-1
+++ ~米涅瓦，你信贡德吗？~ + TEMPUS-TEMPLE-2
+++ ~现在没时间闲聊。~ + TEMPUS-TEMPLE-END
 
 CHAIN C0MMinJ TEMPUS-TEMPLE-END
-~Oh, don't mind me. Just talking to myself... suppose I'll just do it in my mind instead.~
+~哦，别管我。就在自言自语……那我大概该在心里说。~
 EXIT
 
 CHAIN C0MMinJ TEMPUS-TEMPLE-OHTEMPUS
-~Ha ha, I'm not that insensitive. I'm just not a particularly pious person to begin with, so I apologize in advance.~
+~哈哈，我没那么迟钝。我只是本来就不算虔诚的人，所以先道歉。~
 EXTERN C0MMinJ TEMPUS-TEMPLE-3
 
 CHAIN C0MMinJ TEMPUS-TEMPLE-1
-~As far as Creation can be different from the destruction of War, yes... not total opposites, but different enough.~
+~就「创造」与「战争的毁灭」能有多不同而言，是的……不算完全相反，可也差得够多。~
 EXTERN C0MMinJ TEMPUS-TEMPLE-3
 
 CHAIN C0MMinJ TEMPUS-TEMPLE-2
-~In a sense. I'm not particularly pious, though, so don't worry about any surprise sermons in the evening. Unless that's what you're into, that is. In which case, I'm sorry.~
+~某种意义上。不过我不算虔诚，所以别担心晚上会有突然的说教。除非你好这口。那样的话，抱歉了。~
 EXTERN C0MMinJ TEMPUS-TEMPLE-3
 
 CHAIN C0MMinJ TEMPUS-TEMPLE-3
-~I suppose when you revere the ideals of your god as much as a priest does, faith shines though regardless of what said ideals are.~
-= ~I don't care much for war or bloodshed, but I can respect the devotion it much have took to build a temple like this.~
+~我想，你要是像祭司一样敬重你神明的理念，不管那些理念是什么，信仰都会透出来。~
+= ~我不太喜欢战争和流血，可我能敬重盖起这样一座神庙所需的虔诚。~
 END
-+ ~Kit(LastTalkedToBy,OHTEMPUS)~ + ~The Lord of Battles enforces honorable battle, not mere violence.~ + TEMPUS-TEMPLE-OHTEMPUS2
++ ~Kit(LastTalkedToBy,OHTEMPUS)~ + ~战斗之主推行的是荣誉之战，不是单纯的暴力。~ + TEMPUS-TEMPLE-OHTEMPUS2
 + ~OR(2)
 Class(Player1,CLERIC_ALL)
 Class(Player1,PALADIN_ALL)~ + ~Devotion is what gives power to those like myself.~ + TEMPUS-TEMPLE-CLERIC
-++ ~There is peace to be found in faith, so long as it is genuine.~ + TEMPUS-TEMPLE-4
-++ ~I wouldn't know. I'm not a pious person myself.~ + TEMPUS-TEMPLE-5
-++ ~That's enough for now.~ EXIT
+++ ~只要信仰是真诚的，就能在其中找到安宁。~ + TEMPUS-TEMPLE-4
+++ ~我不知道。我自己不是虔诚的人。~ + TEMPUS-TEMPLE-5
+++ ~眼下够了。~ EXIT
 
 CHAIN C0MMinJ TEMPUS-TEMPLE-OHTEMPUS2
-~Oh, I'm not implying otherwise. I just don't care for the whole 'war is inevitable' dogma, even if there's some truth to it.~
+~哦，我没暗示别的。我只是不喜欢「战争不可避免」这套教条，就算它有点道理。~
 EXTERN C0MMinJ TEMPUS-TEMPLE-6
 
 CHAIN C0MMinJ TEMPUS-TEMPLE-CLERIC
-~Yes, I know. It lets you work miracles, and that's a good thing as long as it gives you a chance to help others. I just prefer my own methods.~
+~对，我知道。它让你能行奇迹，只要能给你机会帮别人，那就是好事。我只是更喜欢我自己的法子。~
 EXTERN C0MMinJ TEMPUS-TEMPLE-6
 
 CHAIN C0MMinJ TEMPUS-TEMPLE-4
-~That's true. I believe the amount of faith I place in Gond is genuine, but for the most part, I go my own path. I like to think that it's a step up from lip service, though.~
+~确实。我相信我对贡德的信仰是真诚的，可大部分时候我走自己的路。不过我愿意认为，这比嘴上说说强一层。~
 EXTERN C0MMinJ TEMPUS-TEMPLE-6
 
 CHAIN C0MMinJ TEMPUS-TEMPLE-5
-~I guess that means you entered here solely out of curiosity, then. I don't blame you though, I was plenty curious myself.~
+~那看来你进来纯粹是出于好奇。我不怪你，我自己也好奇得很。~
 EXTERN C0MMinJ TEMPUS-TEMPLE-6
 
 CHAIN C0MMinJ TEMPUS-TEMPLE-6
-~But I don't think you came in just so you could listen to me babble on about the decor. Go on, then! Do whatever it is you came in here to do.~
+~不过我想你进来不是为了听我唠叨装饰。那就去吧！办你进来要办的事。~
 EXIT
 
 // Therik
@@ -2436,37 +2436,37 @@ I_C_T DTIERNON 25 C0MMinTiernon2
 END
 
 CHAIN IF WEIGHT #-1 ~Global("C0MMinGloomfrostWeapon","GLOBAL",1)~ THEN C0MMinJ MINERVA-GLOOMFROST-WEAPON
-~What a beautiful creation! It's more than a weapon, it's... it's a work of art!~ [C0BLANK]
+~多美的造物！它不只是件武器，它……它是件艺术品！~ [C0BLANK]
 DO ~IncrementGlobal("C0MMinGloomfrostWeapon","GLOBAL",1)~
 END
 + ~OR(2)
 Class(Player1,BARD_ALL)
 Race(Player1,DWARF)~ + ~Tiernon truly is as masterful as his tales tell.~ + MINERVA-GLOOMFROST-WEAPON-1
-++ ~It really is. I've never seen its like before.~ + MINERVA-GLOOMFROST-WEAPON-2
-++ ~As long as it's useful, I could care less about how it looks.~ + MINERVA-GLOOMFROST-WEAPON-3
-++ ~You can admire it all you want once we're out of this glacier.~ EXIT
+++ ~确实。我从没见过这样的东西。~ + MINERVA-GLOOMFROST-WEAPON-2
+++ ~只要它有用，我才不在乎它长什么样。~ + MINERVA-GLOOMFROST-WEAPON-3
+++ ~等咱们出了这座冰川，你爱怎么欣赏就怎么欣赏。~ EXIT
 
 CHAIN C0MMinJ MINERVA-GLOOMFROST-WEAPON-1
-~Yes, and possibly even more than that. Have you ever seen anyone craft something like this out of pure ice?~
+~对，也许还不止。你见过有人用纯冰做出这样的东西吗？~
 EXTERN C0MMinJ MINERVA-GLOOMFROST-WEAPON-4
 
 CHAIN C0MMinJ MINERVA-GLOOMFROST-WEAPON-2
-~Neither have I. Even after all the places I've been, making something like this out of pure ice is like a part out of some fairytale.~
+~我也没见过。就算我走过那么多地方，用纯冰做出这种东西也像童话里的一段。~
 EXTERN C0MMinJ MINERVA-GLOOMFROST-WEAPON-4
 
 CHAIN C0MMinJ MINERVA-GLOOMFROST-WEAPON-3
-~Where's your sense of awe, <PLAYER1>? How often will you see something like this crafted out of pure ice?~
+~<PLAYER1>，你的惊叹心呢？你能有几回见到用纯冰做出的这种东西？~
 EXTERN C0MMinJ MINERVA-GLOOMFROST-WEAPON-4
 
 CHAIN C0MMinJ MINERVA-GLOOMFROST-WEAPON-4
-~Use it well, <PLAYER1>! A masterpiece like that deserves to be used to its best capabilities.~
+~好好用它，<PLAYER1>！这样的杰作该发挥到极致才对得起它。~
 END
-+ ~PartyHasItem("FANGGF")~ + ~You're the best with knives in this group. Why don't you use it?~ + MINERVA-GLOOMFROST-WEAPON-5
-++ ~Don't worry, I will.~ EXIT
-++ ~We'll see. If it disappoints me, it'll fetch a good price at least.~ EXIT
++ ~PartyHasItem("FANGGF")~ + ~这队里使刀你最强。你干嘛不用它？~ + MINERVA-GLOOMFROST-WEAPON-5
+++ ~放心，我会的。~ EXIT
+++ ~看看吧。要是让我失望，至少还能卖个好价。~ EXIT
 
 CHAIN C0MMinJ MINERVA-GLOOMFROST-WEAPON-5
-~Oh, I'd love to! I just couldn't bring myself to ask after Tiernon entrusted it to you. But if you want me to take care of it, then I will.~
+~哦，我很乐意！只是蒂尔农把它托付给你之后，我不好意思开口要。可你要是想让我照管它，那我就照管。~
 EXIT
 
 // Tybald
@@ -2498,7 +2498,7 @@ END
 // PID
 
 CHAIN IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])~ THEN C0MMinJ pid
-~How's it going, <PLAYER1>?~ [C0MMif]
+~<PLAYER1>，怎么样？~ [C0MMif]
 END
  + ~RandomNum(4,1)
  HPPercentGT(Myself,74)~ + ~How are you?~ + PID-1-1A
@@ -2514,72 +2514,72 @@ END
  + ~RandomNum(2,2)
  HPPercentLT(Myself,75)
  HPPercentGT(Myself,24)~ + ~How are you?~ + PID-1-2B
- + ~HPPercentLT(Myself,25)~ + ~How are you?~ + PID-1-3
- ++ ~Got any thoughts to share?~ + PID-2
- ++ ~About your cooking...~ + PID-COOKING
+ + ~HPPercentLT(Myself,25)~ + ~你怎么样？~ + PID-1-3
+ ++ ~有什么想法想说？~ + PID-2
+ ++ ~关于你的手艺……~ + PID-COOKING
  + ~OR(2)
  Global("C0MMinRomanceActive","GLOBAL",1)
  Global("C0MMinRomanceActive","GLOBAL",2)~ + ~About us...~ + PID-ROMANCE
- ++ ~Can I ask you a question?~ + PID-QUESTIONS
- ++ ~I think there's a problem with your voice.~ + stringfix
- ++ ~I need nothing at the moment.~ EXIT
+ ++ ~我能问你个问题吗？~ + PID-QUESTIONS
+ ++ ~我觉得你的嗓子有点问题。~ + stringfix
+ ++ ~我现在什么都不需要。~ EXIT
 
 CHAIN C0MMinJ PID-1-1A
-~I'm hungry. Is it mealtime yet? Have we got any fish? I've a hankering for knucklehead trout right now. Mmm...~
+~我饿了。到饭点了吗？咱们有鱼吗？我现在特别想吃硬头鳟。唔……~
 EXIT
  
 CHAIN C0MMinJ PID-1-1B
-~Mmm... I'm feeling the urge to have a snowball fight. Or do some tree-climbing. Ooh, snowball fights while climbing treetops. That sounds fun!~
+~唔……我突然很想打雪仗。或者爬爬树。哦，一边爬树梢一边打雪仗。听着就好玩！~
 EXIT
  
 CHAIN C0MMinJ PID-1-1C
-~Can you take a look at how my hair looks from the back? I can't find my mirror.~
+~你能看看我后脑勺的头发什么样吗？我找不到镜子。~
 EXIT
  
 CHAIN C0MMinJ PID-1-1D
-~Do we have cakes? I'd like a cake. With icing and sprinkles. What? We don't have any? Hmph.~
+~咱们有蛋糕吗？我想要个蛋糕。带糖霜和彩针的。什么？没有？哼。~
 EXIT
  
 CHAIN C0MMinJ PID-1-2A
-~I'll be fine. Just a little bit of ointment and everything's right as rain.~
+~我会没事的。上点药膏就一切妥当。~
 EXIT
  
 CHAIN C0MMinJ PID-1-2B
-~No need to worry about me! I get worse cuts and bruises when sleepwalking.~
+~不用为我担心！我梦游时弄的伤口和淤伤比这厉害多了。~
 EXIT
 
 CHAIN C0MMinJ PID-1-3
-~Ow-ow-ow... look at all this blood, <PLAYER1>! Urgh, red just isn't a good color for me...~
+~哎哟哎哟……看这么多血，<PLAYER1>！呃，红色真不适合我……~
 EXIT 
 
 CHAIN C0MMinJ PID-COOKING
-~Mmm? What about it?~
+~唔？怎么了？~
 END
-+ ~Global("C0MMinRomanceActive","GLOBAL",2)~ + ~If we settle down together someday, I'm doing the cooking, and that's final.~ + PID-COOKING-1
-++ ~It's horrible! Where did you get your skills?~ + PID-COOKING-1
-++ ~I am never, ever, ever eating anything you make again.~ + PID-COOKING-1
-++ ~If only you were as good at it as you are with inventing.~ + PID-COOKING-1
-++ ~It was great! I hope you'll surprise me with your next meal.~ + PID-COOKING-2
-++ ~On second thought, never mind...~ EXIT
++ ~Global("C0MMinRomanceActive","GLOBAL",2)~ + ~要是哪天咱们一起安顿下来，做饭归我，说定了。~ + PID-COOKING-1
+++ ~太可怕了！你这手艺哪儿学的？~ + PID-COOKING-1
+++ ~我再、再、再也不会吃你做的东西了。~ + PID-COOKING-1
+++ ~你要是做饭跟发明一样强就好了。~ + PID-COOKING-1
+++ ~很好！希望你下一顿再给我个惊喜。~ + PID-COOKING-2
+++ ~再想想，还是算了……~ EXIT
 
 CHAIN C0MMinJ PID-COOKING-1
-~Well, isn't that just rude! I'll have you know that I'm entirely self-trained, and nobody has ever come with me with complaints more than once!~
+~哎，这可真没礼貌！告诉你，我完全是自己练出来的，而且从没人跟我抱怨过第二次！~
 END
-++ ~Probably because they've never eaten your food twice... or they've died.~ + PID-COOKING-3
-++ ~That... isn't exactly what I'd call a glowing endorsement.~ + PID-COOKING-3
-++ ~So that means people do complain. And frequently.~ + PID-COOKING-3
-++ ~Right, I'll, uh, take your word for it.~ EXIT
+++ ~大概因为他们从没吃过你第二顿……或者他们已经死了。~ + PID-COOKING-3
+++ ~这……不太算得上什么夸奖。~ + PID-COOKING-3
+++ ~那就是说确实有人抱怨。还挺经常。~ + PID-COOKING-3
+++ ~好，我，呃，就信你这话。~ EXIT
 
 CHAIN C0MMinJ PID-COOKING-2
-~You've got great taste! Just wait until I get the ingredients for my "Burning-Hot-and-Bitter Grub-and-Egg Stew". It'll blow your taste-buds!~
+~你品味真好！等我弄到材料做我的「又烫又苦虫子蛋炖汤」。准能把你的味蕾炸开！~
 EXIT
 
 CHAIN C0MMinJ PID-COOKING-3
-~Hmph!~
+~哼！~
 EXIT
 
 CHAIN C0MMinJ PID-2
-~At the moment? Hmm... let me think...~
+~这会儿？唔……让我想想……~
 END
 IF ~RandomNum(20,1)~ + PID-2-11
 IF ~RandomNum(20,2)~ + PID-2-12
@@ -2669,296 +2669,296 @@ IF ~RandomNum(20,17)
 	Global("Master_Quest","GLOBAL",7)~ + PID-2-7
 
 CHAIN C0MMinJ PID-2-KARIHI-1
-~I asked Karihi if she'd try fireproof dye if I could make some—she just glared at me. All I told her was that I wanted to see if I could make the flames on her hair glow in different colors! But I guess she doesn't allow that either.~
+~我问卡里希，要是我能做出防火染料，她愿不愿试试——她就瞪我。我只是告诉她，我想看能不能让她头发上的火焰亮出不同颜色！可看来她也不许。~
 EXIT
 
 CHAIN C0MMinJ PID-2-KARIHI-2
-~You can't deny Karihi has good fashion sense. I guess if you're going to have to use magic to make your clothes fireproof, you'd pick only the best. Me? I'd tear a big hole in a dress like that within minutes. Or get dirt on it. She keeps scolding me over how dirty my clothes get.~
+~你不能否认卡里希的衣着品味好。我想，既然得用魔法让衣服防火，自然只挑最好的。我？那样的裙子我几分钟就能扯出个大洞。或者弄上泥。她老骂我衣服太脏。~
 EXIT
 
 CHAIN C0MMinJ PID-2-KARIHI-3
-~Don't ever suggest to Karihi that she copies her spells from other sources. I made a tinsy winsy implication that she took the wrong way and... well, bye-bye my favorite pair of socks. *sigh* While I was wearing them, too!~
+~千万别暗示卡里希她的法术是抄别人的。我就小小地暗示了一下，她理解歪了，然后……嗯，我最喜欢的那双袜子没了。*叹气* 还是穿在脚上的时候！~
 EXIT
 
 CHAIN C0MMinJ PID-2-KARIHI-4
-~Karihi's become a lot nicer recently, have you noticed? At least, I don't have to keep potions of fire resistance at hand whenever we debate magic versus science anymore. You know, just in case she gets mad and sets my hair on fire... again.~
+~卡里希最近和气多了，你注意到没？至少咱们争论魔法对科学的时候，我不用再手边备着防火药水了。你知道，万一她火了把我头发点着……又一次。~
 EXIT
 
 CHAIN C0MMinJ PID-2-KARIHI-5
-~I wish I could roast marshmallows on Karihi's head sometimes, but she'd never allow it. Too bad her hair goes out when she's asleep, or I'd try it at night. If I had any marshmallows, that is. Which I don't. *sigh*~
+~我有时真想在卡里希头上烤棉花糖，可她绝不会答应。可惜她睡着时头发就熄了，不然我夜里就试试。前提是我有棉花糖。可我没有。*叹气*~
 EXIT
 
 CHAIN C0MMinJ PID-2-URCHIN-1
-~Urchin's the only one who'll eat my honey-glazed mushrooms. I keep telling everyone they're perfectly safe and healthy for you! But they won't try it.~
+~只有厄钦肯吃我的蜜汁蘑菇。我一直跟大家说那绝对安全又健康！可他们不肯尝。~
 EXIT
 
 CHAIN C0MMinJ PID-2-URCHIN-2
-~I taught Urchin some new words today! He learns really quickly. I'll figure out how to get him to enunciate properly later. Maybe his teeth's the issue... if only I had some dental training, I could fix that. Oh well.~
+~我今天教了厄钦几个新词！他学得真快。以后我再想办法让他把字咬清楚。也许是他牙齿的问题……我要是有过牙医训练就能修。算了。~
 EXIT
 
 CHAIN C0MMinJ PID-2-URCHIN-3
-~Mmm... I tried to have a snowball fight with Urchin the last time we made camp outdoors. I wouldn't recommend trying that unless you've got some thick padding. And a helmet. He's got quite an arm. I still have the bruises, see?~
+~唔……上次咱们在野外扎营，我想跟厄钦打雪仗。除非你垫得够厚，还戴头盔，不然我不建议试。他胳膊力可真大。我身上还有淤伤呢，看？~
 EXIT
 
 CHAIN C0MMinJ PID-2-DUSKY-1
-~I feel like I've been trying to show off more ever since Dusky joined up with us. Trying to prove who's the better rogue and all. *whisper* It's me.~
+~自打达斯基加入咱们，我总觉得我在更卖力地显摆。想证明谁才是更好的游荡者之类的。*小声* 是我。~
 EXIT
 
 CHAIN C0MMinJ PID-2-DUSKY-2
-~Dusky's pretty good at hiding for someone with such long legs. I wonder how he does it. I feel like I have duck feet when I try to hide. The best I can do is crawl in a barrel and try not to breathe.~
+~达斯基腿那么长，藏身却挺在行。我好奇他怎么做到的。我一藏就觉得自己长了双鸭脚。我最多就是钻进桶里憋着气。~
 EXIT
 
 CHAIN C0MMinJ PID-2-1
-~I'm just thinking of the Heartstone Gem... do you think it's alive? Something about it just... makes me think it might me.~
+~我在想心石宝石……你觉得它是活的吗？它有些地方就是……让我觉得它可能是。~
 EXIT
 
 CHAIN C0MMinJ PID-2-2
-~The Severed Hand is... well, it's beautiful, definitely. But it also makes me sad to think that something like this could have been so much greater once upon a time.~
+~断手塔……嗯，肯定很美。可想到这样的东西从前能有多伟大，我也挺难过。~
 EXIT
 
 CHAIN C0MMinJ PID-2-3
-~I like it here in Kuldahar. I'm afraid that if I stayed and enjoyed it here for too long though, I'd get too lazy to leave... haha... nah, that'll never happen. I get bored too quickly.~
+~我喜欢库尔达哈这儿。不过我怕要是在这儿待太久、享受太久，就懒得不走了……哈哈……不，那绝不会发生。我腻得太快。~
 EXIT
 
 CHAIN C0MMinJ PID-2-4
-~I hope my descendants go on adventures like these one day. People who stay in their homes don't know what they're missing.~
+~我希望我的后代有一天也去这样的冒险。待在家里的人不知道自己错过了什么。~
 EXIT
 
 CHAIN C0MMinJ PID-2-5
-~It's nice to have a returning dagger for a change. I've gotten kind of tired of making my own knives from bits of scraps. I used to have a magical dagger like this, you know. I lost it after it got stuck in an ogre who then fell off a cliff. I guess the magic has a limited range.~
+~偶尔有把会回来的匕首挺好。我有点厌倦拿碎料自己做刀了。我以前也有过一把这样的魔法匕首。它插进一个食人魔身上，那家伙掉下悬崖，我就丢了。看来魔法的范围有限。~
 EXIT
 
 CHAIN C0MMinJ PID-2-6
-~I miss Lonelywood already. It was so much fun, wasn't it? Minus the part about almost being frozen to death several times. That I could do without. Or with, if it means more adventures like that one!~
+~我已经想念孤木镇了。真好玩，不是吗？除了差点冻死好几回那段。那段我可以不要。要是能有更多那样的冒险，也可以忍受！~
 EXIT
 
 CHAIN C0MMinJ PID-2-7
-~Getting transported to the Anauroch and back made me appreciate warm weather again. I was getting so used to the cold too! *brr*~
+~被传到安纳洛克又回来，让我重新懂得欣赏暖和天气。我本来都快习惯冷了！*哆嗦*~
 EXIT
 
 CHAIN C0MMinJ PID-2-8
-~Who do you think's behind all of this, <PLAYER1>? My bet? Outerplanar invaders. That's the only thing that seems logical to me.~
+~<PLAYER1>，你觉得这一切背后是谁？我押什么？外层位面的入侵者。在我看来只有这个说得通。~
 EXIT
 
 CHAIN C0MMinJ PID-2-9
-~I'm thinking of practicing with another weapon. The long sword's a little heavy, but I think I could manage it. Or a spear... if I could find one that wasn't twice as tall as me. Keep an eye out for me, would you?~
+~我在想练另一种兵器。长剑有点重，不过我想我能行。或者长矛……要是我能找到一根不比我高两倍的。帮我留意着，好吗？~
 EXIT
 
 CHAIN C0MMinJ PID-2-10
-~I dunno. Sometimes I feel like I'm more useful at blowing things up in this journey. Thinking's more important when you don't have others around to do it for you.~
+~我不知道。这一路上我有时觉得自己炸东西更有用。身边没人替你动脑子的时候，动脑子更紧要。~
 EXIT
 
 CHAIN C0MMinJ PID-2-11
-~Nothing right now. I'm too busy trying to solve the mysteries of the world. Mathematically. In my head. Ow, it hurts. I could use a honey cake.~
+~现在没有。我正忙着解世界的谜。用数学。在脑子里。哎，头疼。来块蜜蛋糕就好了。~
 EXIT
 
 CHAIN C0MMinJ PID-2-12
-~I tried melting cheese over dried apples for supper yesterday. Oh, don't make that face—it's not bad! I just wish I had some spices to add to it.~
+~昨天晚饭我试着把奶酪化在苹果干上。哦，别那副表情——不难吃！我只是希望有点香料能加进去。~
 EXIT
 
 CHAIN C0MMinJ PID-2-13
-~Uh... you know that thing that happened last night? I didn't do it.~
+~呃……你知道昨晚那事吧？不是我干的。~
 END
-++ ~What thing?~ + PID-2-13-A
-++ ~Okay.~ EXIT
-++ ~So old socks end up in the cooking pot on their own somehow?~ + PID-2-13-B
+++ ~什么事？~ + PID-2-13-A
+++ ~行。~ EXIT
+++ ~所以旧袜子是自己跑进锅里的？~ + PID-2-13-B
 
 CHAIN C0MMinJ PID-2-13-A
-~You know, *that* thing... oh, you don't know? Eep. Pretend I didn't say anything.~
+~你知道，*那件*事……哦，你不知道？噫。就当我什么都没说。~
 EXIT
 
 CHAIN C0MMinJ PID-2-13-B
-~That... wasn't the thing I was talking about.~
+~那……不是我说的事。~
 END
-++ ~What *were* you talking about?~ + PID-2-13-A
-++ ~Right.~ EXIT
+++ ~你说的到底是*什么*？~ + PID-2-13-A
+++ ~好吧。~ EXIT
 
 CHAIN C0MMinJ PID-2-14
-~You know what'd be nice? Pickled cabbage in maple syrup! No? Why not?~
+~你知道什么好吗？枫糖浆腌白菜！不行？为什么不行？~
 EXIT
 
 CHAIN C0MMinJ PID-2-15
-~Hmm... to go for the kneecaps or the eyes? I'm not sure... which do you think's more effective, <PLAYER1>?~
+~唔……是打膝盖还是打眼睛？我不确定……<PLAYER1>，你觉得哪个更管用？~
 EXIT
 
 CHAIN C0MMinJ PID-2-16
-~Ugh. Can't think right now, sorry. There's a hole in my boot. I can never think when there's a hole in my boot.~
+~呃。抱歉，现在想不了。我靴子上有个洞。靴子有洞的时候我从来想不了事。~
 EXIT
 
 CHAIN C0MMinJ PID-2-17
-~I think we'll make it! How? Don't ask. Just believe. Otherwise it won't work.~
+~我觉得咱们能成！怎么成？别问。只管信。不然就不灵。~
 EXIT
 
 CHAIN C0MMinJ PID-2-18
-~I'm not sure you need my advice, honestly. This feels like a straightforward journey to me. It could be way more complicated. We could've been dealing with conspiracies on the Sword Coast instead.~
+~说实话，我不确定你需要我的建议。在我看来这趟走得挺直。本来能复杂得多。咱们本来可能在剑湾应付阴谋。~
 EXIT
 
 CHAIN C0MMinJ PID-2-19
-~Still no platinum dragon. This journey still hasn't reached the apex of awesomeness yet.~
+~还是没见到铂金龙。这趟旅程还没到了不起的顶点。~
 EXIT
 
 CHAIN C0MMinJ PID-2-20
-~Ahh, we'll be fine. I mean, things could always be worse than they are, right? Just imagine they'll get better instead!~
+~啊，咱们会没事的。我是说，事情总能比现在更糟，对吧？那就干脆想象它们会变好！~
 EXIT
 
 CHAIN C0MMinJ stringfix
-~Oh dear. I'll just hum a few bars and get things back to normal. 'La-la-la-la-la-la-laaaa...'~
+~哦天。我哼几句把气氛调回来。「啦啦啦啦啦啦啦——」~
 DO ~ClearAllActions() 
       StartCutSceneMode() 
       StartCutScene("C0MMinR")~ EXIT
 	  
 CHAIN C0MMinJ PID-ROMANCE
-~Mm-hmm?~
+~嗯哼？~
 END
 // + ~Global("C0MMinRomanceActive","GLOBAL",1) Global("C0MMinRomPID1","GLOBAL",1)~ + ~Can I call you Mini?~ DO ~SetGlobal("C0MMinRomPID1","GLOBAL",1)~ + rpid.1
- + ~Global("C0MMinRomanceActive","GLOBAL",1)~ + ~I wanted to say that I wish for us to remain friends.~ DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",3)~ + breakromance1
- + ~Global("C0MMinRomanceActive","GLOBAL",2)~ + ~I want to end our relationship.~ DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",3)~ + breakromance2
- ++ ~Actually, there was nothing I wanted to say.~ EXIT
+ + ~Global("C0MMinRomanceActive","GLOBAL",1)~ + ~我想说，我希望咱们还是做朋友。~ DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",3)~ + breakromance1
+ + ~Global("C0MMinRomanceActive","GLOBAL",2)~ + ~我想结束咱们的关系。~ DO ~SetGlobal("C0MMinRomanceActive","GLOBAL",3)~ + breakromance2
+ ++ ~其实我没想说什么。~ EXIT
  /*
 CHAIN C0MMinJ rpid.1
-~Wha—no. No! I haven't been called that since I was... eep.~
+~什——不。不！我自从……噫，就没被人这么叫过了。~
 END
-++ ~Aw, and here I thought you'd like it.~ + rpid.1.1
-++ ~You've been called that before?~ + rpid.1.2
-++ ~Okay, forget I asked.~ + rpid.1.3
+++ ~哎，我还以为你会喜欢。~ + rpid.1.1
+++ ~你以前被这么叫过？~ + rpid.1.2
+++ ~好，就当我没问。~ + rpid.1.3
 
 CHAIN C0MMinJ rpid.1.1
-~I don't dislike it. But it's embarrassing! I used to be called that when I was even smaller than I am now!~
+~我不讨厌。可这很尴尬！我以前比现在还小的时候被这么叫过！~
 EXTERN C0MMinJ rpid.1.3
 
 CHAIN C0MMinJ rpid.1.2
-~A very, very long time ago. I was a silly young gnome back then. I thought I outgrew that nickname!~
+~很久、很久以前。那时我是个傻乎乎的年轻侏儒。我以为我早过了那个绰号！~
 EXTERN C0MMinJ rpid.1.3
 
 CHAIN C0MMinJ rpid.1.3
-~Well, I guess if it's you, I don't really mind that much... you can call me Mini if you like. But not in front of anyone else!~
+~嗯，要是你叫的话，我倒不那么介意……你喜欢就叫小咪。可别在别人面前叫！~
 EXIT
 */
 CHAIN C0MMINJ breakromance1
-~Okay. I don't mind having an awesome friend like you, <PLAYER1>!~
+~好。我不介意有你这么棒的朋友，<PLAYER1>！~
 EXIT
  
 CHAIN C0MMINJ breakromance2
-~Oh. Well, that's... disappointing, I suppose. But I've dealt with this before. I'll manage.~
+~哦。嗯，那……有点失望，我想。不过这种事我以前遇过。我撑得住。~
 EXIT
  
 CHAIN C0MMinJ PID-QUESTIONS
-~Sure thing! Ask away... and, uh... feel free to stop me whenever you want. I've been told I tend to ramble.~
+~当然！问吧……还有，呃……你想让我停就随时打断我。有人说我爱东拉西扯。~
 END
-+ ~Global("C0MMinKnowsFamily","GLOBAL",1) Global("C0MMinPID1","GLOBAL",0)~ + ~Do you ever miss your ex-husband and son?~ DO ~SetGlobal("C0MMinPID1","GLOBAL",1)~ + PID-Q-1
-+ ~GlobalGT("Chapter","GLOBAL",5) Global("C0MMinPID2","GLOBAL",0)~ + ~Where do you think you'll go for your next adventure?~ DO ~SetGlobal("C0MMinPID2","GLOBAL",1)~ + PID-Q-2
-+ ~Global("C0MMinPID3","GLOBAL",0)~ + ~Have you ever considered studying magic?~ DO ~SetGlobal("C0MMinPID3","GLOBAL",1)~ + PID-Q-3
-+ ~Global("C0MMinPID4","GLOBAL",0)~ + ~You're really good with knives. Where did you get your training?~ DO ~SetGlobal("C0MMinPID4","GLOBAL",1)~ + PID-Q-4
-+ ~Global("C0MMinPID5","GLOBAL",0)~ + ~Do you miss anything about your home?~ DO ~SetGlobal("C0MMinPID5","GLOBAL",1)~ + PID-Q-5
-+ ~Global("C0MMinPID6","GLOBAL",0)~ + ~What's with the blue hair, anyway?~ DO ~SetGlobal("C0MMinPID6","GLOBAL",1)~ + PID-Q-6
-++ ~What do you think of our companions?~ + PID-Q-COMPANIONS
-++ ~Actually, there's nothing I want to ask.~ EXIT
++ ~Global("C0MMinKnowsFamily","GLOBAL",1) Global("C0MMinPID1","GLOBAL",0)~ + ~你会想你前夫和儿子吗？~ DO ~SetGlobal("C0MMinPID1","GLOBAL",1)~ + PID-Q-1
++ ~GlobalGT("Chapter","GLOBAL",5) Global("C0MMinPID2","GLOBAL",0)~ + ~你觉得下次冒险你会去哪儿？~ DO ~SetGlobal("C0MMinPID2","GLOBAL",1)~ + PID-Q-2
++ ~Global("C0MMinPID3","GLOBAL",0)~ + ~你考虑过学魔法吗？~ DO ~SetGlobal("C0MMinPID3","GLOBAL",1)~ + PID-Q-3
++ ~Global("C0MMinPID4","GLOBAL",0)~ + ~你使刀真行。你在哪儿受的训练？~ DO ~SetGlobal("C0MMinPID4","GLOBAL",1)~ + PID-Q-4
++ ~Global("C0MMinPID5","GLOBAL",0)~ + ~你怀念家乡的什么吗？~ DO ~SetGlobal("C0MMinPID5","GLOBAL",1)~ + PID-Q-5
++ ~Global("C0MMinPID6","GLOBAL",0)~ + ~你这蓝头发到底是怎么回事？~ DO ~SetGlobal("C0MMinPID6","GLOBAL",1)~ + PID-Q-6
+++ ~你觉得咱们的同伴怎么样？~ + PID-Q-COMPANIONS
+++ ~其实我没什么想问的。~ EXIT
 
 CHAIN C0MMinJ PID-Q-1
-~Well... I dunno. Sometimes, yes. I have fond memories of the days when Arthur and I would go home together after spending the day at the workshop, sit at the table with mugs of tea and cakes... he'd stay downstairs while I went to put Kairos to sleep, tell him bedtime stories, then I'd go back down and we'd talk until morning...~
-= ~I feel sorry for not being able to be satisfied with that life. I know it's selfish. But we didn't separate unhappily. I still care about Arthur, even if we're not together anymore. And I'm hoping I'll be able to tell Kairos stories about myself one day.~
+~嗯……我不知道。有时候会。我有些美好回忆：白天在工坊干完活，我和亚瑟一起回家，坐在桌边捧着茶杯和蛋糕……我上楼哄凯罗斯睡觉、给他讲睡前故事的时候，他就留在楼下，然后我下去，咱们聊到天亮……~
+= ~我为没能满足于那种生活而抱歉。我知道这自私。可咱们分开时并不难过。我还惦记亚瑟，就算咱们不在一起了。我希望有一天能跟凯罗斯讲讲我自己的故事。~
 EXIT
 
 CHAIN C0MMinJ PID-Q-2
-~Oh, I can never decide. Usually, I just pick a direction and walk for as long as my legs can carry me. Isn't it more fun when you don't know where you're going?~
+~哦，我从来决定不了。通常我就挑个方向，能走多远走多远。不知道去哪儿不是更有意思吗？~
 EXIT
 
 CHAIN C0MMinJ PID-Q-3
-~Maybe once or twice. I'm not that great at it, to be honest. Although I think people are a little too crazy over magic nowadays.~
+~也许一两次。老实说我不太在行。不过我觉得现在的人对魔法有点太痴迷了。~
 EXIT
 
 CHAIN C0MMinJ PID-Q-4
-~I'm self-taught. I know, I know, it's hard to believe... I'm quite good, aren't I? Accuracy and precision are core in both artifice and knife-throwing. It's little surprise I have a knack for both.~
-= ~Not that I'm opposed to getting down and dirty in the middle of a fight once in a while. That's the beauty of fighting with daggers - you can hold your own in any situation. Much more versatile than a bow or sling.~
+~我是自学的。我知道，我知道，很难相信……我挺厉害的，对吧？精准和精确在造物和飞刀里都是核心。我两样都拿手也不奇怪。~
+= ~不过我也不反对偶尔在战斗里贴身硬拼。用匕首打的好处就在这儿——什么局面都能站得住。比弓或投石索百搭多了。~
 EXIT
 
 CHAIN C0MMinJ PID-Q-5
-~It's not like I don't miss home. I just like adventuring more. Although you can't find gooseberry jam or fish pies nearly as delicious out here compared to Lantan... mmm, food. Is it mealtime yet?~
+~我不是不想家。我只是更喜欢冒险。不过外头的醋栗酱和鱼派，怎么都比不上兰坦的……唔，吃的。到饭点了吗？~
 EXIT
 
 CHAIN C0MMinJ PID-Q-6
-~Oh, it's just a thing we Glimmershines like to do. My natural hair would probably blind you on a sunny day. It used to be orange, then it was green. Even dyed it black during one of my, um, 'phases'. Painted my face with dark mascara and everything... yeesh, embarrassed just remembering it.~
-= ~Blue's my favorite color for the time being, though. Maybe I'll change it to something else eventually, but I like it the best. It's a peaceful, yet vibrant color at once.~
+~哦，这是我们闪辉家爱干的事。我本来的头发在晴天大概能晃瞎你。先是橙色，后来绿色。我还在一段，呃，「时期」里染过黑的。脸上还涂深色睫毛膏什么的……咦，想起来都尴尬。~
+= ~不过眼下蓝色是我最喜欢的。也许以后我会换成别的，可我最喜欢这个。它既安宁又鲜明，一下就两样都有。~
 EXIT
 
 CHAIN C0MMinJ PID-Q-COMPANIONS
-~Ooh, I love a little bit of gossip. Which one do you want to hear about?~
+~哦，我最爱听点闲话。你想听谁的？~
 END
-+ ~InParty("L#DUSKY")~ + ~Dendjelion.~ + PID-DENDJELION
-+ ~InParty("L#DUSKY")~ + ~Dusky.~ + PID-DUSKY
-+ ~InParty("O#HOLVIR")~ + ~Holvir.~ + PID-HOLVIR
-+ ~InParty("L#INA")~ + ~Ina.~ + PID-INA
-+ ~InParty("C0KARIHI")~ + ~Karihi.~ + PID-KARIHI
-+ ~InParty("O#KORIN")~ + ~Korin.~ + PID-KORIN
-+ ~InParty("O#NELLA")~ + ~Nella.~ + PID-NELLA
-+ ~InParty("L#OM")~ + ~Oak-Maw.~ + PID-OM
-+ ~InParty("O#SEVERN")~ + ~Severn.~ + PID-SEVERN
-+ ~InParty("O#TERI")~ + ~Teri.~ + PID-TERI
-+ ~InParty("L#TIPPS")~ + ~Tipps.~ + PID-OM
-+ ~InParty("L#URCHIN")~ + ~Urchin.~ + PID-URCHIN
-++ ~Never mind.~ EXIT
++ ~InParty("L#DUSKY")~ + ~登杰利昂。~ + PID-DENDJELION
++ ~InParty("L#DUSKY")~ + ~达斯基。~ + PID-DUSKY
++ ~InParty("O#HOLVIR")~ + ~霍尔维尔。~ + PID-HOLVIR
++ ~InParty("L#INA")~ + ~伊娜。~ + PID-INA
++ ~InParty("C0KARIHI")~ + ~卡里希。~ + PID-KARIHI
++ ~InParty("O#KORIN")~ + ~科林。~ + PID-KORIN
++ ~InParty("O#NELLA")~ + ~内拉。~ + PID-NELLA
++ ~InParty("L#OM")~ + ~橡颚。~ + PID-OM
++ ~InParty("O#SEVERN")~ + ~塞文。~ + PID-SEVERN
++ ~InParty("O#TERI")~ + ~泰瑞。~ + PID-TERI
++ ~InParty("L#TIPPS")~ + ~蒂普斯。~ + PID-OM
++ ~InParty("L#URCHIN")~ + ~厄钦。~ + PID-URCHIN
+++ ~算了。~ EXIT
 
 CHAIN C0MMinJ PID-Q-COMPANIONS-2
-~Anyone else?~
+~还有别人吗？~
 END
-+ ~InParty("L#DUSKY")~ + ~Dendjelion.~ + PID-DENDJELION
-+ ~InParty("L#DUSKY")~ + ~Dusky.~ + PID-DUSKY
-+ ~InParty("O#HOLVIR")~ + ~Holvir.~ + PID-HOLVIR
-+ ~InParty("L#INA")~ + ~Ina.~ + PID-INA
-+ ~InParty("C0KARIHI")~ + ~Karihi.~ + PID-KARIHI
-+ ~InParty("O#KORIN")~ + ~Korin.~ + PID-KORIN
-+ ~InParty("O#NELLA")~ + ~Nella.~ + PID-NELLA
-+ ~InParty("L#OM")~ + ~Oak-Maw.~ + PID-OM
-+ ~InParty("O#SEVERN")~ + ~Severn.~ + PID-SEVERN
-+ ~InParty("O#TERI")~ + ~Teri.~ + PID-TERI
-+ ~InParty("L#TIPPS")~ + ~Tipps.~ + PID-OM
-+ ~InParty("L#URCHIN")~ + ~Urchin.~ + PID-URCHIN
-++ ~Never mind.~ EXIT
++ ~InParty("L#DUSKY")~ + ~登杰利昂。~ + PID-DENDJELION
++ ~InParty("L#DUSKY")~ + ~达斯基。~ + PID-DUSKY
++ ~InParty("O#HOLVIR")~ + ~霍尔维尔。~ + PID-HOLVIR
++ ~InParty("L#INA")~ + ~伊娜。~ + PID-INA
++ ~InParty("C0KARIHI")~ + ~卡里希。~ + PID-KARIHI
++ ~InParty("O#KORIN")~ + ~科林。~ + PID-KORIN
++ ~InParty("O#NELLA")~ + ~内拉。~ + PID-NELLA
++ ~InParty("L#OM")~ + ~橡颚。~ + PID-OM
++ ~InParty("O#SEVERN")~ + ~塞文。~ + PID-SEVERN
++ ~InParty("O#TERI")~ + ~泰瑞。~ + PID-TERI
++ ~InParty("L#TIPPS")~ + ~蒂普斯。~ + PID-OM
++ ~InParty("L#URCHIN")~ + ~厄钦。~ + PID-URCHIN
+++ ~算了。~ EXIT
 
 CHAIN C0MMinJ PID-DENDJELION
-~I've been to Westgate before, you know. He's nowhere close to as bad as it gets there. I'm not sure whether that says more about him or where he came from.~
+~你知道吗，我去过西门城。他远没有那儿最糟的那么糟。我不知道这说明的是他，还是他的出身。~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-DUSKY
-~Oh, he's good. I've got the edge over him when it comes to tinkering, naturally, but I'll admit I'm not as good at sneaking about as he is. Don't tell him I said that, though. He'll gloat over it for days.~
+~哦，他挺行。修修补补这种事我自然比他强，可我承认潜行我不如他。不过别告诉他我说过这话。他会得意好几天。~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-HOLVIR
-~Waterdhavian knights are so... professional. Almost like actors, kinda. Does he ever let his guard down? Hey, tell me if he does, okay?~
+~深水城的骑士真是……专业。有点像演员。他有没有放松警惕的时候？嘿，有的话告诉我，好吗？~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-INA
-~She makes me wish there were more ghosts like her. More friendly ghosts, less creepy terrors of the night. Imagine how much nicer exploring crypts would be!~
+~她让我希望多些像她这样的鬼。多点友善的鬼，少点夜里瘆人的恐怖东西。想想探地窖会舒服多少！~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-KARIHI
-~She's got quite a bit of a temper, doesn't she? I like her, though. She's read almost enough books to put me to shame on some subjects. Just be careful not to rile her up too much. She might explode.~
+~她脾气不小，对吧？不过我喜欢她。她读的书在某些题目上几乎能让我惭愧。只是小心别太惹她。她可能会炸开。~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-KORIN
-~He's nice enough, I guess. A bit too broody, though. Even for an elf. Wonder if he'd crack a smile if you tickled him? ...Me? Nah, I'm not risking it.~
+~他算是不错。不过太爱沉着脸。就算按精灵算也是。不知道你挠他痒他会不会笑？……我？不，我不冒这个险。~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-NELLA
-~I thought some of the people I knew were sleepless workaholics. Aaaand then I met Nella. It's sort of inspiring actually. Makes me feel guilty to slack off when she works so hard to take care of everyone, so I end up working harder too.~
+~我以为我认识的人里有些不睡觉的工作狂。然后——我遇见了内拉。其实还挺激励人。她那么拼命照顾所有人，我一偷懒就内疚，结果我也干得更拼。~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-OM
-~I can get along with him. Bit of a pain having to bend my neck to look up whenever we talk, though. Especially when I end up looking into the sun most of the time when I do it.~
+~我跟他处得来。不过每次说话都得仰着脖子，有点难受。尤其我仰头的时候大多正对着太阳。~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-SEVERN
-~You're never a whole party without a bard around. After all, we need someone to tell our stories someday! And I'm an awful storyteller, personally. I tend to get drone on and on about other things that have nothing to with the story... or so I've been told.~
+~身边没个吟游诗人，队伍就不完整。毕竟总得有人有一天来讲咱们的故事！而我个人讲故事的能耐糟透了。我容易扯到跟故事毫无关系的别的上头去……至少别人是这么说的。~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-TERI
-~Teri's a lot of fun, but she'd never, ever, *ever* be allowed in Lantan, with the way her fingers wander. It's too bad. I think she's liven things up a lot at home.~
+~泰瑞很好玩，可就凭她那手指乱摸的毛病，她是绝、绝、*绝不*会被允许进兰坦的。真可惜。我觉得她能把家乡弄热闹不少。~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-TIPPS
-~Do you think all people who get turned to stone end up so cranky after being turned back? I feel like he's still a little stiff in places. Oh... that came out wrong.~
+~你觉得所有变成石头的人变回来之后都这么暴躁吗？我觉得他身上还有些地方僵着。哦……这话说出来不对。~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2
 
 CHAIN C0MMinJ PID-URCHIN
-~He kinda reminds me of a pet dog my sister used to have. Not the prettiest thing, but you can't help but want to pet him. Or maybe it's because of the drooling... what? You don't agree with me?~
+~他有点让我想起我妹妹以前养的一只狗。不算最好看，可你就是忍不住想摸他。也许是因为他流口水……什么？你不同意？~
 EXTERN C0MMinJ PID-Q-COMPANIONS-2

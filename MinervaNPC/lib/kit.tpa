@@ -41,46 +41,46 @@ ADD_KIT ~C0ARFT~
  // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
  ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
  // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
-  SAY ~fighter / artificer~
-  SAY ~Fighter / Artificer~
-  SAY ~FIGHTER/ARTIFICER: This character can use the abilities of a Fighter and an Artificer, though they cannot use their thieving skills while wearing more than studded leather armor. They may Specialize in, but usually not Master, any weapon they can use.
+  SAY ~战士 / 工匠~
+  SAY ~战士 / 工匠~
+  SAY ~战士/工匠：此角色可使用战士与工匠的能力，但在穿着高于镶钉皮甲等级的护甲时无法使用盗贼技能。角色可在其可用的武器上专精，但通常无法达到精通。
  
-ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge of historical, scientific and arcane lore, as well as the use of deadly alchemical traps and metal automatons.
+工匠：兰坦工匠是杰出的创新者与匠人，他们缺乏战斗或潜行暗杀的本事，却以对历史、科学与奥术学识的精通，以及致命的炼金陷阱与金属自动机来弥补。
 
-Advantages:
-– +30 bonus to Lore.
-– +10% bonus to Find Traps, Open Locks and Set Traps.
-– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+优势：
+– 学识 +30。
+– 侦测陷阱、开锁与设置陷阱各 +10%。
+– 除盗贼常规的「设置绊索」外，每天可额外使用一次「设置炼金绊索」。1 级获得一次使用，此后每 5 级增加一次。
 
-Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+设置炼金绊索：在视野内无敌对生物时，于目标地点设置陷阱。陷阱在 10 尺半径内造成 2d4（每 3 级额外 +1d4）火焰、寒冷、酸蚀或电击伤害（元素由工匠选择），并施加持续 2 轮 + 每 3 级 1 轮的额外效果。效果取决于所选元素。炼金绊索只会被敌人触发，但会影响范围内所有生物。
 
-  ALCHEMIST'S FIRE: Trap damage increases to d6 and sets targets Aflame, dealing an additional 1d4 fire damage per round.
-  RAPID FREEZE: Targets become Slowed, suffering a -4 penalty to THAC0 and Armor Class.
-  ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
-  ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
+  炼金火焰：陷阱伤害提升为 d6，并使目标燃烧，每轮额外受到 1d4 火焰伤害。
+  速冻试剂：目标陷入迟缓，命中值与防御等级各 -4。
+  腐蚀酸液：目标受腐蚀之苦，物理抗性与伤害 -25%。
+  导电液体：目标陷入电震，每轮有 10% 几率麻痹 1 轮。
 
-– May use the Advanced Alchemy ability at will.
+– 可随意使用「高等炼金术」。
 
-ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+高等炼金术：兰坦工匠精通化学与制药。此技能可制作若干药水或炼金武器，可制作的药水种类随工匠等级提升。
 
-– From level 5 onwards, may create a Lantanese Autocannon once per day. Additional uses are gained at 10th and 15th level.
+– 5 级起，每天可制造一具兰坦自动炮。10 级与 15 级各再增加一次使用。
 
-– From level 8 onwards, may use the Craft Automaton ability once per day.
+– 8 级起，每天可使用一次「制造自动机」。
 
-CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+制造自动机：工匠花两轮时间组装出一具可随意操控的强力自动机。自动机存在至被摧毁；创造者失去行动能力时它会停摆，创造者心智受创时它会失控，创造者死亡时它会散架。任何时候只能操控一具自动机。
 
-– From level 20 onwards, gains Master Alchemist.
+– 20 级起，获得「大师炼金师」。
 
-MASTER ALCHEMIST: The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.
+大师炼金师：大师级工匠能触及全新层次的炼金术，可用「高等炼金术」制作神力灵药、完全治疗药水、真实视域药水与坚韧补剂。他们还获得一项能力：一生中可以制作一瓶终极精通药水。
 
-– From level 24 onwards, gains Grand Artifice.
+– 24 级起，获得「大宗造物」。
 
-GRAND ARTIFICE: The master artificer takes her craft beyond that of any regular artisan, ensuring that her allies' tools and skills are optimized. As long as the artificer is alive and within the party, all party members gain a +2 bonus to Armor Class and Saving Throws, +1 bonus to casting time, +25% to all thieving skills, and +10% critical hit chance.
+大宗造物：大师级工匠把技艺推到任何普通匠人之上，确保盟友的工具与本领都处于最优。只要工匠存活且在队伍中，全体队员获得防御等级与豁免 +2、施法速度 +1、所有盗贼技能 +25%、暴击率 +10%。
 
-Disadvantages:
-– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– No backstab multiplier.
-– May only distribute 20 skill points per level among thieving skills.~
+劣势：
+– 扒窃、阴影中躲藏与无声移动 -10%。
+– 无背刺倍率。
+– 每级只能将 20 点技能点分配到盗贼技能上。~
 
 LAF fl#add_kit_ee
   STR_VAR
@@ -101,7 +101,7 @@ LAF qd_multiclass
 END
 
 COPY_EXISTING ~c0aukt1.spl~ ~override~
-LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RESOLVE_STR_REF (~Artificer~) special = 4 END
+LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RESOLVE_STR_REF (~工匠~) special = 4 END
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// SPELLS //////////////////////////////////////
@@ -109,15 +109,15 @@ LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RES
 
 COPY_EXISTING ~c0auin1.2da~ ~override~
 COPY_EXISTING ~c0auin1.spl~ ~override~
-SAY NAME1 ~Set Alchemical Snare~
-SAY NAME2 ~Set Alchemical Snare~
-SAY UNIDENTIFIED_DESC ~Set Alchemical Snare
-Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+SAY NAME1 ~设置炼金绊索~
+SAY NAME2 ~设置炼金绊索~
+SAY UNIDENTIFIED_DESC ~设置炼金绊索
+在视野内无敌对生物时，于目标地点设置陷阱。陷阱在 10 尺半径内造成 2d4（每 3 级额外 +1d4）火焰、寒冷、酸蚀或电击伤害（元素由工匠选择），并施加持续 2 轮 + 每 3 级 1 轮的额外效果。效果取决于所选元素。炼金绊索只会被敌人触发，但会影响范围内所有生物。
 
-  ALCHEMIST'S FIRE: Trap damage increases to d6 and sets targets Aflame, dealing an additional 1d4 fire damage per round.
-  RAPID FREEZE: Targets become Slowed, suffering a -4 penalty to THAC0 and Armor Class.
-  ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
-  ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.~
+  炼金火焰：陷阱伤害提升为 d6，并使目标燃烧，每轮额外受到 1d4 火焰伤害。
+  速冻试剂：目标陷入迟缓，命中值与防御等级各 -4。
+  腐蚀酸液：目标受腐蚀之苦，物理抗性与伤害 -25%。
+  导电液体：目标陷入电震，每轮有 10% 几率麻痹 1 轮。~
 
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap1.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap2.PRO~
@@ -160,11 +160,11 @@ END
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 139
-        parameter1 		  = RESOLVE_STR_REF (~Aflame~)
+        parameter1 		  = RESOLVE_STR_REF (~燃烧~)
       END
 COPY_EXISTING ~c0auin1a.spl~ ~override~
-SAY NAME1 ~Set Alchemical Trap: Alchemist's Fire~
-SAY NAME2 ~Set Alchemical Trap: Alchemist's Fire~
+SAY NAME1 ~设置炼金陷阱：炼金火焰~
+SAY NAME2 ~设置炼金陷阱：炼金火焰~
 
 COPY_EXISTING ~c0atrap2.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -193,11 +193,11 @@ END
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 139
-        parameter1 		  = RESOLVE_STR_REF (~Slowed~)
+        parameter1 		  = RESOLVE_STR_REF (~迟缓~)
       END
 COPY_EXISTING ~c0auin1b.spl~ ~override~
-SAY NAME1 ~Set Alchemical Trap: Rapid Freezing Reagent~
-SAY NAME2 ~Set Alchemical Trap: Rapid Freezing Reagent~
+SAY NAME1 ~设置炼金陷阱：速冻试剂~
+SAY NAME2 ~设置炼金陷阱：速冻试剂~
 
 COPY_EXISTING ~c0atrap3.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -226,11 +226,11 @@ END
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 139
-        parameter1 		  = RESOLVE_STR_REF (~Corroded~)
+        parameter1 		  = RESOLVE_STR_REF (~腐蚀~)
       END
 COPY_EXISTING ~c0auin1c.spl~ ~override~
-SAY NAME1 ~Set Alchemical Trap: Corrosive Acidic Compound~
-SAY NAME2 ~Set Alchemical Trap: Corrosive Acidic Compound~
+SAY NAME1 ~设置炼金陷阱：腐蚀酸液~
+SAY NAME2 ~设置炼金陷阱：腐蚀酸液~
 
 COPY_EXISTING ~c0atrap4.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -264,29 +264,29 @@ END
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 139
-        parameter1 		  = RESOLVE_STR_REF (~Shocked~)
+        parameter1 		  = RESOLVE_STR_REF (~电震~)
       END
 COPY_EXISTING ~c0aparal.spl~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 139
-        parameter1 		  = RESOLVE_STR_REF (~Paralyzed~)
+        parameter1 		  = RESOLVE_STR_REF (~麻痹~)
       END
 COPY_EXISTING ~c0auin1d.spl~ ~override~
-SAY NAME1 ~Set Alchemical Trap: Conductive Fluid~
-SAY NAME2 ~Set Alchemical Trap: Conductive Fluid~
+SAY NAME1 ~设置炼金陷阱：导电液体~
+SAY NAME2 ~设置炼金陷阱：导电液体~
 
 COPY_EXISTING ~c0aualc.spl~ ~override~
-SAY NAME1 ~Advanced Alchemy~
-SAY NAME2 ~Advanced Alchemy~
-SAY UNIDENTIFIED_DESC ~Advanced Alchemy
-Lantanese artificers are exceptionally skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons equal to half of the artificer's level. The types of potions available for crafting increase with the artificer's level.
+SAY NAME1 ~高等炼金术~
+SAY NAME2 ~高等炼金术~
+SAY UNIDENTIFIED_DESC ~高等炼金术
+兰坦工匠在化学与制药上技艺超群。此技能可用来制作数量相当于工匠等级一半的药水或炼金武器。可制作的药水种类随工匠等级提升。
 
-This ability may be used an unlimited times per day, but the artificer's stock only refreshes after resting. Alchemy may not be performed while in combat.~
+此能力每天可用不限次数，但工匠的存货只有在休息后才会补充。战斗中无法进行炼金。~
 
 COPY_EXISTING ~c0aualch.cre~ ~override~
-SAY NAME1 ~Alchemy~
-SAY NAME2 ~Alchemy~
+SAY NAME1 ~炼金术~
+SAY NAME2 ~炼金术~
   WRITE_ASCII 0x248 ~c0aualch~ #8  //override script
   WRITE_ASCII 0x280 ~c0aualch~ #32  //DV
   WRITE_ASCII 0x2cc ~c0aualch~ #8   //pre-joining dialogue file
@@ -300,16 +300,16 @@ COPY_EXISTING ~c0aualc2.spl~ ~override~
 COPY_EXISTING ~c0aualc3.spl~ ~override~
   
 COPY_EXISTING ~c0autinv.sto~ ~override~
-SAY 0xc ~Clockwork Servant Automaton~
+SAY 0xc ~发条仆从自动机~
 
 COPY_EXISTING ~c0aupot1.sto~ ~override/c0aupot1.sto~
-SAY 0xc ~Alchemy - Standard Potions~
+SAY 0xc ~炼金术 - 标准药水~
   
 COPY_EXISTING ~c0aupot1.sto~ ~override/c0aubom1.sto~
-SAY 0xc ~Alchemy - Explosives~
+SAY 0xc ~炼金术 - 爆炸物~
 
 COPY_EXISTING ~c0aupot1.sto~ ~override/c0aupoth.sto~
-SAY 0xc ~Alchemy - Advanced Potions~
+SAY 0xc ~炼金术 - 高级药水~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~baldur.bcs~ THEN BEGIN
 EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/scripts/baldur.baf~
@@ -326,32 +326,32 @@ END
 COPY_EXISTING ~c0ausumm.cre~ ~override~
   WRITE_ASCII 0x248 ~C0MSumm~ #8  //override script
 COPY_EXISTING ~c0auin3.spl~ ~override~
-SAY NAME1 ~Craft Automaton~
-SAY NAME2 ~Craft Automaton~
-SAY UNIDENTIFIED_DESC ~Craft Automaton
-The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed and cannot be controlled but will defend their creators, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed.
+SAY NAME1 ~制造自动机~
+SAY NAME2 ~制造自动机~
+SAY UNIDENTIFIED_DESC ~制造自动机
+工匠花两轮时间组装出一具可随意操控的强力自动机。自动机会一直存在直到被摧毁；它无法被操控，但会保护其创造者，创造者失去行动能力时它会停摆，创造者心智受创时它会失控，创造者死亡时它会散架。
 
-Only one automaton can be controlled at any given time.~
+任何时候只能操控一具自动机。~
 
 COPY_EXISTING ~c0auin4.spl~ ~override~
-SAY NAME1 ~Craft Wand~
-SAY NAME2 ~Craft Wand~
-SAY UNIDENTIFIED_DESC ~Craft Wand
-The master artificer may use this ability at will to craft a variety of magical wands at a cost.
+SAY NAME1 ~制造魔杖~
+SAY NAME2 ~制造魔杖~
+SAY UNIDENTIFIED_DESC ~制造魔杖
+大师级工匠可随意使用此能力，付出代价制造各种魔法魔杖。
 
-Requires: Use Any Item~
+需求：使用任意物品~
 COPY_EXISTING ~c0aualch.cre~ ~override/c0auin4.cre~
-SAY NAME1 ~Wandcrafting~
-SAY NAME2 ~Wandcrafting~
+SAY NAME1 ~魔杖制作~
+SAY NAME2 ~魔杖制作~
   WRITE_ASCII 0x248 ~c0auin4~ #8  //override script
   WRITE_ASCII 0x280 ~c0auin4~ #32  //DV
   WRITE_ASCII 0x2cc ~c0auin4~ #8   //pre-joining dialogue file
   WRITE_ASCII 0x268 ~c0auin4~ #8   //default
 COPY_EXISTING ~c0auin5.spl~ ~override~
-SAY NAME1 ~Master Alchemist~
-SAY NAME2 ~Master Alchemist~
-SAY UNIDENTIFIED_DESC ~Master Alchemist
-The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.~
+SAY NAME1 ~大师炼金师~
+SAY NAME2 ~大师炼金师~
+SAY UNIDENTIFIED_DESC ~大师炼金师
+大师级工匠能触及全新层次的炼金术，可用「高等炼金术」制作神力灵药、完全治疗药水、真实视域药水与坚韧补剂。他们还获得一项能力：一生中可以制作一瓶终极精通药水。~
 
 COPY_EXISTING ~c0auin6.spl~ ~override~
       LPF ALTER_EFFECT
@@ -362,413 +362,413 @@ COPY_EXISTING ~c0auin6.spl~ ~override~
         match_parameter2  = 82    // Called Shot icon
         parameter2        = c0aicon5
       END
-SAY NAME1 ~Grand Artifice~
-SAY NAME2 ~Grand Artifice~
-SAY UNIDENTIFIED_DESC ~Grand Artifice
-The master artificer takes her craft beyond that of any regular artisan, ensuring that her allies' tools and skills are optimized. As long as the artificer is alive and within the party, all party members gain a +2 bonus to Armor Class and Saving Throws, +1 bonus to casting time, +25% to all thieving skills, and +10% critical hit chance.
+SAY NAME1 ~大宗造物~
+SAY NAME2 ~大宗造物~
+SAY UNIDENTIFIED_DESC ~大宗造物
+大师级工匠把技艺推到任何普通匠人之上，确保盟友的工具与本领都处于最优。只要工匠存活且在队伍中，全体队员获得防御等级与豁免 +2、施法速度 +1、所有盗贼技能 +25%、暴击率 +10%。
 
-Requires: Use Any Item~
+需求：使用任意物品~
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// POTIONS /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
 COPY_EXISTING ~c0apot01.spl~ ~override~
-SAY NAME1 ~Potion of Renewal~
-SAY NAME2 ~Potion of Renewal~
+SAY NAME1 ~恢复药水~
+SAY NAME2 ~恢复药水~
 COPY_EXISTING ~c0apot01.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Renewal~
-SAY NAME2 ~Lantanese Potion of Renewal~
-SAY DESC ~This potion is composed of several exotic medicinal herbs and alchemical ingredients, giving it significant healing properties.
+SAY NAME1 ~兰坦恢复药水~
+SAY NAME2 ~兰坦恢复药水~
+SAY DESC ~这瓶药水由数种珍稀药草与炼金材料调成，具有显著的治疗效力。
 
-STATISTICS:
+属性：
 
-Special: Restores 30% of maximum Hit Points and cures all poisons and diseases.
+特殊：回复最大生命值的 30%，并治愈所有毒素与疾病。
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 200
  
 COPY_EXISTING ~c0apot02.spl~ ~override~
-SAY NAME1 ~Potion of Fire Resistance~
-SAY NAME2 ~Potion of Fire Resistance~
+SAY NAME1 ~防火药水~
+SAY NAME2 ~防火药水~
 COPY_EXISTING ~c0apot02.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Fire Resistance~
-SAY NAME2 ~Lantanese Potion of Fire Resistance~
-SAY DESC ~This exotic potion provides the imbiber with a significant resistance to heat. Those who drink this potion would be capable of leaping through a wall of flame without suffering the slightest injury.
+SAY NAME1 ~兰坦防火药水~
+SAY NAME2 ~兰坦防火药水~
+SAY DESC ~这种异域药水赋予饮者极强的耐热能力。喝下它的人可以跃过一道火墙而毫发无伤。
 
-STATISTICS:
+属性：
 
-Fire Resistance: +100%
-Special: Fire Resistance decreases by 10% per round to a minimum of 50% after 5 rounds.
-Duration: 2 hours
+火焰抗性：+100%
+特殊：5 轮后火焰抗性每轮降低 10%，最低 50%。
+持续时间：2 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 250
 
 COPY_EXISTING ~c0apot03.spl~ ~override~
-SAY NAME1 ~Potion of Cold Resistance~
-SAY NAME2 ~Potion of Cold Resistance~
+SAY NAME1 ~抗寒药水~
+SAY NAME2 ~抗寒药水~
 COPY_EXISTING ~c0apot03.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Cold Resistance~
-SAY NAME2 ~Lantanese Potion of Cold Resistance~
-SAY DESC ~This potion was designed for Lantanese researchers to allow them to survive at near-fatally low temperatures while experimenting with certain cold-dwelling creatures or plants. Those who drink this potion find themselves in a state of perpetual warmth.
+SAY NAME1 ~兰坦抗寒药水~
+SAY NAME2 ~兰坦抗寒药水~
+SAY DESC ~这瓶药水是为兰坦的研究者配制的，好让他们在近致命低温下研究某些耐寒生物或植物时能存活。喝下它的人会处于持续的温暖状态。
 
-STATISTICS:
+属性：
 
-Cold Resistance: +100%
-Special: Cold Resistance decreases by 10% per round to a minimum of 50% after 5 rounds.
-Duration: 2 hours
+寒冷抗性：+100%
+特殊：5 轮后寒冷抗性每轮降低 10%，最低 50%。
+持续时间：2 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 250
 
 COPY_EXISTING ~c0apot04.spl~ ~override~
-SAY NAME1 ~Philter of Health~
-SAY NAME2 ~Philter of Health~
+SAY NAME1 ~健康酊剂~
+SAY NAME2 ~健康酊剂~
 COPY_EXISTING ~c0apot04.itm~ ~override~
-SAY NAME1 ~Lantanese Philter of Health~
-SAY NAME2 ~Lantanese Philter of Health~
-SAY DESC ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day.
+SAY NAME1 ~兰坦健康酊剂~
+SAY NAME2 ~兰坦健康酊剂~
+SAY DESC ~这只小瓶里装着营养丰富、能量充足的液体，为长途旅行者设计，可让他们一整天不吃不睡地赶路。
 
-STATISTICS:
+属性：
 
-Maximum Hit Points: +10%
-Special: Removes fatigue
-Duration: 1 hour
+最大生命值：+10%
+特殊：消除疲劳
+持续时间：1 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 160
 
 COPY_EXISTING ~c0apot05.spl~ ~override~
-SAY NAME1 ~Potion of Invisibility~
-SAY NAME2 ~Potion of Invisibility~
+SAY NAME1 ~隐形药水~
+SAY NAME2 ~隐形药水~
 COPY_EXISTING ~c0apot05.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Invisibility~
-SAY NAME2 ~Lantanese Potion of Invisibility~
-SAY DESC ~The natives of Lantan are known for being relatively pacifistic and prefer to avoid conflict wherever possible. To this end, their potions of invisibility are among the most popular of their alchemical creations, as it allows them to escape nearly any situation completely unscathed.
+SAY NAME1 ~兰坦隐形药水~
+SAY NAME2 ~兰坦隐形药水~
+SAY DESC ~兰坦人素来以相对和平、尽量避免冲突著称。为此，他们的隐形药水成了最受欢迎的炼金制品之一，因为它几乎能让人毫发无伤地脱离任何处境。
 
-STATISTICS:
+属性：
 
-Special: Invisibility and Non-Detection
-Duration: 1 hour
+特殊：隐形且无法被侦测
+持续时间：1 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 180
 
 COPY_EXISTING ~c0apot06.spl~ ~override~
-SAY NAME1 ~Trollblood Extract~
-SAY NAME2 ~Trollblood Extract~
+SAY NAME1 ~巨魔血提取液~
+SAY NAME2 ~巨魔血提取液~
 COPY_EXISTING ~c0apot06.itm~ ~override~
-SAY NAME1 ~Lantanese Trollblood Extract~
-SAY NAME2 ~Lantanese Trollblood Extract~
-SAY DESC ~As foul-looking as this liquid appears to be, it has the undeniably effective property of bestowing its drinker with cellular regeneration of shocking rates. However, the concoction also temporarily bestows some of the weaknesses of trollkin as a result.
+SAY NAME1 ~兰坦巨魔血提取液~
+SAY NAME2 ~兰坦巨魔血提取液~
+SAY DESC ~这液体看着实在恶心，却有种无可否认的效果：让饮者的细胞以惊人的速度再生。不过这份药剂也因此暂时带来巨魔一族的一些弱点。
 
-STATISTICS:
+属性：
 
-Fire Resistance: -50%
-Acid Resistance: -50%
-Special: Regenerate two hit points per second
-Duration: 5 rounds
+火焰抗性：-50%
+酸蚀抗性：-50%
+特殊：每秒回复两点生命值
+持续时间：5 轮
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 500
 
 COPY_EXISTING ~c0apot07.spl~ ~override~
-SAY NAME1 ~Tonic of Alertness~
-SAY NAME2 ~Tonic of Alertness~
+SAY NAME1 ~警觉补剂~
+SAY NAME2 ~警觉补剂~
 COPY_EXISTING ~c0apot07.itm~ ~override~
-SAY NAME1 ~Lantanese Tonic of Alertness~
-SAY NAME2 ~Lantanese Tonic of Alertness~
-SAY DESC ~This strongly-scented potion puts its drinker into a state of constant and total awareness, to the point where they can hear the slightest movement and practically see out of the back of their heads.
+SAY NAME1 ~兰坦警觉补剂~
+SAY NAME2 ~兰坦警觉补剂~
+SAY DESC ~这瓶药水气味浓烈，会让饮者进入持续而全面的警觉状态，细微的动作都能听见，几乎像脑后长了眼睛。
 
-STATISTICS:
+属性：
 
-Dexterity: +1
-Find Traps: +25%
-Detect Illusions: +25%
-Special: Immunity to backstab
-Duration: 1 hour
+敏捷：+1
+侦测陷阱：+25%
+侦测幻象：+25%
+特殊：免疫背刺
+持续时间：1 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 500
 
 COPY_EXISTING ~c0apot08.spl~ ~override~
-SAY NAME1 ~Elixir of Harmony~
-SAY NAME2 ~Elixir of Harmony~
+SAY NAME1 ~和谐灵药~
+SAY NAME2 ~和谐灵药~
 COPY_EXISTING ~c0apot08.itm~ ~override~
-SAY NAME1 ~Lantanese Elixir of Harmony~
-SAY NAME2 ~Lantanese Elixir of Harmony~
-SAY DESC ~This powerful potion subscribes to the principle of "the best offense is a good defense". The drinker becomes nearly invulnerable to physical harm, yet finds their own blows significantly weakened in return.
+SAY NAME1 ~兰坦和谐灵药~
+SAY NAME2 ~兰坦和谐灵药~
+SAY DESC ~这瓶强力药水信奉「最好的进攻就是最好的防守」。饮者几乎不受物理伤害，但自己的攻击也因此明显变弱。
 
-STATISTICS:
+属性：
 
-Armor Class: +6
-Physical Resistance: +50%
-Special: Damage output is reduced by 50%
-Duration: 5 rounds
+防御等级：+6
+物理抗性：+50%
+特殊：输出伤害降低 50%
+持续时间：5 轮
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 600
 
 COPY_EXISTING ~c0apot09.spl~ ~override~
-SAY NAME1 ~Potion of Antimagic~
-SAY NAME2 ~Potion of Antimagic~
+SAY NAME1 ~抗魔药水~
+SAY NAME2 ~抗魔药水~
 COPY_EXISTING ~c0apot09.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Antimagic~
-SAY NAME2 ~Lantanese Potion of Antimagic~
-SAY DESC ~This powerful potion expunges all traces of magic from its imbiber and prevents them from being affected by all but the most powerful spells until its effects dissipate.
+SAY NAME1 ~兰坦抗魔药水~
+SAY NAME2 ~兰坦抗魔药水~
+SAY DESC ~这瓶强力药水会把饮者身上所有魔法痕迹清除，并在效果消散前，使其不受除最强法术之外的一切法术影响。
 
-STATISTICS:
+属性：
 
-Magic Resistance: +50%
-Special: Immunity to spells of 5th level and below, all spell effects are removed from the imbiber and <PRO_HESHE> may not cast spells for the duration.
-Duration: 2 rounds
+魔法抗性：+50%
+特殊：免疫 5 级及以下法术，饮者身上所有法术效果被移除，且<PRO_HESHE>在此期间无法施法。
+持续时间：2 轮
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 1000
 
 COPY_EXISTING ~c0apot10.spl~ ~override~
-SAY NAME1 ~Potion of Equanimity~
-SAY NAME2 ~Potion of Equanimity~
+SAY NAME1 ~平静药水~
+SAY NAME2 ~平静药水~
 COPY_EXISTING ~c0apot10.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Equanimity~
-SAY NAME2 ~Lantanese Potion of Equanimity~
-SAY DESC ~This potion clears the drinker's mind of distracting and inhibiting thoughts, allowing them to think and act with greater efficiency. Their hand-eye coordination is also significantly improved as a result.
+SAY NAME1 ~兰坦平静药水~
+SAY NAME2 ~兰坦平静药水~
+SAY DESC ~这瓶药水能清掉饮者脑中杂乱、压抑的念头，让他们思考与行动都更有效率。手眼协调也因此大幅改善。
 
-STATISTICS:
+属性：
 
-Special: Prevents feeblemind, confusion, fear, and charm
-Intelligence: +4
-Dexterity: +4
-Duration: 1 hour
+特殊：免疫弱智术、混乱、恐惧与魅惑
+智力：+4
+敏捷：+4
+持续时间：1 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 900
 
 COPY_EXISTING ~c0apot11.spl~ ~override~
-SAY NAME1 ~Oil of Speed~
-SAY NAME2 ~Oil of Speed~
+SAY NAME1 ~速度之油~
+SAY NAME2 ~速度之油~
 COPY_EXISTING ~c0apot11.itm~ ~override~
-SAY NAME1 ~Lantanese Oil of Speed~
-SAY NAME2 ~Lantanese Oil of Speed~
-SAY DESC ~This oil, when applied on the user, hastens their actions greatly, doubling their movement and combat capacities. However, this does not reduce spellcasting time.
+SAY NAME1 ~兰坦速度之油~
+SAY NAME2 ~兰坦速度之油~
+SAY DESC ~这种油涂在使用者身上后，会极大加快其动作，使移动与战斗能力加倍。不过它不会缩短施法时间。
 
-STATISTICS:
+属性：
 
-Special: Doubles movement and attack rates
-Duration: 1 turn
+特殊：移动与攻击速度加倍
+持续时间：1 回合
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 300
 
 COPY_EXISTING ~c0apot12.spl~ ~override~
-SAY NAME1 ~Potion of Invulnerability~
-SAY NAME2 ~Potion of Invulnerability~
+SAY NAME1 ~无敌药水~
+SAY NAME2 ~无敌药水~
 COPY_EXISTING ~c0apot12.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Invulnerability~
-SAY NAME2 ~Lantanese Potion of Invulnerability~
-SAY DESC ~This potion confers very high resistance to all attacks while giving bonuses to all Saving Throws. Unlike regular Potions of Invulnerability, this potion can be used by those of any profession.
+SAY NAME1 ~兰坦无敌药水~
+SAY NAME2 ~兰坦无敌药水~
+SAY DESC ~这瓶药水给予对所有攻击的极高抗性，同时提升所有豁免检定。不同于普通的无敌药水，任何职业都能使用这一瓶。
 
-STATISTICS:
+属性：
 
-Armor Class: +2
-Saving Throws: +5
-Duration: 1 hour
+防御等级：+2
+豁免检定：+5
+持续时间：1 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 700
 
 COPY_EXISTING ~c0apot13.spl~ ~override~
-SAY NAME1 ~Philter of Luck~
-SAY NAME2 ~Philter of Luck~
+SAY NAME1 ~幸运酊剂~
+SAY NAME2 ~幸运酊剂~
 COPY_EXISTING ~c0apot13.itm~ ~override~
-SAY NAME1 ~Lantanese Philter of Luck~
-SAY NAME2 ~Lantanese Philter of Luck~
-SAY DESC ~Also known informally as 'liquid luck', this gold-colored liquid provides the drinker with an sense of temporary luck and confidence, as though nothing could go wrong.
+SAY NAME1 ~兰坦幸运酊剂~
+SAY NAME2 ~兰坦幸运酊剂~
+SAY DESC ~这金色液体俗称「液态幸运」，给饮者带来一时的好运与自信，好像一切都不会出错。
 
-STATISTICS:
+属性：
 
-Saving Throws: +2
-Find Traps: +10%
-Pick Pockets: +10%
-Move Silently: +10%
-Hide In Shadows: +10%
-Detect Illusion: +10%
-Set Traps: +10%
-Luck: +2
-Duration: 1 hour
+豁免检定：+2
+侦测陷阱：+10%
+扒窃：+10%
+无声移动：+10%
+阴影中躲藏：+10%
+侦测幻象：+10%
+设置陷阱：+10%
+幸运：+2
+持续时间：1 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 1000
 
 COPY_EXISTING ~c0apot14.spl~ ~override~
-SAY NAME1 ~Elixir of Restoration~
-SAY NAME2 ~Elixir of Restoration~
+SAY NAME1 ~复原灵药~
+SAY NAME2 ~复原灵药~
 COPY_EXISTING ~c0apot14.itm~ ~override~
-SAY NAME1 ~Lantanese Elixir of Restoration~
-SAY NAME2 ~Lantanese Elixir of Restoration~
-SAY DESC ~This elixir was designed and patented by the Lantanese priesthood of Gond. Concocted from several restorative ingredients and a dash of holy water, it is effective against the draining touch of vampires and wights.
+SAY NAME1 ~兰坦复原灵药~
+SAY NAME2 ~兰坦复原灵药~
+SAY DESC ~这瓶灵药由兰坦的贡德教会设计并取得专利。它以数种回复性材料加一点圣水调成，对吸血鬼与尸鬼的吸取之触有效。
 
-STATISTICS:
+属性：
 
-Special: Restores lost levels
-Duration: Permanent
+特殊：恢复失去的等级
+持续时间：永久
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 150
 
 COPY_EXISTING ~c0apot15.spl~ ~override~
-SAY NAME1 ~Potion of Freedom~
-SAY NAME2 ~Potion of Freedom~
+SAY NAME1 ~自由药水~
+SAY NAME2 ~自由药水~
 COPY_EXISTING ~c0apot15.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Freedom~
-SAY NAME2 ~Lantanese Potion of Freedom~
-SAY DESC ~This potion acts like the spell Free Action when consumed. The drinker becomes completely immune to any effects that influence action or movement, whether it is magical in origin or not.
+SAY NAME1 ~兰坦自由药水~
+SAY NAME2 ~兰坦自由药水~
+SAY DESC ~这瓶药水饮下后效果如同「自由行动」法术。饮者对所有影响行动或移动的效果完全免疫，无论其是否源自魔法。
 
-STATISTICS:
+属性：
 
-Special: Free Action
-Duration: 1 hour
+特殊：自由行动
+持续时间：1 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 450
 
 COPY_EXISTING ~c0apot16.spl~ ~override~
-SAY NAME1 ~Elixir of Lifeshield~
-SAY NAME2 ~Elixir of Lifeshield~
+SAY NAME1 ~命护灵药~
+SAY NAME2 ~命护灵药~
 COPY_EXISTING ~c0apot16.itm~ ~override~
-SAY NAME1 ~Lantanese Elixir of Lifeshield~
-SAY NAME2 ~Lantanese Elixir of Lifeshield~
-SAY DESC ~This elixir was designed and patented by the Lantanese priesthood of Gond. The drinker's soul becomes protected by magical energies, preventing it from being separated from their body through unnatural means.
+SAY NAME1 ~兰坦命护灵药~
+SAY NAME2 ~兰坦命护灵药~
+SAY DESC ~这瓶灵药由兰坦的贡德教会设计并取得专利。饮者的灵魂受魔法能量庇护，无法以非自然手段被从躯体中分离。
 
-STATISTICS:
+属性：
 
-Special: Death Ward
-Duration: 1 hour
+特殊：防死结界
+持续时间：1 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 500
 
 COPY_EXISTING ~c0apot17.spl~ ~override~
-SAY NAME1 ~Elixir of Might~
-SAY NAME2 ~Elixir of Might~
+SAY NAME1 ~力量灵药~
+SAY NAME2 ~力量灵药~
 COPY_EXISTING ~c0apot17.itm~ ~override~
-SAY NAME1 ~Lantanese Elixir of Might~
-SAY NAME2 ~Lantanese Elixir of Might~
-SAY DESC ~This elixir was concocted from a combination of various ingredients including giants' blood. When imbibed, the drinker's strength increases dramatically.
+SAY NAME1 ~兰坦力量灵药~
+SAY NAME2 ~兰坦力量灵药~
+SAY DESC ~这瓶灵药以多种材料调成，其中包括巨人的血。饮下后，饮者的力量会急剧增长。
 
-STATISTICS:
+属性：
 
-Strength: +2
-Duration: 1 hour
+力量：+2
+持续时间：1 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 500
 
 COPY_EXISTING ~c0apot18.spl~ ~override~
-SAY NAME1 ~Thrym Extract~
-SAY NAME2 ~Thrym Extract~
+SAY NAME1 ~瑟里姆提取液~
+SAY NAME2 ~瑟里姆提取液~
 COPY_EXISTING ~c0apot18.itm~ ~override~
-SAY NAME1 ~Lantanese Thrym Extract~
-SAY NAME2 ~Lantanese Thrym Extract~
-SAY DESC ~This thick liquid is harvested and distilled from the glands of dead polar worms.  It is the substance that helps keep the huge creatures warm in the desolate north.  Drinking the liquid straight from the creature's body is almost always fatal, so alchemists attempt to distill the substance until it is relatively safe to consume.  Even in its current state, however, it can still be deadly.
+SAY NAME1 ~兰坦瑟里姆提取液~
+SAY NAME2 ~兰坦瑟里姆提取液~
+SAY DESC ~这种浓稠液体取自死去的极地蠕虫的腺体，经蒸馏而成。正是这种物质让这些巨物在荒凉的北方保持温暖。直接饮用从生物身上取出的原液几乎必死，所以炼金师会反复蒸馏，直到它相对可以安全服用。不过就算如今这样，它仍可能致命。
 
-STATISTICS:
+属性：
 
-Special: Imbiber takes 8d6 fire damage (Save vs. Death at -4 for half damage) in exchange for immunity to cold damage and +3 to Strength and Dexterity
-Duration: 1 turn
+特殊：饮者受到 8d6 火焰伤害（以 -4 进行死亡豁免可减半），换取对寒冷伤害的免疫以及力量、敏捷各 +3
+持续时间：1 回合
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 600
 
 COPY_EXISTING ~c0apot19.spl~ ~override~
-SAY NAME1 ~Potion of Etherealness~
-SAY NAME2 ~Potion of Etherealness~
+SAY NAME1 ~以太药水~
+SAY NAME2 ~以太药水~
 COPY_EXISTING ~c0apot19.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Etherealness~
-SAY NAME2 ~Lantanese Potion of Etherealness~
-SAY DESC ~This potion is composed of ectoplasm and dust from will-o'-wisps. The drinker takes on some of their ghostly properties, temporarily becoming ethereal.
+SAY NAME1 ~兰坦以太药水~
+SAY NAME2 ~兰坦以太药水~
+SAY DESC ~这瓶药水由灵质与鬼火的尘埃调成。饮者会获得一部分幽魂的特性，暂时进入以太状态。
 
-STATISTICS:
+属性：
 
-Special: Imbiber becomes ethereal for 5 rounds. While in this state <PRO_HESHE> is immune to normal weapons and gains 20% magic resistance. Spells and weapons may still be used.
-Duration: 1 turn
+特殊：饮者以太化 5 轮。此状态下<PRO_HESHE>对普通武器免疫，并获得 20% 魔法抗性。仍可施法与使用武器。
+持续时间：1 回合
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 700
 
 COPY_EXISTING ~c0apot20.spl~ ~override~
-SAY NAME1 ~Elixir of Focus~
-SAY NAME2 ~Elixir of Focus~
+SAY NAME1 ~专注灵药~
+SAY NAME2 ~专注灵药~
 COPY_EXISTING ~c0apot20.itm~ ~override~
-SAY NAME1 ~Lantanese Elixir of Focus~
-SAY NAME2 ~Lantanese Elixir of Focus~
-SAY DESC ~This potion temporarily sharpens the drinker's senses to their absolute limit, making them feel as if time has stopped for a brief duration. However, they will find it nearly impossible to take action during this state.
+SAY NAME1 ~兰坦专注灵药~
+SAY NAME2 ~兰坦专注灵药~
+SAY DESC ~这瓶药水会暂时把饮者的感官锐化到极限，让他感觉时间短暂地停住了。不过在这种状态下，他几乎无法动手做事。
 
-STATISTICS:
+属性：
 
-Special: Imbiber may move freely for one round while others are frozen in time. The imbiber may not attack or use spells while in this state.
-Duration: 1 round
+特殊：在他人被定住的一轮里，饮者可自由移动。此状态下饮者不能攻击或施法。
+持续时间：1 轮
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 700
 
 COPY_EXISTING ~c0apot21.spl~ ~override~
-SAY NAME1 ~Potion of Life Transference~
-SAY NAME2 ~Potion of Life Transference~
+SAY NAME1 ~生命转移药水~
+SAY NAME2 ~生命转移药水~
 COPY_EXISTING ~c0apot21.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Life Transference~
-SAY NAME2 ~Lantanese Potion of Life Transference~
-SAY DESC ~This dangerous potion sacrifices vitality for power. The drinker finds <PRO_HISHER> strength dramatically increased at the cost of their health.
+SAY NAME1 ~兰坦生命转移药水~
+SAY NAME2 ~兰坦生命转移药水~
+SAY DESC ~这瓶危险的药水以生命力换取力量。<PRO_HISHER>的力量会剧增，代价是健康。
 
-STATISTICS:
+属性：
 
-Strength: +6
-Maximum Hit Points: -50%
-Duration: 8 hours
+力量：+6
+最大生命值：-50%
+持续时间：8 小时
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 1200
 
 COPY_EXISTING ~c0apot22.spl~ ~override~
-SAY NAME1 ~Philter of Arcane Barrier~
-SAY NAME2 ~Philter of Arcane Barrier~
+SAY NAME1 ~奥术屏障酊剂~
+SAY NAME2 ~奥术屏障酊剂~
 COPY_EXISTING ~c0apot22.itm~ ~override~
-SAY NAME1 ~Lantanese Philter of Arcane Barrier~
-SAY NAME2 ~Lantanese Philter of Arcane Barrier~
-SAY DESC ~This potion causes the drinker's very skin itself to repel magical energies, making them all but immune to the majority of spells. However, they may still cast their own spells if they so choose.
+SAY NAME1 ~兰坦奥术屏障酊剂~
+SAY NAME2 ~兰坦奥术屏障酊剂~
+SAY DESC ~这瓶药水让饮者的皮肤本身排斥魔法能量，使其几乎免疫大多数法术。不过只要愿意，他仍可施放自己的法术。
 
-STATISTICS:
+属性：
 
-Damage Resistance: +75% against all forms of magical non-physical damage
-Special: All Saving Throws are automatically successful
-Duration: 3 turns
+伤害抗性：对一切形式的魔法非物理伤害 +75%
+特殊：所有豁免检定自动成功
+持续时间：3 回合
 
-Weight: 1~
+重量：1~
 WRITE_LONG 0x34 1500
 
 COPY_EXISTING ~c0apoth1.itm~ ~override~
-SAY NAME1 ~Lantanese Elixir of Divine Might~
-SAY NAME2 ~Lantanese Elixir of Divine Might~
-SAY DESC ~Elixirs of Divine Might increase the imbiber's Strength, Dexterity and Constitution by four points each for ten rounds.~
+SAY NAME1 ~兰坦神力灵药~
+SAY NAME2 ~兰坦神力灵药~
+SAY DESC ~神力灵药在十轮内使饮者的力量、敏捷与体质各提升四点。~
 WRITE_LONG 0x34 2000
 
 COPY_EXISTING ~c0apoth2.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Complete Healing~
-SAY NAME2 ~Lantanese Potion of Complete Healing~
-SAY DESC ~Potions of Complete Healing are the ultimate healing potion, fully restoring the imbiber's hit points and curing all diseases, poisons and mental injuries.~
+SAY NAME1 ~兰坦完全治疗药水~
+SAY NAME2 ~兰坦完全治疗药水~
+SAY DESC ~完全治疗药水是终极的治疗药水，能完全回复饮者的生命值，并治愈所有疾病、毒素与精神创伤。~
 WRITE_LONG 0x34 2000
 
 COPY_EXISTING ~c0apoth3.itm~ ~override~
-SAY NAME1 ~Lantanese Philter of Truth~
-SAY NAME2 ~Lantanese Philter of Truth~
-SAY DESC ~Philters of Truth allow the imbiber to see through and dispel all illusions in their line of sight for ten rounds.~
+SAY NAME1 ~兰坦真实酊剂~
+SAY NAME2 ~兰坦真实酊剂~
+SAY DESC ~真实酊剂让饮者在十轮内看穿并驱散视野内的一切幻象。~
 WRITE_LONG 0x34 2000
 
 COPY_EXISTING ~c0apoth4.itm~ ~override~
-SAY NAME1 ~Lantanese Tonic of Hardiness~
-SAY NAME2 ~Lantanese Tonic of Hardiness~
-SAY DESC ~Tonics of Hardiness toughen the imbiber's skin to the hardness of steel, providing 40% resistance to physical damage for ten rounds.~
+SAY NAME1 ~兰坦坚韧补剂~
+SAY NAME2 ~兰坦坚韧补剂~
+SAY DESC ~坚韧补剂把饮者的皮肤硬化到钢铁般的硬度，在十轮内提供 40% 的物理伤害抗性。~
 WRITE_LONG 0x34 2000
 
 COPY_EXISTING ~c0apoth5.spl~ ~override~
@@ -777,21 +777,21 @@ COPY_EXISTING ~c0apoth5.spl~ ~override~
       check_globals = 1
       check_headers = 1
       match_opcode = 139 // display string
-	  parameter1 = RESOLVE_STR_REF (~Permanent Ability Increase~)
+	  parameter1 = RESOLVE_STR_REF (~永久属性提升~)
   END
-SAY NAME1 ~Ultimate Mastery~
+SAY NAME1 ~终极精通~
 COPY_EXISTING ~c0apoth5.itm~ ~override~
-SAY NAME1 ~Lantanese Potion of Ultimate Mastery~
-SAY NAME2 ~Lantanese Potion of Ultimate Mastery~
-SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills in their chosen profession.
+SAY NAME1 ~兰坦终极精通药水~
+SAY NAME2 ~兰坦终极精通药水~
+SAY DESC ~终极精通药水会永久提升饮者在其所选职业上的本领。
 
-   - Mages and Bards gain +2 to Intelligence.
-   - Clerics and Druids gain +2 to Wisdom.
-   - Thieves and Monks gain +2 to Dexterity.
-   - Fighters, Rangers and Paladins gain +2 to Strength.
-   - Sorcerers and Shamans gain +2 to Constitution.
-   - Spellcasting classes take precedence over warrior classes.
-   - Arcane classes take precedence over divine classes.~
+   - 法师与吟游诗人智力 +2。
+   - 牧师与德鲁伊感知 +2。
+   - 盗贼与武僧敏捷 +2。
+   - 战士、游侠与圣武士力量 +2。
+   - 术士与萨满体质 +2。
+   - 施法职业优先于战士职业。
+   - 奥术职业优先于神术职业。~
 WRITE_LONG 0x34 15000
 
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0au#at1.baf~
@@ -799,20 +799,20 @@ COPY ~%MOD_FOLDER%/creatures/c0au#at1.cre~ ~override~
 WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AUTOCANNON~))
 WRITE_ASCII SCRIPT_DEFAULT ~c0au#at1~  // override
 WRITE_ASCII DEATHVAR ~c0au#at1~ // death variable
-SAY NAME1 ~Lantan Autocannon~
-SAY NAME2 ~Lantan Autocannon~
+SAY NAME1 ~兰坦自动炮~
+SAY NAME2 ~兰坦自动炮~
 
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0au#sp2.PRO~
 COPY_EXISTING ~c0au#s1.spl~ ~override~
-SAY NAME1 ~Create Autocannon~
-SAY UNIDENTIFIED_DESC ~Create Autocannon
-The Lantanese Autocannon is a weaponized contraption created by artificers with magical training. Built from durable metals, the autocannon makes up for what it lacks in mobility with power, unleashing bolts of fire against victims at rapid speed, making it a valuable defensive weapon. Due to the enchantments placed upon the autocannon, it becomes active upon sensing enemies of its creator, upon which it will attack relentlessly until the magic that animates it is fully spent. Due to its efficient design, the autocannon is portable and quick to set up.
+SAY NAME1 ~制造自动炮~
+SAY UNIDENTIFIED_DESC ~制造自动炮
+兰坦自动炮是受过魔法训练的工匠造出的武器化装置。它以耐用金属制成，机动性不足，却以威力弥补：向敌人高速倾泻火焰弹，是很有价值的防御武器。由于加在自动炮上的附魔，它一旦感知到创造者的敌人就会启动，随后不停攻击，直到驱动它的魔法耗尽。设计高效，因此自动炮便于携带、可快速架设。
 
-With this ability, an artificer may attempt to create a Lantanese Autocannon in the targeted location. The success of the ability is dependent on the artificer's Set Traps skill. This autocannon will become active upon an enemy creature entering its range. The autocannon is immobile and attacks five times per round with fiery missiles dealing 1d3+1 damage per missile with a +6 enchantment. Automatons have a 5% chance per round of becoming charged, granting a +4 bonus to THAC0 and doubling their attacks per round for six seconds.
+借由此能力，工匠可以尝试在目标地点制造一具兰坦自动炮。成败取决于工匠的「设置陷阱」技能。敌对生物进入射程时自动炮即启动。自动炮不能移动，每轮攻击五次，发射火焰弹，每发造成 1d3+1 伤害，附魔 +6。自动机每轮有 5% 几率充能，获得命中值 +4，并在六秒内攻击次数加倍。
 
-For each 15 points of Set Traps above 100 from the artificer, autocannons gain a +1 bonus to THAC0 and +5 bonus hit points.
+工匠的「设置陷阱」每高出 100 点 15 点，自动炮就获得命中值 +1 与额外 5 点生命值。
 
-Once activated, autocannons last for two turns.~
+一旦启动，自动炮持续两回合。~
 COPY_EXISTING ~c0au#s2.spl~ ~override~
 READ_LONG 0x64 "abil_off"
 READ_SHORT 0x68 "abil_num"
